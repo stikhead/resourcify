@@ -50,7 +50,31 @@ const resources = [
     level: "Beginner" as const,
     href: "/learn/web-dev",
     icon: Globe
-  }
+  },
+  {
+    title: "About Git & Github",
+    description: "Advanced data structures using C++ STL, custom implementations, and algorithm optimization",
+    type: "Article" as const,
+    level: "Intermediate" as const,
+    href: "/learn/dsa-cpp",
+    icon: Book
+  },
+  {
+    title: "CV/Resume Resources",
+    description: "Advanced data structures using C++ STL, custom implementations, and algorithm optimization",
+    type: "Article" as const,
+    level: "Intermediate" as const,
+    href: "/learn/dsa-cpp",
+    icon: Book
+  },
+  {
+    title: "Machine Learning",
+    description: "Advanced data structures using C++ STL, custom implementations, and algorithm optimization",
+    type: "Article" as const,
+    level: "Intermediate" as const,
+    href: "/learn/dsa-cpp",
+    icon: Book
+  },
 ];
 
 export default function HomePage() {

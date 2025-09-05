@@ -1,0 +1,938 @@
+{
+  "First Year Engineering": [
+    {
+      "id": "math-gajendra-purohit",
+      "title": "Gajendra Purohit - Mathematics (YouTube)",
+      "url": "https://www.youtube.com/@gajendrapurohit",
+      "type": "video_channel",
+      "source": "YouTube",
+      "tags": ["mathematics","calculus","engineering"],
+      "difficulty": "beginner",
+      "description": "YouTube channel for engineering math lectures."
+    },
+    {
+      "id": "math-bhagwan-singh",
+      "title": "Bhagwan Singh Vishwakarma - Mathematics (YouTube)",
+      "url": "https://www.youtube.com/@bhagwansinghvishwakarma",
+      "type": "video_channel",
+      "source": "YouTube",
+      "tags": ["mathematics","calculus","algebra"],
+      "difficulty": "beginner",
+      "description": "YouTube channel covering engineering mathematics topics."
+    },
+    {
+      "id": "physics-chemistry-notes",
+      "title": "Physics & Chemistry - Class Notes / YouTube",
+      "url": null,
+      "type": "notes_or_video",
+      "source": "college_notes_or_youtube",
+      "tags": ["physics","chemistry"],
+      "difficulty": "beginner",
+      "description": "Use your class notes or search for topic-wise YouTube videos."
+    },
+    {
+      "id": "basic-electronics-playlist-1",
+      "title": "Basic Electronics Playlist",
+      "url": "https://www.youtube.com/playlist?list=PLBlnK6fEyqRiw-GZRqfnlVIBz9dxrqHJS",
+      "type": "video_playlist",
+      "source": "YouTube",
+      "tags": ["electronics","circuits"],
+      "difficulty": "beginner",
+      "description": "Introductory electronics playlist covering fundamentals."
+    },
+    {
+      "id": "basic-electronics-playlist-2",
+      "title": "Basic Electronics Playlist (2)",
+      "url": "https://www.youtube.com/playlist?list=PLL13-1PjGvanUxa4XI5qGaGdrHSORZ-n-",
+      "type": "video_playlist",
+      "source": "YouTube",
+      "tags": ["electronics","semiconductors"],
+      "difficulty": "beginner",
+      "description": "Another curated playlist for electronics fundamentals."
+    },
+    {
+      "id": "basic-electrical",
+      "title": "Basic Electrical Engineering Playlist",
+      "url": "https://www.youtube.com/playlist?list=PLBlnK6fEyqRgLR-hMp7wem-bdVN1iEhsh",
+      "type": "video_playlist",
+      "source": "YouTube",
+      "tags": ["electrical","machines","circuits"],
+      "difficulty": "beginner",
+      "description": "Playlist covering basic electrical engineering topics."
+    },
+    {
+      "id": "engineering-mechanics-1",
+      "title": "Engineering Mechanics Playlist",
+      "url": "https://www.youtube.com/playlist?list=PLhSp9OSVmeyJDAdks5VU8Ie0RS4wYZ6sM",
+      "type": "video_playlist",
+      "source": "YouTube",
+      "tags": ["mechanics","statics","dynamics"],
+      "difficulty": "beginner",
+      "description": "Engineering mechanics - statics and dynamics tutorials."
+    },
+    {
+      "id": "engineering-mechanics-2",
+      "title": "Engineering Mechanics Playlist (2)",
+      "url": "https://www.youtube.com/playlist?list=PLIhUrsYr8yHxfOmcGIeUThHEr9lQ3IXRS",
+      "type": "video_playlist",
+      "source": "YouTube",
+      "tags": ["mechanics","dynamics"],
+      "difficulty": "beginner",
+      "description": "Additional engineering mechanics lectures."
+    },
+    {
+      "id": "engineering-drawing",
+      "title": "Engineering Drawing Playlist",
+      "url": "https://www.youtube.com/playlist?list=PLIhUrsYr8yHwDUrVYmUNYkEeZgZTvoIfS",
+      "type": "video_playlist",
+      "source": "YouTube",
+      "tags": ["drawing","drafting","cad"],
+      "difficulty": "beginner",
+      "description": "Engineering drawing / drafting tutorials and examples."
+    },
+    {
+      "id": "intro-cs-c-playlist",
+      "title": "Intro to CS (C playlist)",
+      "url": "https://www.youtube.com/playlist?list=PLBlnK6fEyqRggZZgYpPMUxdY1CYkZtARR",
+      "type": "video_playlist",
+      "source": "YouTube",
+      "tags": ["intro_cs","c_programming"],
+      "difficulty": "beginner",
+      "description": "Introductory C programming playlist useful for college intro CS courses."
+    }
+  ],
+
+  "Machine Learning": [
+    {
+      "id": "ml-andrew-ng-coursera",
+      "title": "Machine Learning by Andrew Ng",
+      "url": "https://www.coursera.org/learn/machine-learning",
+      "type": "course",
+      "source": "Coursera",
+      "tags": ["ml","supervised","regression","classification"],
+      "difficulty": "beginner",
+      "description": "Classic introductory ML course (Andrew Ng)."
+    },
+    {
+      "id": "ml-kaggle-intro",
+      "title": "Kaggle - Intro to Machine Learning",
+      "url": "https://www.kaggle.com/learn/intro-to-machine-learning",
+      "type": "course",
+      "source": "Kaggle",
+      "tags": ["ml","hands-on"],
+      "difficulty": "beginner",
+      "description": "Kaggle micro-course with hands-on exercises."
+    },
+    {
+      "id": "cs229-stanford",
+      "title": "Stanford CS229 (ML) - notes & materials",
+      "url": "https://cs229.stanford.edu/",
+      "type": "course_material",
+      "source": "Stanford",
+      "tags": ["ml","theory"],
+      "difficulty": "advanced",
+      "description": "CS229 course materials and lecture notes."
+    },
+    {
+      "id": "fastai-course",
+      "title": "fast.ai - Practical Deep Learning for Coders",
+      "url": "https://course.fast.ai/",
+      "type": "course",
+      "source": "fast.ai",
+      "tags": ["deep_learning","practical"],
+      "difficulty": "intermediate",
+      "description": "Practical deep learning course focused on coding models quickly."
+    },
+    {
+      "id": "google-ml-crash-course",
+      "title": "Google - Machine Learning Crash Course",
+      "url": "https://developers.google.com/machine-learning/crash-course",
+      "type": "course",
+      "source": "Google",
+      "tags": ["ml","foundations"],
+      "difficulty": "beginner",
+      "description": "Concise crash course with interactive exercises."
+    },
+    {
+      "id": "krish-naik-ml-playlist",
+      "title": "Krish Naik - ML Playlist (YouTube)",
+      "url": "https://www.youtube.com/playlist?list=PLZoTAELRMXVPkl7oRvzyNnyj1HS4wt2K-",
+      "type": "video_playlist",
+      "source": "YouTube",
+      "tags": ["ml","tutorials"],
+      "difficulty": "beginner",
+      "description": "YouTube playlist covering ML concepts and projects."
+    },
+    {
+      "id": "codebasics-ml-series",
+      "title": "CodeBasics - ML Series (YouTube)",
+      "url": "https://www.youtube.com/playlist?list=PLeo1K3hjS3us_MWygLxYrpzJbfF3d8A3_",
+      "type": "video_playlist",
+      "source": "YouTube",
+      "tags": ["ml","python"],
+      "difficulty": "beginner",
+      "description": "CodeBasics series on machine learning tutorials."
+    },
+    {
+      "id": "scikit-learn-docs",
+      "title": "Scikit-learn - User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "type": "documentation",
+      "source": "Scikit-learn",
+      "tags": ["scikit-learn","library","python"],
+      "difficulty": "beginner",
+      "description": "Official user guide and API documentation for scikit-learn."
+    },
+    {
+      "id": "pytorch-tutorials",
+      "title": "PyTorch Tutorials",
+      "url": "https://pytorch.org/tutorials/",
+      "type": "documentation",
+      "source": "PyTorch",
+      "tags": ["pytorch","deep_learning"],
+      "difficulty": "intermediate",
+      "description": "Official PyTorch tutorials and examples."
+    },
+    {
+      "id": "tensorflow-tutorials",
+      "title": "TensorFlow Tutorials",
+      "url": "https://www.tensorflow.org/tutorials",
+      "type": "documentation",
+      "source": "TensorFlow",
+      "tags": ["tensorflow","deep_learning"],
+      "difficulty": "intermediate",
+      "description": "TensorFlow official guides and tutorials."
+    },
+    {
+      "id": "huggingface-course",
+      "title": "Hugging Face - NLP Course",
+      "url": "https://huggingface.co/learn/nlp-course",
+      "type": "course",
+      "source": "Hugging Face",
+      "tags": ["nlp","transformers"],
+      "difficulty": "intermediate",
+      "description": "Free course on NLP and transformers."
+    },
+    {
+      "id": "mlflow",
+      "title": "MLflow - Model Tracking",
+      "url": "https://mlflow.org/",
+      "type": "tool",
+      "source": "MLflow",
+      "tags": ["mlops","tracking"],
+      "difficulty": "intermediate",
+      "description": "Tool for tracking experiments and models."
+    },
+    {
+      "id": "ml-cheatsheet-stanford",
+      "title": "Machine Learning Cheatsheet (Stanford-style)",
+      "url": "https://ml-cheatsheet.readthedocs.io/en/latest/",
+      "type": "cheatsheet",
+      "source": "ReadTheDocs",
+      "tags": ["cheatsheet","ml"],
+      "difficulty": "beginner",
+      "description": "Compact cheatsheet covering common ML formulas and tips."
+    },
+    {
+      "id": "scikit-learn-cheatsheet-github",
+      "title": "Scikit-learn Cheatsheet (GitHub)",
+      "url": "https://github.com/soulmachine/machine-learning-cheat-sheet",
+      "type": "cheatsheet",
+      "source": "GitHub",
+      "tags": ["scikit-learn","cheatsheet"],
+      "difficulty": "beginner",
+      "description": "Quick reference for scikit-learn usage."
+    },
+    {
+      "id": "kaggle-notebooks",
+      "title": "Kaggle Notebooks",
+      "url": "https://www.kaggle.com/code",
+      "type": "notebooks",
+      "source": "Kaggle",
+      "tags": ["notebooks","practice"],
+      "difficulty": "beginner",
+      "description": "Community notebooks for datasets and tutorials."
+    },
+    {
+      "id": "kaggle-datasets",
+      "title": "Kaggle Datasets",
+      "url": "https://www.kaggle.com/datasets",
+      "type": "datasets",
+      "source": "Kaggle",
+      "tags": ["datasets","practice"],
+      "difficulty": "all",
+      "description": "Large collection of datasets for practice and projects."
+    },
+    {
+      "id": "uci-ml-repo",
+      "title": "UCI Machine Learning Repository",
+      "url": "https://archive.ics.uci.edu/ml/index.php",
+      "type": "datasets",
+      "source": "UCI",
+      "tags": ["datasets","benchmark"],
+      "difficulty": "all",
+      "description": "Classic dataset repository for ML experiments."
+    },
+    {
+      "id": "datahub-collections",
+      "title": "DataHub Collections",
+      "url": "https://datahub.io/collections",
+      "type": "datasets",
+      "source": "DataHub",
+      "tags": ["datasets"],
+      "difficulty": "all",
+      "description": "Curated datasets and collections."
+    },
+    {
+      "id": "paperswithcode",
+      "title": "Papers With Code",
+      "url": "https://paperswithcode.com/",
+      "type": "research_and_code",
+      "source": "PapersWithCode",
+      "tags": ["papers","implementations"],
+      "difficulty": "all",
+      "description": "Papers paired with code and datasets."
+    },
+    {
+      "id": "ml-project-ideas",
+      "title": "ML Project Ideas (GitHub)",
+      "url": "https://github.com/krishnaik06/Machine-Learning-Projects",
+      "type": "repo",
+      "source": "GitHub",
+      "tags": ["projects","ideas"],
+      "difficulty": "beginner",
+      "description": "List of beginner-friendly ML project ideas."
+    },
+    {
+      "id": "ml-project-templates",
+      "title": "ML Project Templates (GitHub)",
+      "url": "https://github.com/dipanjanS/data-science-projects",
+      "type": "repo",
+      "source": "GitHub",
+      "tags": ["projects","templates"],
+      "difficulty": "beginner",
+      "description": "Templates and example end-to-end ML projects."
+    },
+    {
+      "id": "hands-on-ml-ageron",
+      "title": "Hands-On Machine Learning (AGERON) - Notebooks",
+      "url": "https://github.com/ageron/handson-ml",
+      "type": "repo",
+      "source": "GitHub",
+      "tags": ["book","notebooks"],
+      "difficulty": "intermediate",
+      "description": "Notebooks and code for the Hands-On Machine Learning book."
+    },
+    {
+      "id": "onesemester-ai",
+      "title": "One Semester AI",
+      "url": "https://onesemester.tech/ai",
+      "type": "interactive",
+      "source": "OneSemester",
+      "tags": ["ml","interactive"],
+      "difficulty": "beginner",
+      "description": "Interactive one-semester AI curriculum."
+    },
+    {
+      "id": "statquest",
+      "title": "StatQuest (YouTube)",
+      "url": "https://youtube.com/@statquest?si=T9oq73r3V6xnTzNL",
+      "type": "video_channel",
+      "source": "YouTube",
+      "tags": ["statistics","ml"],
+      "difficulty": "beginner",
+      "description": "Clear explanations of statistics and ML concepts."
+    },
+    {
+      "id": "statquest-playlist",
+      "title": "StatQuest Playlist",
+      "url": "https://youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF&si=cyf81w1XBky59zGh",
+      "type": "video_playlist",
+      "source": "YouTube",
+      "tags": ["statistics","ml"],
+      "difficulty": "beginner",
+      "description": "Curated StatQuest playlist."
+    },
+    {
+      "id": "mlu-explain",
+      "title": "Machine Learning University (Amazon) - MLU-Explain",
+      "url": "https://mlu-explain.github.io/",
+      "type": "interactive",
+      "source": "Amazon/Community",
+      "tags": ["ml","interactive"],
+      "difficulty": "intermediate",
+      "description": "Community explanations for Amazon's MLU content."
+    },
+    {
+      "id": "neural-networks-and-deep-learning-book",
+      "title": "Neural Networks and Deep Learning (online book)",
+      "url": "http://neuralnetworksanddeeplearning.com/index.html",
+      "type": "book",
+      "source": "online_book",
+      "tags": ["neural_networks","theory"],
+      "difficulty": "intermediate",
+      "description": "Online readable book explaining neural networks from first principles."
+    },
+    {
+      "id": "homemade-ml",
+      "title": "Homemade Machine Learning (trekhleb)",
+      "url": "https://github.com/trekhleb/homemade-machine-learning",
+      "type": "repo",
+      "source": "GitHub",
+      "tags": ["implementations","learning_from_scratch"],
+      "difficulty": "intermediate",
+      "description": "Python examples and interactive demos of ML algorithms from scratch."
+    },
+    {
+      "id": "awesome-ml-github",
+      "title": "Awesome Machine Learning (curated list)",
+      "url": "https://github.com/josephmisiti/awesome-machine-learning",
+      "type": "repo",
+      "source": "GitHub",
+      "tags": ["curated","libraries"],
+      "difficulty": "all",
+      "description": "Curated list of ML libraries, frameworks, and resources."
+    }
+  ],
+
+  "Data Structures & Algorithms": [
+    {
+      "id": "striver-sde-sheet",
+      "title": "Striver's SDE Sheet",
+      "url": "https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems",
+      "type": "roadmap",
+      "source": "TakeUForward",
+      "tags": ["dsa","interview"],
+      "difficulty": "beginner_to_intermediate",
+      "description": "Structured list of important interview problems."
+    },
+    {
+      "id": "neetcode-roadmap",
+      "title": "NeetCode Roadmap",
+      "url": "https://neetcode.io/roadmap",
+      "type": "roadmap",
+      "source": "NeetCode",
+      "tags": ["dsa","roadmap"],
+      "difficulty": "beginner_to_intermediate",
+      "description": "Curated roadmap for algorithm practice."
+    },
+    {
+      "id": "leetcode-curated-list",
+      "title": "LeetCode - Curated List",
+      "url": "https://leetcode.com/list/xoqag3yj/",
+      "type": "problem_list",
+      "source": "LeetCode",
+      "tags": ["practice","problems"],
+      "difficulty": "all",
+      "description": "Curated problem list on LeetCode."
+    },
+    {
+      "id": "gfg-ds",
+      "title": "GeeksforGeeks - Data Structures",
+      "url": "https://www.geeksforgeeks.org/data-structures/",
+      "type": "tutorials",
+      "source": "GeeksforGeeks",
+      "tags": ["dsa","tutorials"],
+      "difficulty": "beginner",
+      "description": "Comprehensive topic-wise tutorials and examples."
+    },
+    {
+      "id": "visualgo",
+      "title": "VisuAlgo - Algorithm Visualizer",
+      "url": "https://visualgo.net/en",
+      "type": "visualizer",
+      "source": "VisuAlgo",
+      "tags": ["visualization","dsa"],
+      "difficulty": "beginner",
+      "description": "Interactive visualizations for common data structures and algorithms."
+    },
+    {
+      "id": "cp-algorithms",
+      "title": "CP-Algorithms",
+      "url": "https://cp-algorithms.com/",
+      "type": "reference",
+      "source": "CP-Algorithms",
+      "tags": ["algorithms","reference"],
+      "difficulty": "intermediate",
+      "description": "Detailed explanations and code for competitive programming algorithms."
+    },
+    {
+      "id": "blind-75-leetcode",
+      "title": "Blind 75 (LeetCode Discuss)",
+      "url": "https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions",
+      "type": "discussion",
+      "source": "LeetCode",
+      "tags": ["dsa","problem_set"],
+      "difficulty": "intermediate",
+      "description": "Community curated list of 75 must-know problems."
+    },
+    {
+      "id": "usaco-guide",
+      "title": "USACO Guide",
+      "url": "https://usaco.guide/",
+      "type": "guide",
+      "source": "USACO",
+      "tags": ["competitive_programming","dsa"],
+      "difficulty": "intermediate_to_advanced",
+      "description": "Comprehensive guide to competitive programming topics."
+    },
+    {
+      "id": "cses-problem-set",
+      "title": "CSES Problem Set",
+      "url": "https://cses.fi/problemset/",
+      "type": "problem_set",
+      "source": "CSES",
+      "tags": ["problems","competitive_programming"],
+      "difficulty": "all",
+      "description": "Well-structured problem set spanning many algorithmic topics."
+    }
+  ],
+
+  "Python": [
+    {
+      "id": "python-official-docs",
+      "title": "Python Official Documentation",
+      "url": "https://docs.python.org/3/",
+      "type": "documentation",
+      "source": "Python.org",
+      "tags": ["python","docs"],
+      "difficulty": "beginner_to_advanced",
+      "description": "Official Python language reference and tutorial."
+    },
+    {
+      "id": "w3schools-python",
+      "title": "W3Schools - Python Tutorial",
+      "url": "https://www.w3schools.com/python/",
+      "type": "tutorial",
+      "source": "W3Schools",
+      "tags": ["python","tutorial"],
+      "difficulty": "beginner",
+      "description": "Beginner-friendly interactive Python tutorials."
+    },
+    {
+      "id": "realpython",
+      "title": "Real Python",
+      "url": "https://realpython.com/",
+      "type": "tutorials_and_articles",
+      "source": "RealPython",
+      "tags": ["python","intermediate"],
+      "difficulty": "beginner_to_intermediate",
+      "description": "In-depth tutorials and articles for Python developers."
+    },
+    {
+      "id": "python-cheatsheet-gto76",
+      "title": "Python Cheatsheet",
+      "url": "https://gto76.github.io/python-cheatsheet/",
+      "type": "cheatsheet",
+      "source": "gto76",
+      "tags": ["cheatsheet","python"],
+      "difficulty": "beginner",
+      "description": "Compact cheat sheet covering common Python idioms."
+    },
+    {
+      "id": "freecodecamp-python-course",
+      "title": "freeCodeCamp - Full Python Course (YouTube)",
+      "url": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+      "type": "video",
+      "source": "YouTube",
+      "tags": ["python","course"],
+      "difficulty": "beginner",
+      "description": "Comprehensive beginner Python course on YouTube."
+    },
+    {
+      "id": "w3resource-exercises",
+      "title": "W3Resource - Python Exercises",
+      "url": "https://www.w3resource.com/python-exercises/",
+      "type": "practice",
+      "source": "W3Resource",
+      "tags": ["exercises","practice"],
+      "difficulty": "beginner_to_intermediate",
+      "description": "Problem sets and exercises for Python learners."
+    },
+    {
+      "id": "codingbat-python",
+      "title": "CodingBat - Python Problems",
+      "url": "https://codingbat.com/python",
+      "type": "practice",
+      "source": "CodingBat",
+      "tags": ["practice","python"],
+      "difficulty": "beginner",
+      "description": "Small practice problems to learn syntax and logic."
+    },
+    {
+      "id": "realpython-projects-repo",
+      "title": "RealPython - Python Projects (GitHub)",
+      "url": "https://github.com/realpython/python-projects",
+      "type": "repo",
+      "source": "GitHub",
+      "tags": ["projects","python"],
+      "difficulty": "beginner_to_intermediate",
+      "description": "Project ideas and example code for Python projects."
+    },
+    {
+      "id": "exercism-python",
+      "title": "Exercism - Python Track",
+      "url": "https://exercism.org/tracks/python",
+      "type": "practice_platform",
+      "source": "Exercism",
+      "tags": ["practice","mentored"],
+      "difficulty": "beginner_to_intermediate",
+      "description": "Practice exercises with community mentorship."
+    },
+    {
+      "id": "automate-the-boring-stuff",
+      "title": "Automate The Boring Stuff",
+      "url": "https://automatetheboringstuff.com/",
+      "type": "book",
+      "source": "Al Sweigart",
+      "tags": ["automation","python"],
+      "difficulty": "beginner",
+      "description": "Practical Python book focused on automating tasks."
+    },
+    {
+      "id": "requests-quickstart",
+      "title": "Requests - Quickstart",
+      "url": "https://requests.readthedocs.io/en/latest/user/quickstart/",
+      "type": "documentation",
+      "source": "Requests",
+      "tags": ["http","requests"],
+      "difficulty": "beginner",
+      "description": "Quickstart guide for the Requests HTTP library."
+    },
+    {
+      "id": "beautifulsoup-docs",
+      "title": "BeautifulSoup Documentation",
+      "url": "https://www.crummy.com/software/BeautifulSoup/bs4/doc/",
+      "type": "documentation",
+      "source": "BeautifulSoup",
+      "tags": ["web_scraping","parsing"],
+      "difficulty": "beginner",
+      "description": "Guide to parsing HTML and scraping with BeautifulSoup."
+    }
+  ],
+
+  "Git & GitHub": [
+    {
+      "id": "atlassian-git-tutorial",
+      "title": "Atlassian Git Tutorial",
+      "url": "https://www.atlassian.com/git/tutorials",
+      "type": "tutorial",
+      "source": "Atlassian",
+      "tags": ["git","version_control"],
+      "difficulty": "beginner",
+      "description": "Comprehensive tutorials on Git basics and workflows."
+    },
+    {
+      "id": "github-git-handbook",
+      "title": "Git Handbook (GitHub)",
+      "url": "https://guides.github.com/introduction/git-handbook/",
+      "type": "guide",
+      "source": "GitHub",
+      "tags": ["git","github"],
+      "difficulty": "beginner",
+      "description": "Introductory handbook to using Git and GitHub."
+    },
+    {
+      "id": "learn-git-branching",
+      "title": "Learn Git Branching",
+      "url": "https://learngitbranching.js.org/",
+      "type": "interactive",
+      "source": "LearnGitBranching",
+      "tags": ["git","interactive"],
+      "difficulty": "beginner",
+      "description": "Interactive visual tool to practise branching and merging."
+    },
+    {
+      "id": "ohshitgit",
+      "title": "Oh Shit, Git!",
+      "url": "https://ohshitgit.com/",
+      "type": "cheatsheet",
+      "source": "ohshitgit",
+      "tags": ["git","troubleshooting"],
+      "difficulty": "beginner_to_intermediate",
+      "description": "Common Git mistakes and how to fix them."
+    },
+    {
+      "id": "git-cheat-sheet",
+      "title": "Git Cheat Sheet (PDF)",
+      "url": "https://education.github.com/git-cheat-sheet-education.pdf",
+      "type": "cheatsheet",
+      "source": "GitHub",
+      "tags": ["git","cheatsheet"],
+      "difficulty": "beginner",
+      "description": "Printable PDF of common Git commands."
+    }
+  ],
+
+  "CV/Resume": [
+    {
+      "id": "engineering-resume-google-doc",
+      "title": "Engineering Resume Template (Google Docs)",
+      "url": "https://docs.google.com/document/d/1MBvhATv8y-ESORopRoLSZ3f3HjkM_Qa_f8fIHAEqgnI/edit",
+      "type": "template",
+      "source": "Google Docs",
+      "tags": ["resume","template"],
+      "difficulty": "all",
+      "description": "A clean resume template tailored for engineering students."
+    },
+    {
+      "id": "overleaf-resume",
+      "title": "Overleaf Latex Resume Templates",
+      "url": "https://www.overleaf.com/latex/templates/",
+      "type": "templates",
+      "source": "Overleaf",
+      "tags": ["resume","latex"],
+      "difficulty": "all",
+      "description": "LaTeX templates for professional CVs and resumes."
+    }
+  ],
+
+  "Core Computer Science": [
+    {
+      "id": "big-o-cheatsheet",
+      "title": "Big O Cheatsheet",
+      "url": "https://www.bigocheatsheet.com/",
+      "type": "cheatsheet",
+      "source": "BigOCheatsheet",
+      "tags": ["complexity","algorithms"],
+      "difficulty": "beginner",
+      "description": "Quick lookup for time and space complexities of common algorithms."
+    },
+    {
+      "id": "systems-latency-numbers",
+      "title": "Latency Numbers Every Programmer Should Know",
+      "url": "https://gist.github.com/jboner/2841832",
+      "type": "article",
+      "source": "Gist",
+      "tags": ["systems","latency"],
+      "difficulty": "beginner_to_intermediate",
+      "description": "Practical latency numbers to reason about performance tradeoffs."
+    },
+    {
+      "id": "papers-we-love",
+      "title": "Papers We Love (Curated Papers)",
+      "url": "https://github.com/papers-we-love/papers-we-love",
+      "type": "collection",
+      "source": "GitHub",
+      "tags": ["papers","reading_list"],
+      "difficulty": "intermediate_to_advanced",
+      "description": "Curated collection of influential CS research papers."
+    },
+    {
+      "id": "systems-design-primer",
+      "title": "Systems Design Primer",
+      "url": "https://github.com/donnemartin/system-design-primer",
+      "type": "guide",
+      "source": "GitHub",
+      "tags": ["systems_design","interview"],
+      "difficulty": "intermediate_to_advanced",
+      "description": "Introduction and practice for system design interviews and concepts."
+    }
+  ],
+  "Extras": {
+    "Machine Learning": [
+      {
+        "id": "victor-zhou-nn-from-scratch",
+        "title": "Victor Zhou - Neural Networks From Scratch",
+        "url": "https://victorzhou.com/series/neural-networks-from-scratch/",
+        "type": "article_series",
+        "source": "blog",
+        "tags": ["neural_networks","from_scratch"],
+        "difficulty": "intermediate",
+        "description": "A clear series building neural networks from first principles."
+      },
+      {
+        "id": "deep-ml",
+        "title": "Deep-ML (practice platform)",
+        "url": "https://www.deep-ml.com/",
+        "type": "platform",
+        "source": "Deep-ML",
+        "tags": ["practice","ml"],
+        "difficulty": "intermediate",
+        "description": "Platform that behaves like LeetCode for ML/DL problems."
+      },
+      {
+        "id": "learn-ml-the-hard-way",
+        "title": "Learn ML The Hard Way (GitHub)",
+        "url": "https://github.com/wlxiong/learn-ml-the-hard-way",
+        "type": "repo",
+        "source": "GitHub",
+        "tags": ["exercises","ml"],
+        "difficulty": "intermediate",
+        "description": "Hands-on exercises and notes for learning ML practically."
+      },
+      {
+        "id": "projectpro-lstm",
+        "title": "ProjectPro - LSTM Guide",
+        "url": "https://www.projectpro.io/article/lstm-model/832",
+        "type": "article",
+        "source": "ProjectPro",
+        "tags": ["lstm","rnn"],
+        "difficulty": "intermediate",
+        "description": "Guide to building LSTM models and their intuition."
+      }
+    ],
+
+    "Python": [
+      {
+        "id": "awesome-python",
+        "title": "Awesome Python (curated list)",
+        "url": "https://github.com/vinta/awesome-python",
+        "type": "repo",
+        "source": "GitHub",
+        "tags": ["libraries","ecosystem"],
+        "difficulty": "all",
+        "description": "Curated list of useful Python libraries and resources."
+      },
+      {
+        "id": "effective-python-tips",
+        "title": "Effective Python Tips (GitHub)",
+        "url": "https://github.com/dry-python/effective-python",
+        "type": "repo",
+        "source": "GitHub",
+        "tags": ["best_practices","python"],
+        "difficulty": "intermediate",
+        "description": "Practical tips for writing better Python code."
+      },
+      {
+        "id": "decorators-realpython",
+        "title": "Decorators - RealPython",
+        "url": "https://realpython.com/primer-on-python-decorators/",
+        "type": "tutorial",
+        "source": "RealPython",
+        "tags": ["decorators","advanced"],
+        "difficulty": "intermediate",
+        "description": "Comprehensive explanation of decorators in Python."
+      },
+      {
+        "id": "asyncio-realpython",
+        "title": "Asyncio in Python - RealPython",
+        "url": "https://realpython.com/async-io-python/",
+        "type": "tutorial",
+        "source": "RealPython",
+        "tags": ["asyncio","concurrency"],
+        "difficulty": "intermediate",
+        "description": "Guide to asynchronous programming in Python."
+      },
+      {
+        "id": "pep8",
+        "title": "PEP 8 - Style Guide",
+        "url": "https://peps.python.org/pep-0008/",
+        "type": "style_guide",
+        "source": "Python",
+        "tags": ["style","pep8"],
+        "difficulty": "beginner",
+        "description": "Official Python style guide for writing consistent code."
+      },
+      {
+        "id": "python-collections",
+        "title": "Python Collections Library",
+        "url": "https://docs.python.org/3/library/collections.html",
+        "type": "documentation",
+        "source": "Python",
+        "tags": ["collections","data_structures"],
+        "difficulty": "beginner",
+        "description": "Documentation for specialized container datatypes in Python."
+      },
+      {
+        "id": "cython-primer",
+        "title": "Intro to Just-Enough Cython",
+        "url": "https://www.peterbaumgartner.com/blog/intro-to-just-enough-cython-to-be-useful/",
+        "type": "article",
+        "source": "Blog",
+        "tags": ["cython","performance"],
+        "difficulty": "intermediate",
+        "description": "Primer on using Cython for performance improvements."
+      },
+      {
+        "id": "cython-tutorial",
+        "title": "Cython Tutorial",
+        "url": "https://cython.readthedocs.io/en/latest/src/tutorial/cython_tutorial.html",
+        "type": "documentation",
+        "source": "Cython",
+        "tags": ["cython","tutorial"],
+        "difficulty": "intermediate",
+        "description": "Official Cython tutorial and examples."
+      },
+      {
+        "id": "uv-package-manager",
+        "title": "uv - Project/Package Manager",
+        "url": "https://docs.astral.sh/uv/",
+        "type": "tool_docs",
+        "source": "Astral",
+        "tags": ["package_manager","tooling"],
+        "difficulty": "intermediate",
+        "description": "Reference for the uv tool for managing Python projects."
+      },
+      {
+        "id": "runestone-pythonds",
+        "title": "Problem Solving with Algorithms and Data Structures (Runestone)",
+        "url": "https://runestone.academy/runestone/books/published/pythonds/index.html",
+        "type": "interactive_book",
+        "source": "Runestone",
+        "tags": ["ds","python","textbook"],
+        "difficulty": "beginner_to_intermediate",
+        "description": "Interactive textbook for data structures and algorithms using Python."
+      }
+    ],
+
+    "Data Structures & Algorithms": [
+      {
+        "id": "hello-algo",
+        "title": "Hello Algo",
+        "url": "https://www.hello-algo.com/en/",
+        "type": "course",
+        "source": "HelloAlgo",
+        "tags": ["dsa","visual"],
+        "difficulty": "beginner",
+        "description": "Animated crash course on data structures and algorithms."
+      },
+      {
+        "id": "harvard-advanced-algorithms-cs224",
+        "title": "Harvard/Stanford Advanced Algorithms (course materials)",
+        "url": "https://people.seas.harvard.edu/~cs224/fall14/index.html",
+        "type": "course_material",
+        "source": "Harvard",
+        "tags": ["advanced_algorithms"],
+        "difficulty": "advanced",
+        "description": "Advanced course materials and lecture notes on algorithms."
+      }
+    ],
+
+    "Git & GitHub": [
+      {
+        "id": "freecodecamp-git-crash",
+        "title": "freeCodeCamp - Git Crash Course (YouTube)",
+        "url": "https://www.youtube.com/watch?v=RGOj5yH7evk",
+        "type": "video",
+        "source": "YouTube",
+        "tags": ["git","tutorial"],
+        "difficulty": "beginner",
+        "description": "freeCodeCamp's crash course on Git and GitHub basics."
+      },
+      {
+        "id": "learn-git-branches-video",
+        "title": "Branches Deep Dive (YouTube)",
+        "url": "https://www.youtube.com/watch?v=e2IbNHi4uCI",
+        "type": "video",
+        "source": "YouTube",
+        "tags": ["git","branches"],
+        "difficulty": "beginner_to_intermediate",
+        "description": "A focused video explaining Git branches and workflows."
+      }
+    ],
+
+    "CV/Resume": [
+      {
+        "id": "jake-resume-overleaf",
+        "title": "Jake's Resume Template (Overleaf)",
+        "url": "https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjnc",
+        "type": "template",
+        "source": "Overleaf",
+        "tags": ["resume","latex"],
+        "difficulty": "all",
+        "description": "A polished LaTeX resume template on Overleaf."
+      }
+    ]
+  }
+}

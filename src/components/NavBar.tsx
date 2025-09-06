@@ -18,12 +18,7 @@ export default function Navbar() {
       <div className="flex items-center gap-4">
         <DarkModeToggle />
         
-        <Link 
-          href="/resources" 
-          className="hover:text-indigo-200 transition-colors hidden sm:block"
-        >
-          Resources
-        </Link>
+
         
         <SignedIn>
           <UserButton 

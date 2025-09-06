@@ -7,19 +7,16 @@ import DarkModeToggle from "@/components/DarkMode";
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between items-center p-4 bg-indigo-600 dark:bg-indigo-800 text-white shadow-lg">
+    <nav className="flex justify-between items-center p-4 bg-indigo-600 dark:bg-indigo-800 text-yellow-50 shadow-lg">
       <Link 
         href="/" 
         className="font-bold text-xl hover:text-indigo-200 transition-colors"
       >
         Resourcify
       </Link>
-      
       <div className="flex items-center gap-4">
         <DarkModeToggle />
-        
 
-        
         <SignedIn>
           <UserButton 
             appearance={{

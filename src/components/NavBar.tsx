@@ -31,7 +31,7 @@ export default function Navbar() {
           <SignInButton mode="modal">
             <Button 
               variant="outline" 
-              className="text-white border-white hover:bg-white hover:text-indigo-600"
+              className="text-black dark:text-white hover:text-indigo-600 dark:"
             >
               Sign In
             </Button>

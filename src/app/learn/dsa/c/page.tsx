@@ -38,11 +38,10 @@ export default async function LearnCPage() {
           
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold mb-4">
-              Learn C Programming Language
+              Learn Data Structure & Algorithms in C Programming Language
             </h1>
             <p className="text-lg text-muted-foreground mb-6">
-              Master the fundamentals of C programming language with comprehensive video tutorials 
-              covering everything from basic syntax to advanced concepts like pointers and memory management.
+              
             </p>
             
             <div className="flex flex-wrap gap-3">
@@ -68,25 +67,25 @@ export default async function LearnCPage() {
             <div className="p-6 bg-background rounded-lg border">
               <h3 className="font-semibold mb-2">C Basics</h3>
               <p className="text-sm text-muted-foreground">
-                Syntax, variables, data types, and basic I/O operations
+                DSA Intro, Time Complexity, Big O/G/Θ, Case analysis
               </p>
             </div>
             <div className="p-6 bg-background rounded-lg border">
-              <h3 className="font-semibold mb-2">Control Flow</h3>
+              <h3 className="font-semibold mb-2">Fundamental Structures</h3>
               <p className="text-sm text-muted-foreground">
-                Conditionals, loops, and decision-making structures
+                Arrays, Linked Lists (all types), Stacks, Queues, Deques
               </p>
             </div>
             <div className="p-6 bg-background rounded-lg border">
-              <h3 className="font-semibold mb-2">Functions</h3>
+              <h3 className="font-semibold mb-2">Sorting Algorithms</h3>
               <p className="text-sm text-muted-foreground">
-                Function definition, parameters, return values, and scope
+                Bubble, Insertion, Selection, QuickSort, MergeSort, Counting
               </p>
             </div>
             <div className="p-6 bg-background rounded-lg border">
               <h3 className="font-semibold mb-2">Advanced Topics</h3>
               <p className="text-sm text-muted-foreground">
-                Pointers, arrays, structures, and memory management
+                Binary Tree, BST, AVL Trees (with rotations) & Graph representations, BFS, DFS, Spanning Trees, Prim’s MST
               </p>
             </div>
           </div>
@@ -97,7 +96,7 @@ export default async function LearnCPage() {
       <main className="py-12">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold">C Programming Video Tutorials</h2>
+            <h2 className="text-3xl font-bold">DSA in C Programming Language Video Tutorials</h2>
             <Link 
               href="https://www.youtube.com/playlist?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR" 
               target="_blank"

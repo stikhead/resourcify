@@ -1,6 +1,7 @@
 import { Code, Book, Gamepad2, Globe } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import ResourceCard from "@/components/ResourceCard";
+import { Button } from "@/components/ui/button";
 
 const resources = [
   {
@@ -24,7 +25,7 @@ const resources = [
     description: "Understand low-level implementation of arrays, linked lists, stacks, queues, trees, and graphs",
     type: "Article" as const,
     level: "Intermediate" as const,
-    href: "/learn/dsa-c",
+    href: "/learn/dsa/c",
     icon: Book
   },
   {
@@ -32,7 +33,7 @@ const resources = [
     description: "Advanced data structures using C++ STL, custom implementations, and algorithm optimization",
     type: "Article" as const,
     level: "Intermediate" as const,
-    href: "/learn/dsa-cpp",
+    href: "/learn/dsa/cpp",
     icon: Book
   },
   {
@@ -53,7 +54,7 @@ const resources = [
   },
   {
     title: "About Git & Github",
-    description: "Advanced data structures using C++ STL, custom implementations, and algorithm optimization",
+    description: "Learn about git version control, github usage, cli commands, branching, merging, pull requests etc",
     type: "Article" as const,
     level: "Intermediate" as const,
     href: "/learn/dsa-cpp",
@@ -61,7 +62,7 @@ const resources = [
   },
   {
     title: "CV/Resume Resources",
-    description: "Advanced data structures using C++ STL, custom implementations, and algorithm optimization",
+    description: "Everything related to resume making — whether for internships, placements, off-campus jobs, or research positions",
     type: "Article" as const,
     level: "Intermediate" as const,
     href: "/learn/dsa-cpp",
@@ -83,17 +84,20 @@ export default function HomePage() {
       <Navbar />
       
       {/* Simple Header */}
-      <header className="text-center py-16 px-4">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          Learn. Build. Grow.
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Resources for C, C++, Python, Web, App & Game Development
-        </p>
+            <header className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950 dark:to-purple-950 border-b">
+        <div className="max-w-7xl mx-auto px-4 py-16 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Learning Resources
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            Resources for C, C++, DSA, Python, Web and App Developement
+          </p>
+        </div>
       </header>
 
+
       {/* Resources Grid */}
-      <main className="max-w-6xl mx-auto px-4 pb-16">
+      <main className="py-16 max-w-6xl mx-auto px-4 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {resources.map((resource, index) => (
             <ResourceCard

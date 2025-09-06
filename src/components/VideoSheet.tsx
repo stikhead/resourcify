@@ -20,7 +20,7 @@ export default function VideoSheet({ isOpen, onClose, title, videoId, descriptio
 
   return (
     <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
-      <div className="bg-background rounded-lg shadow-2xl w-full max-w-5xl max-h-[90vh] overflow-hidden">
+      <div className="bg-background rounded-lg shadow-2xl w-full max-w-[150vh] max-h-[100vh] overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b">
           <h2 className="text-lg font-semibold pr-8 line-clamp-2">{title}</h2>

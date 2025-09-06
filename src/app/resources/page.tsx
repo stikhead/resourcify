@@ -39,7 +39,7 @@ const allResources = [
     description: "Understand low-level implementation of arrays, linked lists, stacks, queues, trees, and graphs with practical examples",
     type: "Article" as const,
     level: "Intermediate" as const,
-    href: "/learn/dsa-c",
+    href: "/learn/dsa/c",
     icon: Book,
     category: "Data Structures & Algorithms"
   },
@@ -48,7 +48,7 @@ const allResources = [
     description: "Advanced data structures using C++ STL, custom implementations, algorithm optimization, and competitive programming techniques",
     type: "Article" as const,
     level: "Intermediate" as const,
-    href: "/learn/dsa-cpp",
+    href: "/learn/dsa/cpp",
     icon: Book,
     category: "Data Structures & Algorithms"
   },

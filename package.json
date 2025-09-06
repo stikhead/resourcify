@@ -9,18 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.27.1",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.294.0",
-    "next": "14.0.3",
+    "next": "^14.2.25",
+  "@clerk/nextjs": "^4.31.8",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^2.1.0"
   },
   "devDependencies": {
+    "webpack": "^5.101.3",
+  "webpack-cli": "^5.1.4",
     "@types/node": "^20.9.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",

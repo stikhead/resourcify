@@ -9,50 +9,14 @@ export default async function LearnCPage() {
   let videos;
   
   try {
-    videos = await getPlaylistItems();
+    videos = await getPlaylistItems("PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR");
   } catch (error) {
     console.error("Failed to fetch YouTube playlist:", error);
-    // Fallback to sample data
     videos = [
       { 
-        title: "Introduction to C Programming", 
-        videoId: "KJgsSFOSQv0",
-        description: "Learn the basics of C programming language"
-      },
-      { 
-        title: "Variables and Data Types in C", 
-        videoId: "MPfo02hth7s",
-        description: "Understanding variables, data types, and constants"
-      },
-      { 
-        title: "Control Structures in C", 
-        videoId: "gBLMoJJe2WQ",
-        description: "If-else statements, switch cases, and loops"
-      },
-      { 
-        title: "Functions in C Programming", 
-        videoId: "SuWsJkgGpQc",
-        description: "Creating and using functions in C"
-      },
-      { 
-        title: "Arrays and Pointers in C", 
-        videoId: "zn6wOLOKSbM",
-        description: "Working with arrays and understanding pointers"
-      },
-      { 
-        title: "Structures and Unions", 
-        videoId: "0Bf3nIwTlOQ",
-        description: "User-defined data types in C"
-      },
-      { 
-        title: "Dynamic Memory Allocation", 
-        videoId: "xDVC3wKjS64",
-        description: "malloc, calloc, realloc, and free functions"
-      },
-      { 
-        title: "File Handling in C", 
-        videoId: "cEfgQOCgOks",
-        description: "Reading and writing files in C programming"
+        title: "Failed to fetch playlist", 
+        videoId: "blank",
+        description: "Please try again later.."
       }
     ];
   }
@@ -61,7 +25,6 @@ export default async function LearnCPage() {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Header Section */}
       <header className="bg-muted/30 border-b">
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="flex items-center gap-4 mb-6">
@@ -75,7 +38,7 @@ export default async function LearnCPage() {
           
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold mb-4">
-              Learn C Programming
+              Learn C Programming Language
             </h1>
             <p className="text-lg text-muted-foreground mb-6">
               Master the fundamentals of C programming language with comprehensive video tutorials 
@@ -97,7 +60,6 @@ export default async function LearnCPage() {
         </div>
       </header>
 
-      {/* Learning Path Overview */}
       <section className="py-12 bg-muted/20">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-8">What You'll Learn</h2>

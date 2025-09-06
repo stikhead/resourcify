@@ -21,6 +21,9 @@
     "tailwind-merge": "^2.1.0"
   },
   "devDependencies": {
+    "tailwindcss-animate": "^1.0.7",
+    "webpack": "^5.101.3",
+    "webpack-cli": "^5.1.4",
     "@types/node": "^20.9.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",

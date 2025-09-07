@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import VideoCard from "@/components/VideoCard";
+import VideoCard from "@/components/cards/VideoCard";
 import VideoSheet from "@/components/VideoSheet";
 
 interface VideoData {

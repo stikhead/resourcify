@@ -1,6 +1,6 @@
 import { Code, Book, Gamepad2, Globe } from "lucide-react";
 import Navbar from "@/components/NavBar";
-import ResourceCard from "@/components/ResourceCard";
+import ResourceCard from "@/components/cards/ResourceCard";
 import { Button } from "@/components/ui/button";
 
 const resources = [

@@ -1,5 +1,4 @@
 const API_KEY = process.env.YOUTUBE_API_KEY;
-const PLAYLIST_ID = "PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR"; // Code with Harry C playlist
 
 interface YouTubePlaylistItem {
   snippet: {

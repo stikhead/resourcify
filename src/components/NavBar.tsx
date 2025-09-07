@@ -4,6 +4,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import DarkModeToggle from "@/components/DarkMode";
+import { Github } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -15,6 +16,11 @@ export default function Navbar() {
         Resourcify
       </Link>
       <div className="flex items-center gap-4">
+        <Link href="https://github.com/stikhead/resourcify/" target="_blank" rel="noopener noreferrer">
+        <Button variant="outline" size="icon">
+          <Github className=" text-black dark:text-white " />
+        </Button>
+        </Link>
         <DarkModeToggle />
 
         <SignedIn>

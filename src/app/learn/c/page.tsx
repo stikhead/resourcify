@@ -10,7 +10,7 @@ import Link from "next/link";
 import DocCard from "@/components/cards/DocCard";
 import BookCard from "@/components/cards/BookCard";
 import YoutuberCard from "@/components/cards/YoutuberCard";
-import { getPlaylistItems } from "@/lib/Youtube";
+
 
 // Fallback video data for when API fails or no playlist selected
 const youtuberVideos = {

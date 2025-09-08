@@ -76,6 +76,14 @@ const resources = [
     href: "/learn/dsa-cpp",
     icon: Book
   },
+    {
+    title: "App Development",
+    description: "Learn different tech stacks for app development",
+    type: "Article" as const,
+    level: "Intermediate" as const,
+    href: "/learn/app-dev/",
+    icon: Book
+  },
 ];
 
 export default function HomePage() {

@@ -44,20 +44,29 @@ const resources = [
     href: "/projects/python",
     icon: Gamepad2
   },
-  {
-    title: "Web Development Basics",
-    description: "HTML, CSS, JavaScript fundamentals with hands-on projects and modern web development practices",
-    type: "Course" as const,
-    level: "Beginner" as const,
-    href: "/learn/web-dev",
-    icon: Globe
-  },
+{
+  title: "Basic Web Development",
+  description: "Learn HTML, CSS and JavaScript fundamentals with hands-on mini-projects: semantic HTML, responsive layouts (Flexbox & Grid), basic DOM scripting, and a small live site.",
+  type: "Course" as const,
+  level: "Beginner" as const,
+  href: "/learn/web-dev/basic",
+  icon: Globe
+},
+{
+  title: "Advanced Web Development",
+  description: "Level up to modern frontend & full-stack workflows: React + Next.js, TypeScript, component patterns, state management, API integration, SSR/SSG, testing, performance and deployment.",
+  type: "Course" as const,
+  level: "Intermediate" as const,
+  href: "/learn/web-dev/adv",
+  icon: Globe
+},
+
   {
     title: "About Git & Github",
     description: "Learn about git version control, github usage, cli commands, branching, merging, pull requests etc",
     type: "Article" as const,
     level: "Intermediate" as const,
-    href: "/learn/dsa-cpp",
+    href: "/learn/git",
     icon: Book
   },
   {

@@ -1,7 +1,3 @@
-
-
-
-
 "use client";
 import { getPlaylistItemsClient } from "@/lib/clientYoutube";
 
@@ -15,30 +11,44 @@ import DocCard from "@/components/cards/DocCard";
 import BookCard from "@/components/cards/BookCard";
 import YoutuberCard from "@/components/cards/YoutuberCard";
 
+
+// Fallback video data for when API fails or no playlist selected
+
+
 const youtubers = [
   {
     name: "Code with Harry",
-    description: "Complete C++ course covering OOP, STL, and practical projects. Perfect for beginners transitioning from C.",
-    playlistId: "PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL",
+    description: "Comprehensive C programming course in Hindi/English. Great for beginners with practical examples and projects.",
+    playlistId: "PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR",
     channelUrl: "https://www.youtube.com/@CodeWithHarry",
-    playlistUrl: "https://www.youtube.com/playlist?list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL",
+    playlistUrl: "https://www.youtube.com/playlist?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR",
     language: "Hindi/English",
-    difficulty: "Beginner to Intermediate",
-    duration: "~12 hours",
-    subscribers: "5.7M",
-    avatar: "https://yt3.ggpht.com/ytc/AIdro_mKzklyPPhqFuJWbWh8e-d5r49HuztXfSZzKmFT8Qz4wOFw7rbMjhDi7a2gKP99vjCO=s88-c-k-c0x00ffffff-no-rj"
+    difficulty: "Beginner",
+    duration: "~8 hours",
+    subscribers: "5.7M"
   },
-   {
+  {
     name: "Jenny's Lectures CS IT",
-    description: "",
-    playlistId: "PLdo5W4Nhv31YU5Wx1dopka58teWP9aCee",
+    description: "Detailed C programming tutorials with focus on concepts and problem-solving. Perfect for computer science students.",
+    playlistId: "PLdo5W4Nhv31a8UcMN9-35ghv8qyFWD9_S",
     channelUrl: "https://www.youtube.com/@JennyslecturesCSIT",
-    playlistUrl: "https://www.youtube.com/playlist?list=PLdo5W4Nhv31YU5Wx1dopka58teWP9aCee",
+    playlistUrl: "https://www.youtube.com/playlist?list=PLdo5W4Nhv31a8UcMN9-35ghv8qyFWD9_S",
     language: "English",
     difficulty: "Beginner to Intermediate",
     duration: "~15 hours",
     subscribers: "1.8M"
   },
+  {
+    name: "Neso Academy",
+    description: "In-depth C programming course with theoretical concepts and practical implementation. University-level content.",
+    playlistId: "PLBlnK6fEyqRggZZgYpPMUxdY1CYkZtARR",
+    channelUrl: "https://www.youtube.com/@nesoacademy",
+    playlistUrl: "https://www.youtube.com/playlist?list=PLBlnK6fEyqRggZZgYpPMUxdY1CYkZtARR",
+    language: "English",
+    difficulty: "Beginner to Advanced",
+    duration: "~25 hours",
+    subscribers: "2.1M"
+  }
 ];
 
 const books = [
@@ -166,6 +176,7 @@ export default function LearnCPage() {
  const handleSelectPlaylist = (playlistId: string) => {
     setSelectedPlaylist(playlistId);
   };
+// page.tsx (client)
 
 useEffect(() => {
   if (selectedPlaylist) {
@@ -179,12 +190,15 @@ useEffect(() => {
   }
 }, [selectedPlaylist]);
 
+
   const selectedYoutuber = selectedPlaylist ? youtubers.find(y => y.playlistId === selectedPlaylist) : null;
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <header className="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-950 dark:to-indigo-950 border-b">
+
+      {/* Header Section */}
+      <header className="bg-muted/30 border-b">
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="flex items-center gap-4 mb-6">
             <Link href="/">
@@ -194,16 +208,16 @@ useEffect(() => {
               </Button>
             </Link>
           </div>
-          
+
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold mb-4">
-              Learn C++ Programming
+              Learn C Programming
             </h1>
             <p className="text-lg text-muted-foreground mb-6">
-              Master object-oriented programming, STL, and modern C++ features with comprehensive video tutorials 
-              from industry experts and experienced educators.
+              Master the fundamentals of C programming language with comprehensive resources including video tutorials,
+              essential books, and official documentation.
             </p>
-            
+
             <div className="flex flex-wrap gap-3">
               <span className="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full text-sm font-medium">
                 Video Lectures
@@ -218,42 +232,42 @@ useEffect(() => {
           </div>
         </div>
       </header>
-
-      <section className="py-12">
+ <section className="py-12 bg-muted/20">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-8">Master C++ Programming</h2>
+          <h2 className="text-2xl font-bold mb-8">What You'll Learn</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="p-6 bg-background rounded-lg border">
-              <h3 className="font-semibold mb-2">OOP Fundamentals</h3>
+              <h3 className="font-semibold mb-2">C Basics</h3>
               <p className="text-sm text-muted-foreground">
-                Classes, objects, inheritance, polymorphism, and encapsulation
+                Syntax, variables, data types, and basic I/O operations
               </p>
             </div>
             <div className="p-6 bg-background rounded-lg border">
-              <h3 className="font-semibold mb-2">STL & Templates</h3>
+              <h3 className="font-semibold mb-2">Control Flow</h3>
               <p className="text-sm text-muted-foreground">
-                Standard Template Library, containers, iterators, and algorithms
+                Conditionals, loops, and decision-making structures
               </p>
             </div>
             <div className="p-6 bg-background rounded-lg border">
-              <h3 className="font-semibold mb-2">Memory Management</h3>
+              <h3 className="font-semibold mb-2">Functions</h3>
               <p className="text-sm text-muted-foreground">
-                Smart pointers, RAII, and dynamic memory allocation
+                Function definition, parameters, return values, and scope
               </p>
             </div>
             <div className="p-6 bg-background rounded-lg border">
-              <h3 className="font-semibold mb-2">Modern C++</h3>
+              <h3 className="font-semibold mb-2">Advanced Topics</h3>
               <p className="text-sm text-muted-foreground">
-                C++11/14/17/20 features, lambdas, and best practices
+                Pointers, arrays, structures, and memory management
               </p>
             </div>
           </div>
         </div>
       </section>
-
+      {/* Tab Navigation */}
       <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
 
+      {/* Content based on active tab */}
       <main className="py-16">
         <div className="max-w-6xl mx-auto px-4">
           {activeTab === 'videos' && (
@@ -261,7 +275,7 @@ useEffect(() => {
               <div className="mb-12">
                 <h2 className="text-3xl font-bold text-center mb-4">Choose Your Instructor</h2>
                 <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                  Select a YouTuber to load their complete C++ programming playlist below
+                  Select a YouTuber to load their complete C programming playlist below
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -284,12 +298,13 @@ useEffect(() => {
                 </div>
               </div>
 
+              {/* Selected Playlist Videos */}
               {selectedPlaylist && (
                 <div className="border-t pt-12">
                   <div className="flex items-center justify-between mb-8">
                     <div>
                       <h3 className="text-2xl font-bold">
-                        {selectedYoutuber?.name} - C++ Programming Course
+                        {selectedYoutuber?.name} - C Programming Course
                       </h3>
                       <p className="text-muted-foreground mt-2">
                         {isLoading ? 'Loading videos...' : `${videos.length} videos • ${selectedYoutuber?.duration}`}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, Smartphone, Layers, ExternalLink, BookOpen, FileText, Video } from "lucide-react";
+import { ChevronLeft, Smartphone, Layers, ExternalLink, BookOpen, FileText, Video, LucideFileWarning } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -12,6 +12,7 @@ import VideoGallery from "@/components/VideoGallery";
 import BookCard from "@/components/cards/BookCard";
 import DocCard from "@/components/cards/DocCard";
 import FrameworkDiffBox from "@/components/cards/FrameWorkCard";
+import { exitCode } from "process";
 
 interface Platform {
   id: string;
@@ -52,12 +53,18 @@ interface OfficialDoc {
   type: string;
   year: string;
 }
+interface AboutLang {
+  title: string;
+  description: string;
+}
 
 interface PlatformContent {
   youtubers: Youtuber[];
   books: Book[];
   docs: OfficialDoc[];
+  about: AboutLang[];
 }
+
 
 const platforms: Platform[] = [
   {
@@ -126,9 +133,14 @@ const platformContent: Record<string, PlatformContent> = {
         type: "null",
         year: "null"
       },
-    ]
+    ],
+    about: [
+      {
+        title: "Kotlin",
+        description: ``     },
+    ],
   },
-  ios: {
+  "ios": {
     youtubers: [
       {
         name: `Place Holder for ${platforms[1].id}`,
@@ -163,7 +175,13 @@ const platformContent: Record<string, PlatformContent> = {
         type: "null",
         year: "null"
       },
-    ]
+    ],
+    about: [
+      {
+        title: "Kotlin",
+        description: ``
+      },
+    ],
   },
   "react-native":{
     youtubers: [
@@ -200,7 +218,13 @@ const platformContent: Record<string, PlatformContent> = {
         type: "null",
         year: "null"
       },
+    ],
+     about: [
+      {
+        title: "Kotlin",
+        description: ``},
     ]
+    
   },
   flutter: {
     youtubers: [
@@ -237,6 +261,12 @@ const platformContent: Record<string, PlatformContent> = {
         type: "null",
         year: "null"
       },
+    ],
+    about: [
+      {
+        title: "Kotlin",
+        description: ``,
+      },
     ]
   },
 };
@@ -245,7 +275,8 @@ function TabNavigation({ activeTab, setActiveTab }: { activeTab: string, setActi
   const tabs = [
     { id: 'videos', label: 'Video Lectures', icon: Video },
     { id: 'books', label: 'Books & PDFs', icon: BookOpen },
-    { id: 'docs', label: 'Official Documents', icon: FileText }
+    { id: 'docs', label: 'Official Documents', icon: FileText },
+    { id: 'about', label: "Information", icon: LucideFileWarning}
   ];
 
   return (
@@ -309,8 +340,6 @@ export default function AppDevPage() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Header Section */}
-
       <header className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950 dark:to-purple-950 border-b">
         <div>
         <div className="max-w-7xl mx-auto px-4 pt-16">
@@ -332,12 +361,11 @@ export default function AppDevPage() {
             </p>
             
           </div>
+          <FrameworkDiffBox/>
         </div>
         
       </div>
       </header>
-<FrameworkDiffBox/>
-      {/* Platform Selection */}
       <section className="py-8 bg-muted/30 border-b">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center">
@@ -364,7 +392,6 @@ export default function AppDevPage() {
         </div>
       </section>
 
-      {/* Platform Overview */}
       <section className="py-8 bg-muted/20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="max-w-4xl">
@@ -509,6 +536,14 @@ export default function AppDevPage() {
                   />
                 ))}
               </div>
+            </>
+          )}
+          {activeTab === 'about' && (
+            <>
+              <h2 className="text-3xl font-bold text-center mb-4">{}</h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Authoritative references and documentation for {currentPlatform?.name} development
+              </p>
             </>
           )}
         </div>

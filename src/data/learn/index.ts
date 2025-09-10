@@ -1,0 +1,4 @@
+// /data/learn/index.ts
+export * as cpp from "./cpp";
+export * as devops from "./devops";
+export * as c from "./c"

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronLeft, ExternalLink, BookOpen, FileText, Video } from "lucide-react";
+import { ExternalLink, BookOpen, FileText, Video } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/NavBar";
 import VideoGallery from "@/components/VideoGallery";
@@ -12,6 +12,7 @@ import DocCard from "@/components/cards/DocCard";
 import { getPlaylistItemsClient } from "@/lib/clientYoutube";
 import BackToHome from "@/components/buttons/backtohome";
 import TabNavigation, { TabItem } from "@/components/TabNavigation";
+import { DefaultPlaylistCard } from "@/components/cards/DefaultTextNoPlaylist";
 
 const youtubers = [
     {
@@ -160,11 +161,7 @@ export default function LearnPythonPage() {
                             )}
 
                             {!selectedPlaylist && (
-                                <div className="text-center py-16 border-t">
-                                    <Video className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-                                    <h3 className="text-xl font-semibold mb-2">Select a Playlist to Get Started</h3>
-                                    <p className="text-muted-foreground">Choose an instructor above to load their Python video series</p>
-                                </div>
+                                <DefaultPlaylistCard/>
                             )}
                         </>
                     )}

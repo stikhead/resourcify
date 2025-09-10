@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, Smartphone, Layers, ExternalLink, BookOpen, FileText, Video, LucideFileWarning } from "lucide-react";
+import { Smartphone, Layers, ExternalLink, BookOpen, FileText, Video, LucideFileWarning } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -12,7 +12,6 @@ import VideoGallery from "@/components/VideoGallery";
 import BookCard from "@/components/cards/BookCard";
 import DocCard from "@/components/cards/DocCard";
 import FrameworkDiffBox from "@/components/cards/FrameWorkCard";
-import { exitCode } from "process";
 import BackToHome from "@/components/buttons/backtohome";
 import TabNavigation, { TabItem } from "@/components/TabNavigation";
 const tabs: TabItem[] = [
@@ -280,38 +279,6 @@ const platformContent: Record<string, PlatformContent> = {
     ]
   },
 };
-
-// function TabNavigation({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: (tab: string) => void }) {
-//   const tabs = [
-//     { id: 'videos', label: 'Video Lectures', icon: Video },
-//     { id: 'books', label: 'Books & PDFs', icon: BookOpen },
-//     { id: 'docs', label: 'Official Documents', icon: FileText },
-//     { id: 'about', label: "Information", icon: LucideFileWarning}
-//   ];
-
-//   return (
-//     <div className="border-b bg-background">
-//       <div className="max-w-6xl mx-auto px-4">
-//         <nav className="flex space-x-8">
-//           {tabs.map((tab) => (
-//             <button
-//               key={tab.id}
-//               onClick={() => setActiveTab(tab.id)}
-//               className={`flex items-center gap-2 py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
-//                 activeTab === tab.id
-//                   ? 'border-indigo-500 text-indigo-600'
-//                   : 'border-transparent text-muted-foreground hover:text-foreground'
-//               }`}
-//             >
-//               <tab.icon className="w-4 h-4" />
-//               {tab.label}
-//             </button>
-//           ))}
-//         </nav>
-//       </div>
-//     </div>
-//   );
-// }
 
 export default function AppDevPage() {
   const [selectedPlatform, setSelectedPlatform] = useState<string>("android");

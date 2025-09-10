@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, Globe, Layers, ExternalLink, BookOpen, FileText, Video, FileWarning } from "lucide-react";
+import { Globe, Layers, ExternalLink, BookOpen, FileText, Video, FileWarning } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -11,11 +11,11 @@ import YoutuberCard from "@/components/cards/YoutuberCard";
 import VideoGallery from "@/components/VideoGallery";
 import BookCard from "@/components/cards/BookCard";
 import DocCard from "@/components/cards/DocCard";
-import FrameworkDiffBox from "@/components/cards/FrameWorkCard";
 import WebFrameworkDiffBox from "@/components/cards/WebFrameWorkCard";
 import BackToHome from "@/components/buttons/backtohome";
 import CustomButton from "@/components/buttons/customButton";
 import TabNavigation, { TabItem } from "@/components/TabNavigation";
+import { DefaultPlaylistCard } from "@/components/cards/DefaultTextNoPlaylist";
 
 // Type definitions
 interface Platform {
@@ -558,7 +558,7 @@ export default function WebDevPage() {
                 <div className="max-w-7xl mx-auto px-4 pt-16">
                     <div className="flex items-center gap-4 mb-6">
                         <BackToHome />
-                        <CustomButton href="/learn/web-dev/basic" title="Learn Basic Web Development"/>
+                        <CustomButton href="/learn/web-dev/basic" title="Learn Basic Web Development" />
                     </div>
 
                     <div className="max-w-4xl">
@@ -619,7 +619,7 @@ export default function WebDevPage() {
                 </div>
             </section>
 
-             <TabNavigation tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
+            <TabNavigation tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
 
             <main className="py-16">
                 <div className="max-w-6xl mx-auto px-4">
@@ -686,13 +686,7 @@ export default function WebDevPage() {
                             )}
 
                             {!selectedPlaylist && (
-                                <div className="text-center py-16 border-t">
-                                    <Video className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-                                    <h3 className="text-xl font-semibold mb-2">Select a Course to Get Started</h3>
-                                    <p className="text-muted-foreground">
-                                        Choose one of the courses above to load their complete {currentPlatform?.name} video series
-                                    </p>
-                                </div>
+                                <DefaultPlaylistCard />
                             )}
                         </>
                     )}

@@ -12,118 +12,9 @@ import YoutuberCard from "@/components/cards/YoutuberCard";
 import BackToHome from "@/components/buttons/backtohome";
 import CustomButton from "@/components/buttons/customButton";
 import TabNavigation, { TabItem } from "@/components/TabNavigation";
+import { cpp } from "@/data/learn";
+import { DefaultPlaylistCard } from "@/components/cards/DefaultTextNoPlaylist";
 
-const youtubers = [
-  {
-    name: "Code with Harry",
-    description: "Complete C++ course covering OOP, STL, and practical projects. Perfect for beginners transitioning from C.",
-    playlistId: "PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL",
-    channelUrl: "https://www.youtube.com/@CodeWithHarry",
-    playlistUrl: "https://www.youtube.com/playlist?list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL",
-    language: "Hindi/English",
-    difficulty: "Beginner to Intermediate",
-    duration: "~12 hours",
-    subscribers: "5.7M",
-    avatar: "https://yt3.ggpht.com/ytc/AIdro_mKzklyPPhqFuJWbWh8e-d5r49HuztXfSZzKmFT8Qz4wOFw7rbMjhDi7a2gKP99vjCO=s88-c-k-c0x00ffffff-no-rj"
-  },
-  {
-    name: "Jenny's Lectures CS IT",
-    description: "",
-    playlistId: "PLdo5W4Nhv31YU5Wx1dopka58teWP9aCee",
-    channelUrl: "https://www.youtube.com/@JennyslecturesCSIT",
-    playlistUrl: "https://www.youtube.com/playlist?list=PLdo5W4Nhv31YU5Wx1dopka58teWP9aCee",
-    language: "English",
-    difficulty: "Beginner to Intermediate",
-    duration: "~15 hours",
-    subscribers: "1.8M"
-  },
-];
-
-const books = [
-  {
-    title: "The C Programming Language",
-    author: "Brian Kernighan & Dennis Ritchie",
-    description: "The definitive guide to C programming by its creators. Essential reading for serious C programmers.",
-    url: "https://kremlin.cc/k&r.pdf",
-    type: "PDF",
-    pages: "272 pages",
-    level: "Intermediate to Advanced",
-    year: "1988"
-  },
-  {
-    title: "C Programming: A Modern Approach",
-    author: "K. N. King",
-    description: "Comprehensive modern approach to C programming with excellent examples and exercises.",
-    url: "#",
-    type: "PDF",
-    pages: "832 pages",
-    level: "Beginner to Advanced",
-    year: "2008"
-  },
-  {
-    title: "Head First C",
-    author: "David Griffiths & Dawn Griffiths",
-    description: "Beginner-friendly approach to learning C with engaging visuals and practical examples.",
-    url: "#",
-    type: "PDF",
-    pages: "632 pages",
-    level: "Beginner",
-    year: "2012"
-  },
-  {
-    title: "C Programming Absolute Beginner's Guide",
-    author: "Greg Perry & Dean Miller",
-    description: "Perfect starting point for complete beginners with step-by-step instructions and practical examples.",
-    url: "#",
-    type: "PDF",
-    pages: "352 pages",
-    level: "Beginner",
-    year: "2013"
-  }
-];
-
-const officialDocs = [
-  {
-    title: "ISO C Standard (C11)",
-    organization: "ISO/IEC",
-    description: "Official C programming language standard specification. The authoritative reference for C language features.",
-    url: "https://www.iso.org/standard/57853.html",
-    type: "Official Standard",
-    year: "2011"
-  },
-  {
-    title: "GNU C Library Documentation",
-    organization: "GNU Project",
-    description: "Complete documentation for the GNU C Library (glibc) including all standard C functions.",
-    url: "https://www.gnu.org/software/libc/manual/",
-    type: "Library Documentation",
-    year: "2023"
-  },
-  {
-    title: "C Reference - cppreference.com",
-    organization: "cppreference.com",
-    description: "Comprehensive online reference for C standard library functions, operators, and language features.",
-    url: "https://en.cppreference.com/w/c",
-    type: "Online Reference",
-    year: "Updated"
-  },
-  {
-    title: "GCC C Compiler Documentation",
-    organization: "GNU Project",
-    description: "Official documentation for the GNU Compiler Collection C compiler, including language extensions.",
-    url: "https://gcc.gnu.org/onlinedocs/gcc/C-Extensions.html",
-    type: "Compiler Documentation",
-    year: "2023"
-  },
-  {
-    title: "POSIX C API Reference",
-    organization: "IEEE",
-    description: "POSIX standard C API functions for system programming and cross-platform development.",
-    url: "https://pubs.opengroup.org/onlinepubs/9699919799/",
-    type: "API Reference",
-    year: "2018"
-  }
-];
 
 const tabs: TabItem[] = [
   { id: 'videos', label: 'Video Lectures', icon: Video },
@@ -132,6 +23,7 @@ const tabs: TabItem[] = [
 ];
 
 export default function LearnCPage() {
+  const { youtubers, books, officialDocs } = cpp;
   const [activeTab, setActiveTab] = useState('videos');
   const [selectedPlaylist, setSelectedPlaylist] = useState<string | null>(null);
   const [videos, setVideos] = useState<any[]>([]);
@@ -237,15 +129,15 @@ export default function LearnCPage() {
                   {youtubers.map((youtuber, index) => (
                     <YoutuberCard
                       key={index}
-                      name={youtuber.name}
-                      description={youtuber.description}
-                      playlistId={youtuber.playlistId}
-                      channelUrl={youtuber.channelUrl}
-                      playlistUrl={youtuber.playlistUrl}
-                      language={youtuber.language}
-                      difficulty={youtuber.difficulty}
-                      duration={youtuber.duration}
-                      subscribers={youtuber.subscribers}
+                      name={youtuber.name ?? ""}
+                      description={youtuber.description ?? ""} 
+                      playlistId={youtuber.playlistId?? ""}
+                      channelUrl={youtuber.channelUrl ?? ""}
+                      playlistUrl={youtuber.playlistUrl  ?? ""}
+                      language={youtuber.language ?? ""}
+                      difficulty={youtuber.difficulty ?? ""}
+                      duration={youtuber.duration ?? ""}
+                      subscribers={youtuber.subscribers  ?? ""}
                       isSelected={selectedPlaylist === youtuber.playlistId}
                       onSelect={handleSelectPlaylist}
                     />
@@ -289,13 +181,7 @@ export default function LearnCPage() {
 
               {/* Default message when no playlist selected */}
               {!selectedPlaylist && (
-                <div className="text-center py-16 border-t">
-                  <Video className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Select a Playlist to Get Started</h3>
-                  <p className="text-muted-foreground">
-                    Choose one of the instructors above to load their complete C programming video series
-                  </p>
-                </div>
+                <DefaultPlaylistCard/>
               )}
             </>
           )}
@@ -311,14 +197,14 @@ export default function LearnCPage() {
                 {books.map((book, index) => (
                   <BookCard
                     key={index}
-                    title={book.title}
-                    author={book.author}
-                    description={book.description}
-                    url={book.url}
-                    type={book.type}
-                    pages={book.pages}
-                    level={book.level}
-                    year={book.year}
+                    title={book.title ?? ""}
+                    author={book.author ?? ""}
+                    description={book.description ?? ""}
+                    url={book.url ?? ""}
+                    type={book.type ?? ""}
+                    pages={book.pages ?? ""}
+                    level={book.level ?? ""}
+                    year={book.year ?? ""}
                   />
                 ))}
               </div>
@@ -336,12 +222,12 @@ export default function LearnCPage() {
                 {officialDocs.map((doc, index) => (
                   <DocCard
                     key={index}
-                    title={doc.title}
-                    description={doc.description}
-                    organization={doc.organization}
-                    type={doc.type}
-                    url={doc.url}
-                    year={doc.year}
+                    title={doc.title ?? ""}
+                    description={doc.description ?? ""}
+                    organization={doc.organization ?? ""}
+                    type={doc.type ?? ""}
+                    url={doc.url ?? ""}
+                    year={doc.year ?? ""}
                   />
                 ))}
               </div>

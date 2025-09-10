@@ -2,7 +2,7 @@
 import { getPlaylistItemsClient } from "@/lib/clientYoutube";
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, ExternalLink, BookOpen, FileText, Video } from "lucide-react";
+import { ExternalLink, BookOpen, FileText, Video } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import VideoGallery from "@/components/VideoGallery";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,7 @@ import YoutuberCard from "@/components/cards/YoutuberCard";
 import BackToHome from "@/components/buttons/backtohome";
 import CustomButton from "@/components/buttons/customButton";
 import TabNavigation, { TabItem } from "@/components/TabNavigation";
+import { DefaultPlaylistCard } from "@/components/cards/DefaultTextNoPlaylist";
 
 
 // Fallback video data for when API fails or no playlist selected
@@ -309,13 +310,7 @@ export default function LearnCPage() {
 
               {/* Default message when no playlist selected */}
               {!selectedPlaylist && (
-                <div className="text-center py-16 border-t">
-                  <Video className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Select a Playlist to Get Started</h3>
-                  <p className="text-muted-foreground">
-                    Choose one of the instructors above to load their complete C programming video series
-                  </p>
-                </div>
+                <DefaultPlaylistCard/>
               )}
             </>
           )}

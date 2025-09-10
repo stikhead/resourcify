@@ -2,7 +2,7 @@
 import { getPlaylistItemsClient } from "@/lib/clientYoutube";
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, ExternalLink, BookOpen, FileText, Video, Github } from "lucide-react";
+import { ExternalLink, BookOpen, FileText, Video, Github } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import VideoGallery from "@/components/VideoGallery";
 import { Button } from "@/components/ui/button";
@@ -12,6 +12,7 @@ import BookCard from "@/components/cards/BookCard";
 import YoutuberCard from "@/components/cards/YoutuberCard";
 import BackToHome from "@/components/buttons/backtohome";
 import TabNavigation, { TabItem } from "@/components/TabNavigation";
+import { DefaultPlaylistCard } from "@/components/cards/DefaultTextNoPlaylist";
 
 const youtubers = [
     {
@@ -328,13 +329,7 @@ export default function GitGitHubPage() {
 
                             {/* Default message when no playlist selected */}
                             {!selectedPlaylist && (
-                                <div className="text-center py-16 border-t">
-                                    <Video className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-                                    <h3 className="text-xl font-semibold mb-2">Select a Playlist to Get Started</h3>
-                                    <p className="text-muted-foreground">
-                                        Choose one of the instructors above to load their complete Git & GitHub tutorial series
-                                    </p>
-                                </div>
+                                <DefaultPlaylistCard/>
                             )}
                         </>
                     )}

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { ExternalLink, BookOpen, FileText, Video, GitBranch, Cloud, Container, Settings, Code2 } from "lucide-react";
+import { ExternalLink, BookOpen, FileText, Video} from "lucide-react";
 import Navbar from "@/components/NavBar";
 import VideoGallery from "@/components/VideoGallery";
 import { Button } from "@/components/ui/button";
@@ -12,191 +12,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { getPlaylistItemsClient } from "@/lib/clientYoutube";
 import BackToHome from "@/components/buttons/backtohome";
 import TabNavigation, { TabItem } from "@/components/TabNavigation";
+import { devops } from "@/data/learn";
+import { DefaultPlaylistCard } from "@/components/cards/DefaultTextNoPlaylist";
 const tabs: TabItem[] = [
   { id: "videos", label: "Video Tutorials", icon: Video },
   { id: "books", label: "Books & Resources", icon: BookOpen },
   { id: "docs", label: "Documentation", icon: FileText },
-];
-const youtubers = [
-  {
-    name: "TechWorld with Nana",
-    description: "Comprehensive DevOps tutorials covering Docker, Kubernetes, CI/CD, and cloud technologies with practical examples.",
-    playlistId: "PLy7NrYWoggjwPggqtFsI_zMAwvG0SqYCb",
-    channelUrl: "https://www.youtube.com/@TechWorldwithNana",
-    playlistUrl: "https://www.youtube.com/playlist?list=PLy7NrYWoggjwPggqtFsI_zMAwvG0SqYCb",
-    language: "English",
-    difficulty: "Beginner to Advanced",
-    duration: "~15 hours",
-    subscribers: "1.1M"
-  },
-  {
-    name: "Hitesh Choudhary",
-    description: "Complete Go programming course perfect for DevOps engineers learning infrastructure automation and tooling.",
-    playlistId: "PLRAV69dS1uWQGDQoBYMZWKjzuhCaOnBpa",
-    channelUrl: "https://www.youtube.com/@HiteshChoudharydotcom",
-    playlistUrl: "https://www.youtube.com/playlist?list=PLRAV69dS1uWQGDQoBYMZWKjzuhCaOnBpa",
-    language: "Hindi/English",
-    difficulty: "Beginner",
-    duration: "~12 hours",
-    subscribers: "1.3M"
-  },
-  {
-    name: "Cloud Native DevOps",
-    description: "Jenkins CI/CD pipeline tutorials covering automation, deployment strategies, and DevOps best practices.",
-    playlistId: "PL6XT0grm_Tfi21F8O0TvHmb78P2uEmhDq",
-    channelUrl: "https://www.youtube.com/@CloudNativeDevOps",
-    playlistUrl: "https://www.youtube.com/playlist?list=PL6XT0grm_Tfi21F8O0TvHmb78P2uEmhDq",
-    language: "English",
-    difficulty: "Intermediate",
-    duration: "~8 hours",
-    subscribers: "156K"
-  },
-  {
-    name: "DevOps Journey",
-    description: "Kubernetes deep dive tutorials covering cluster management, deployments, and production best practices.",
-    playlistId: "PLxzKY3wu0_FJdJd3IKv5BUtda8rtNpOvx",
-    channelUrl: "https://www.youtube.com/@DevOpsJourney",
-    playlistUrl: "https://www.youtube.com/playlist?list=PLxzKY3wu0_FJdJd3IKv5BUtda8rtNpOvx",
-    language: "English",
-    difficulty: "Intermediate to Advanced",
-    duration: "~20 hours",
-    subscribers: "425K"
-  }
-];
-
-const books = [
-  {
-    title: "The DevOps Handbook",
-    author: "Gene Kim, Jez Humble, Patrick Debois",
-    description: "Comprehensive guide to transforming your organization through DevOps practices and cultural change.",
-    url: "#",
-    type: "PDF",
-    pages: "480 pages",
-    level: "All Levels",
-    year: "2021"
-  },
-  {
-    title: "90 Days of DevOps",
-    author: "Michael Cade",
-    description: "Free comprehensive DevOps learning journey covering all essential tools and practices. Available on GitHub.",
-    url: "https://github.com/MichaelCade/90DaysOfDevOps",
-    type: "GitHub Repository",
-    pages: "90 Days Course",
-    level: "Beginner to Advanced",
-    year: "2024"
-  },
-  {
-    title: "Docker Deep Dive",
-    author: "Nigel Poulton",
-    description: "Complete guide to Docker containerization covering development, deployment, and orchestration.",
-    url: "#",
-    type: "PDF",
-    pages: "368 pages",
-    level: "Beginner to Intermediate",
-    year: "2023"
-  },
-  {
-    title: "Kubernetes in Action",
-    author: "Marko Lukša",
-    description: "Comprehensive Kubernetes guide covering deployment, scaling, and management of containerized applications.",
-    url: "#",
-    type: "PDF",
-    pages: "624 pages",
-    level: "Intermediate to Advanced",
-    year: "2022"
-  },
-  {
-    title: "Site Reliability Engineering",
-    author: "Google SRE Team",
-    description: "Google's approach to production systems, monitoring, and maintaining reliable services at scale.",
-    url: "https://sre.google/books/",
-    type: "Free Online",
-    pages: "550 pages",
-    level: "Advanced",
-    year: "2023"
-  }
-];
-
-const officialDocs = [
-  {
-    title: "DevOps Roadmap",
-    organization: "roadmap.sh",
-    description: "Comprehensive DevOps learning path covering all essential technologies, tools, and practices for 2024.",
-    url: "https://roadmap.sh/devops",
-    type: "Learning Roadmap",
-    year: "2024"
-  },
-  {
-    title: "Docker Documentation",
-    organization: "Docker Inc.",
-    description: "Official Docker documentation covering containerization, orchestration, and deployment strategies.",
-    url: "https://docs.docker.com/",
-    type: "Official Documentation",
-    year: "Updated"
-  },
-  {
-    title: "Kubernetes Documentation",
-    organization: "CNCF",
-    description: "Official Kubernetes documentation with comprehensive guides for container orchestration.",
-    url: "https://kubernetes.io/docs/",
-    type: "Official Documentation",
-    year: "Updated"
-  },
-  {
-    title: "AWS Documentation",
-    organization: "Amazon Web Services",
-    description: "Complete AWS cloud services documentation covering compute, storage, networking, and DevOps tools.",
-    url: "https://docs.aws.amazon.com/",
-    type: "Cloud Documentation",
-    year: "Updated"
-  },
-  {
-    title: "Jenkins Documentation",
-    organization: "Jenkins Project",
-    description: "Official Jenkins CI/CD documentation covering pipeline creation, plugins, and automation.",
-    url: "https://www.jenkins.io/doc/",
-    type: "CI/CD Documentation",
-    year: "Updated"
-  },
-  {
-    title: "Terraform Documentation",
-    organization: "HashiCorp",
-    description: "Infrastructure as Code documentation covering provisioning and managing cloud resources.",
-    url: "https://developer.hashicorp.com/terraform/docs",
-    type: "IaC Documentation",
-    year: "Updated"
-  }
-];
-
-const practiceResources = [
-  {
-    name: "KodeKloud",
-    description: "Hands-on labs for Kubernetes, Docker, and cloud technologies with CKA/CKAD certification prep.",
-    url: "https://kodekloud.com/",
-    type: "Interactive Labs",
-    icon: Container
-  },
-  {
-    name: "Killer.sh",
-    description: "Kubernetes certification practice exams and challenging scenarios for CKA, CKAD, and CKS prep.",
-    url: "https://killer.sh/",
-    type: "Practice Exams",
-    icon: Settings
-  },
-  {
-    name: "Gophercises",
-    description: "Go programming exercises perfect for DevOps engineers learning automation and tooling development.",
-    url: "https://gophercises.com/",
-    type: "Coding Practice",
-    icon: Code2
-  },
-  {
-    name: "AWS Free Tier",
-    description: "Free AWS resources to practice cloud services, EC2, S3, Lambda, and other DevOps tools.",
-    url: "https://aws.amazon.com/free/",
-    type: "Cloud Practice",
-    icon: Cloud
-  }
 ];
 
 const learningPath = [
@@ -239,6 +60,7 @@ const learningPath = [
 
 
 export default function DevOpsPage() {
+  const { youtubers, books, officialDocs, practiceResources } = devops;
   const [activeTab, setActiveTab] = useState('videos');
   const [selectedPlaylist, setSelectedPlaylist] = useState<string | null>(null);
   const [videos, setVideos] = useState<any[]>([]);
@@ -374,7 +196,7 @@ export default function DevOpsPage() {
                   <p className="text-sm text-muted-foreground mb-4">{resource.description}</p>
                   <span className="text-xs px-2 py-1 bg-muted rounded-full">{resource.type}</span>
                   
-                  <Link href={resource.url} target="_blank" rel="noopener noreferrer" className="mt-4 block">
+                  <Link href={resource.url?? ""} target="_blank" rel="noopener noreferrer" className="mt-4 block">
                     <Button variant="outline" size="sm" className="w-full">
                       <ExternalLink className="w-3 h-3 mr-2" />
                       Visit Platform
@@ -404,15 +226,15 @@ export default function DevOpsPage() {
                   {youtubers.map((youtuber, index) => (
                     <YoutuberCard
                       key={index}
-                      name={youtuber.name}
-                      description={youtuber.description}
-                      playlistId={youtuber.playlistId}
-                      channelUrl={youtuber.channelUrl}
-                      playlistUrl={youtuber.playlistUrl}
-                      language={youtuber.language}
-                      difficulty={youtuber.difficulty}
-                      duration={youtuber.duration}
-                      subscribers={youtuber.subscribers}
+                      name={youtuber.name?? ""}
+                      description={youtuber.description?? ""}
+                      playlistId={youtuber.playlistId?? ""}
+                      channelUrl={youtuber.channelUrl?? ""}
+                      playlistUrl={youtuber.playlistUrl?? ""}
+                      language={youtuber.language?? ""}
+                      difficulty={youtuber.difficulty?? ""}
+                      duration={youtuber.duration?? ""}
+                      subscribers={youtuber.subscribers?? ""}
                       isSelected={selectedPlaylist === youtuber.playlistId}
                       onSelect={handleSelectPlaylist}
                     />
@@ -455,13 +277,7 @@ export default function DevOpsPage() {
               )}
 
               {!selectedPlaylist && (
-                <div className="text-center py-16 border-t">
-                  <Video className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Select a Playlist to Get Started</h3>
-                  <p className="text-muted-foreground">
-                    Choose one of the instructors above to load their complete DevOps tutorial series
-                  </p>
-                </div>
+                <DefaultPlaylistCard/>
               )}
             </>
           )}
@@ -476,15 +292,15 @@ export default function DevOpsPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {books.map((book, index) => (
                   <BookCard
-                    key={index}
-                    title={book.title}
-                    author={book.author}
-                    description={book.description}
-                    url={book.url}
-                    type={book.type}
-                    pages={book.pages}
-                    level={book.level}
-                    year={book.year}
+                    key={index?? ""}
+                    title={book.title?? ""}
+                    author={book.author?? ""}
+                    description={book.description?? ""}
+                    url={book.url?? ""}
+                    type={book.type?? ""}
+                    pages={book.pages?? ""}
+                    level={book.level?? ""}
+                    year={book.year?? ""}
                   />
                 ))}
               </div>
@@ -502,12 +318,12 @@ export default function DevOpsPage() {
                 {officialDocs.map((doc, index) => (
                   <DocCard
                     key={index}
-                    title={doc.title}
-                    description={doc.description}
-                    organization={doc.organization}
-                    type={doc.type}
-                    url={doc.url}
-                    year={doc.year}
+                    title={doc.title?? ""}
+                    description={doc.description?? ""}
+                    organization={doc.organization?? ""}
+                    type={doc.type?? ""}
+                    url={doc.url?? ""}
+                    year={doc.year?? ""}
                   />
                 ))}
               </div>

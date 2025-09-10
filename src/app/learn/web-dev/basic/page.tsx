@@ -1,8 +1,7 @@
 "use client";
-import { getPlaylistItemsClient } from "@/lib/clientYoutube";
 
 import { useState, useEffect } from "react";
-import { ExternalLink, BookOpen, FileText, Video } from "lucide-react";
+import { ChevronLeft, ExternalLink, BookOpen, FileText, Video, Globe, Code, Layout, Palette, Zap } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import VideoGallery from "@/components/VideoGallery";
 import { Button } from "@/components/ui/button";
@@ -10,152 +9,307 @@ import Link from "next/link";
 import DocCard from "@/components/cards/DocCard";
 import BookCard from "@/components/cards/BookCard";
 import YoutuberCard from "@/components/cards/YoutuberCard";
-import BackToHome from "@/components/buttons/backtohome";
-import CustomButton from "@/components/buttons/customButton";
-import TabNavigation, { TabItem } from "@/components/TabNavigation";
-import { DefaultPlaylistCard } from "@/components/cards/DefaultTextNoPlaylist";
-
-
-// Fallback video data for when API fails or no playlist selected
-
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { getPlaylistItemsClient } from "@/lib/clientYoutube";
 
 const youtubers = [
   {
-    name: "Code with Harry",
-    description: "Comprehensive C programming course in Hindi/English. Great for beginners with practical examples and projects.",
-    playlistId: "PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR",
-    channelUrl: "https://www.youtube.com/@CodeWithHarry",
-    playlistUrl: "https://www.youtube.com/playlist?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR",
-    language: "Hindi/English",
-    difficulty: "Beginner",
-    duration: "~8 hours",
-    subscribers: "5.7M"
+    name: "freeCodeCamp",
+    description: "Comprehensive web development bootcamp covering HTML, CSS, JavaScript from basics to advanced projects.",
+    playlistId: "PLWKjhJtqVAbnqBxcdjVGgT3uVR10bzTEB",
+    channelUrl: "https://www.youtube.com/@freecodecamp",
+    playlistUrl: "https://www.youtube.com/playlist?list=PLWKjhJtqVAbnqBxcdjVGgT3uVR10bzTEB",
+    language: "English",
+    difficulty: "Beginner to Advanced",
+    duration: "~50 hours",
+    subscribers: "8.7M"
   },
   {
-    name: "Jenny's Lectures CS IT",
-    description: "Detailed C programming tutorials with focus on concepts and problem-solving. Perfect for computer science students.",
-    playlistId: "PLdo5W4Nhv31a8UcMN9-35ghv8qyFWD9_S",
-    channelUrl: "https://www.youtube.com/@JennyslecturesCSIT",
-    playlistUrl: "https://www.youtube.com/playlist?list=PLdo5W4Nhv31a8UcMN9-35ghv8qyFWD9_S",
+    name: "Traversy Media",
+    description: "Practical web development tutorials focusing on modern HTML5, CSS3, and JavaScript ES6+ features.",
+    playlistId: "PLillGF-RfqbYeckUaD1z6nviTp31GLTH8",
+    channelUrl: "https://www.youtube.com/@TraversyMedia",
+    playlistUrl: "https://www.youtube.com/playlist?list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8",
+    language: "English",
+    difficulty: "Beginner to Intermediate",
+    duration: "~25 hours",
+    subscribers: "2.2M"
+  },
+  {
+    name: "The Net Ninja",
+    description: "Step-by-step web development series covering HTML, CSS, JavaScript with clean explanations and projects.",
+    playlistId: "PL4cUxeGkcC9ivBf_eKCPIAYXWzLlPAm6G",
+    channelUrl: "https://www.youtube.com/@NetNinja",
+    playlistUrl: "https://www.youtube.com/playlist?list=PL4cUxeGkcC9ivBf_eKCPIAYXWzLlPAm6G",
+    language: "English",
+    difficulty: "Beginner",
+    duration: "~20 hours",
+    subscribers: "1.1M"
+  },
+  {
+    name: "Web Dev Simplified",
+    description: "Modern web development tutorials with focus on best practices, performance, and clean code.",
+    playlistId: "PLZlA0Gpn_vH9xx-RRVNG187ETT2ekWFsq",
+    channelUrl: "https://www.youtube.com/@WebDevSimplified",
+    playlistUrl: "https://www.youtube.com/playlist?list=PLZlA0Gpn_vH9xx-RRVNG187ETT2ekWFsq",
     language: "English",
     difficulty: "Beginner to Intermediate",
     duration: "~15 hours",
-    subscribers: "1.8M"
+    subscribers: "1.3M"
   },
   {
-    name: "Neso Academy",
-    description: "In-depth C programming course with theoretical concepts and practical implementation. University-level content.",
-    playlistId: "PLBlnK6fEyqRggZZgYpPMUxdY1CYkZtARR",
-    channelUrl: "https://www.youtube.com/@nesoacademy",
-    playlistUrl: "https://www.youtube.com/playlist?list=PLBlnK6fEyqRggZZgYpPMUxdY1CYkZtARR",
-    language: "English",
-    difficulty: "Beginner to Advanced",
-    duration: "~25 hours",
-    subscribers: "2.1M"
+    name: "Code with Harry",
+    description: "Complete web development course in Hindi covering HTML, CSS, JavaScript with practical projects.",
+    playlistId: "PLu0W_9lII9agiCUZYRsvtGTXdxkzPyItg",
+    channelUrl: "https://www.youtube.com/@CodeWithHarry",
+    playlistUrl: "https://www.youtube.com/playlist?list=PLu0W_9lII9agiCUZYRsvtGTXdxkzPyItg",
+    language: "Hindi/English",
+    difficulty: "Beginner",
+    duration: "~30 hours",
+    subscribers: "5.7M"
   }
 ];
 
 const books = [
   {
-    title: "The C Programming Language",
-    author: "Brian Kernighan & Dennis Ritchie",
-    description: "The definitive guide to C programming by its creators. Essential reading for serious C programmers.",
-    url: "https://kremlin.cc/k&r.pdf",
-    type: "PDF",
-    pages: "272 pages",
-    level: "Intermediate to Advanced",
-    year: "1988"
-  },
-  {
-    title: "C Programming: A Modern Approach",
-    author: "K. N. King",
-    description: "Comprehensive modern approach to C programming with excellent examples and exercises.",
+    title: "HTML and CSS: Design and Build Websites",
+    author: "Jon Duckett",
+    description: "Visual guide to HTML and CSS with beautiful examples and clear explanations for beginners.",
     url: "#",
     type: "PDF",
-    pages: "832 pages",
-    level: "Beginner to Advanced",
+    pages: "490 pages",
+    level: "Beginner",
+    year: "2011"
+  },
+  {
+    title: "JavaScript: The Good Parts",
+    author: "Douglas Crockford",
+    description: "Classic JavaScript book focusing on the language's best features and avoiding problematic parts.",
+    url: "#",
+    type: "PDF",
+    pages: "176 pages",
+    level: "Intermediate",
     year: "2008"
   },
   {
-    title: "Head First C",
-    author: "David Griffiths & Dawn Griffiths",
-    description: "Beginner-friendly approach to learning C with engaging visuals and practical examples.",
-    url: "#",
-    type: "PDF",
-    pages: "632 pages",
-    level: "Beginner",
-    year: "2012"
+    title: "Eloquent JavaScript",
+    author: "Marijn Haverbeke",
+    description: "Modern introduction to programming with JavaScript. Available for free online.",
+    url: "https://eloquentjavascript.net/",
+    type: "Free Online/PDF",
+    pages: "472 pages",
+    level: "Beginner to Intermediate",
+    year: "2024"
   },
   {
-    title: "C Programming Absolute Beginner's Guide",
-    author: "Greg Perry & Dean Miller",
-    description: "Perfect starting point for complete beginners with step-by-step instructions and practical examples.",
+    title: "CSS: The Definitive Guide",
+    author: "Eric Meyer & Estelle Weyl",
+    description: "Comprehensive guide to CSS covering layout, typography, animations, and modern features.",
     url: "#",
     type: "PDF",
-    pages: "352 pages",
-    level: "Beginner",
-    year: "2013"
+    pages: "1090 pages",
+    level: "Intermediate to Advanced",
+    year: "2023"
+  },
+  {
+    title: "You Don't Know JS (Book Series)",
+    author: "Kyle Simpson",
+    description: "Deep dive into JavaScript fundamentals, scope, closures, prototypes, and advanced concepts.",
+    url: "https://github.com/getify/You-Dont-Know-JS",
+    type: "Free GitHub",
+    pages: "6 Book Series",
+    level: "Intermediate to Advanced",
+    year: "2022"
   }
 ];
 
 const officialDocs = [
   {
-    title: "ISO C Standard (C11)",
-    organization: "ISO/IEC",
-    description: "Official C programming language standard specification. The authoritative reference for C language features.",
-    url: "https://www.iso.org/standard/57853.html",
-    type: "Official Standard",
-    year: "2011"
-  },
-  {
-    title: "GNU C Library Documentation",
-    organization: "GNU Project",
-    description: "Complete documentation for the GNU C Library (glibc) including all standard C functions.",
-    url: "https://www.gnu.org/software/libc/manual/",
-    type: "Library Documentation",
-    year: "2023"
-  },
-  {
-    title: "C Reference - cppreference.com",
-    organization: "cppreference.com",
-    description: "Comprehensive online reference for C standard library functions, operators, and language features.",
-    url: "https://en.cppreference.com/w/c",
-    type: "Online Reference",
+    title: "MDN Web Docs",
+    organization: "Mozilla",
+    description: "The most comprehensive web development documentation covering HTML, CSS, JavaScript, and Web APIs.",
+    url: "https://developer.mozilla.org/",
+    type: "Documentation Hub",
     year: "Updated"
   },
   {
-    title: "GCC C Compiler Documentation",
-    organization: "GNU Project",
-    description: "Official documentation for the GNU Compiler Collection C compiler, including language extensions.",
-    url: "https://gcc.gnu.org/onlinedocs/gcc/C-Extensions.html",
-    type: "Compiler Documentation",
-    year: "2023"
+    title: "HTML Living Standard",
+    organization: "WHATWG",
+    description: "Official HTML specification defining the latest HTML5 features and semantic elements.",
+    url: "https://html.spec.whatwg.org/",
+    type: "Official Specification",
+    year: "Living Standard"
   },
   {
-    title: "POSIX C API Reference",
-    organization: "IEEE",
-    description: "POSIX standard C API functions for system programming and cross-platform development.",
-    url: "https://pubs.opengroup.org/onlinepubs/9699919799/",
-    type: "API Reference",
-    year: "2018"
+    title: "CSS Specifications",
+    organization: "W3C",
+    description: "Official CSS specifications covering all CSS modules, properties, and latest features.",
+    url: "https://www.w3.org/Style/CSS/specs.en.html",
+    type: "Official Specification",
+    year: "Updated"
+  },
+  {
+    title: "JavaScript Language Specification",
+    organization: "Ecma International",
+    description: "ECMAScript specification defining JavaScript language features and standards.",
+    url: "https://www.ecma-international.org/ecma-262/",
+    type: "Language Specification",
+    year: "ES2024"
+  },
+  {
+    title: "Web.dev",
+    organization: "Google",
+    description: "Modern web development guides covering performance, accessibility, and best practices.",
+    url: "https://web.dev/",
+    type: "Learning Platform",
+    year: "Updated"
+  },
+  {
+    title: "Can I Use",
+    organization: "Alexis Deveria",
+    description: "Browser compatibility tables for HTML5, CSS3, and JavaScript features across all browsers.",
+    url: "https://caniuse.com/",
+    type: "Compatibility Reference",
+    year: "Updated"
   }
 ];
 
-const tabs: TabItem[] = [
-  { id: 'videos', label: 'Video Lectures', icon: Video },
-  { id: 'books', label: 'Books & PDFs', icon: BookOpen },
-  { id: 'docs', label: 'Official Documents', icon: FileText }
+const practiceResources = [
+  {
+    name: "CodePen",
+    description: "Online code editor for HTML, CSS, and JavaScript with live preview and community sharing.",
+    url: "https://codepen.io/",
+    type: "Code Playground",
+    icon: Code
+  },
+  {
+    name: "freeCodeCamp",
+    description: "Interactive coding curriculum with projects and certifications for web development.",
+    url: "https://www.freecodecamp.org/",
+    type: "Interactive Learning",
+    icon: Globe
+  },
+  {
+    name: "CSS-Tricks",
+    description: "CSS techniques, tips, and tricks with practical examples and problem solutions.",
+    url: "https://css-tricks.com/",
+    type: "Tutorial Site",
+    icon: Palette
+  },
+  {
+    name: "JavaScript30",
+    description: "30-day vanilla JavaScript coding challenge with 30 different projects.",
+    url: "https://javascript30.com/",
+    type: "Coding Challenge",
+    icon: Zap
+  }
 ];
 
-export default function LearnCPage() {
+const learningPath = [
+  {
+    phase: "HTML Fundamentals",
+    duration: "2-3 weeks",
+    topics: ["Semantic HTML", "Forms", "Tables", "Multimedia"],
+    description: "Learn the structure and markup language of the web",
+    projects: ["Personal portfolio page", "Recipe website", "Survey form"]
+  },
+  {
+    phase: "CSS Styling",
+    duration: "4-6 weeks",
+    topics: ["Selectors", "Box Model", "Flexbox", "Grid", "Responsive Design"],
+    description: "Master styling, layout, and responsive web design",
+    projects: ["Responsive landing page", "CSS animations", "Mobile-first design"]
+  },
+  {
+    phase: "JavaScript Basics",
+    duration: "6-8 weeks",
+    topics: ["Variables", "Functions", "DOM Manipulation", "Events", "Async/Await"],
+    description: "Learn programming fundamentals and web interactivity",
+    projects: ["Calculator app", "To-do list", "Weather app"]
+  },
+  {
+    phase: "Advanced Concepts",
+    duration: "4-6 weeks",
+    topics: ["ES6+ Features", "APIs", "Local Storage", "Error Handling"],
+    description: "Modern JavaScript features and data handling",
+    projects: ["API-driven app", "Shopping cart", "Browser game"]
+  },
+  {
+    phase: "Real Projects",
+    duration: "4-8 weeks",
+    topics: ["Project Planning", "Version Control", "Deployment", "Performance"],
+    description: "Build complete web applications and deploy them",
+    projects: ["E-commerce site", "Blog platform", "Portfolio website"]
+  }
+];
+
+const webFeatures = [
+  {
+    title: "HTML5 Semantic Elements",
+    description: "Structure content with semantic meaning",
+    icon: Layout,
+    color: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200"
+  },
+  {
+    title: "CSS Grid & Flexbox",
+    description: "Modern layout systems for responsive design",
+    icon: Palette,
+    color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+  },
+  {
+    title: "JavaScript ES6+",
+    description: "Modern JavaScript features and syntax",
+    icon: Zap,
+    color: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
+  },
+  {
+    title: "Responsive Design",
+    description: "Mobile-first, cross-device compatibility",
+    icon: Globe,
+    color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+  }
+];
+
+function TabNavigation({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: (tab: string) => void }) {
+  const tabs = [
+    { id: 'videos', label: 'Video Tutorials', icon: Video },
+    { id: 'books', label: 'Books & Resources', icon: BookOpen },
+    { id: 'docs', label: 'Documentation', icon: FileText }
+  ];
+
+  return (
+    <div className="border-b bg-background">
+      <div className="max-w-6xl mx-auto px-4">
+        <nav className="flex space-x-8">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex items-center gap-2 py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+                activeTab === tab.id
+                  ? 'border-indigo-500 text-indigo-600'
+                  : 'border-transparent text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <tab.icon className="w-4 h-4" />
+              {tab.label}
+            </button>
+          ))}
+        </nav>
+      </div>
+    </div>
+  );
+}
+
+export default function WebDevPage() {
   const [activeTab, setActiveTab] = useState('videos');
   const [selectedPlaylist, setSelectedPlaylist] = useState<string | null>(null);
   const [videos, setVideos] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+
   const handleSelectPlaylist = (playlistId: string) => {
     setSelectedPlaylist(playlistId);
   };
-  // page.tsx (client)
 
   useEffect(() => {
     if (selectedPlaylist) {
@@ -169,80 +323,104 @@ export default function LearnCPage() {
     }
   }, [selectedPlaylist]);
 
-
   const selectedYoutuber = selectedPlaylist ? youtubers.find(y => y.playlistId === selectedPlaylist) : null;
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-
-      {/* Header Section */}
-      <header className="bg-muted/30 border-b">
+      
+      {/* Header */}
+      <header className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 border-b">
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="flex items-center gap-4 mb-6">
-            <BackToHome />
-            <CustomButton href="/learn/web-dev/adv" title="Learn Advance Web Development"/>
+            <Link href="/">
+              <Button variant="outline" size="sm">
+                <ChevronLeft className="w-4 h-4 mr-2" />
+                Back to Home
+              </Button>
+            </Link>
           </div>
-
+          
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold mb-4">
-              Learn C Programming
+              Web Development Fundamentals
             </h1>
             <p className="text-lg text-muted-foreground mb-6">
-              Master the fundamentals of C programming language with comprehensive resources including video tutorials,
-              essential books, and official documentation.
+              Master the core technologies of web development: HTML for structure, CSS for styling, 
+              and JavaScript for interactivity. Build responsive, modern websites from scratch.
             </p>
-
+            
             <div className="flex flex-wrap gap-3">
+              <span className="px-3 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-sm font-medium">
+                HTML5
+              </span>
               <span className="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full text-sm font-medium">
-                Video Lectures
+                CSS3
               </span>
-              <span className="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded-full text-sm font-medium">
-                Books & PDFs
-              </span>
-              <span className="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 rounded-full text-sm font-medium">
-                Official Docs
+              <span className="px-3 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 rounded-full text-sm font-medium">
+                JavaScript
               </span>
             </div>
           </div>
         </div>
       </header>
-      <section className="py-12 bg-muted/20">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-8">What You'll Learn</h2>
 
+      {/* Core Technologies */}
+      <section className="py-12">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-2xl font-bold mb-8">Core Web Technologies</h2>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 bg-background rounded-lg border">
-              <h3 className="font-semibold mb-2">C Basics</h3>
-              <p className="text-sm text-muted-foreground">
-                Syntax, variables, data types, and basic I/O operations
-              </p>
-            </div>
-            <div className="p-6 bg-background rounded-lg border">
-              <h3 className="font-semibold mb-2">Control Flow</h3>
-              <p className="text-sm text-muted-foreground">
-                Conditionals, loops, and decision-making structures
-              </p>
-            </div>
-            <div className="p-6 bg-background rounded-lg border">
-              <h3 className="font-semibold mb-2">Functions</h3>
-              <p className="text-sm text-muted-foreground">
-                Function definition, parameters, return values, and scope
-              </p>
-            </div>
-            <div className="p-6 bg-background rounded-lg border">
-              <h3 className="font-semibold mb-2">Advanced Topics</h3>
-              <p className="text-sm text-muted-foreground">
-                Pointers, arrays, structures, and memory management
-              </p>
-            </div>
+            {webFeatures.map((feature, index) => (
+              <div key={index} className="p-6 bg-background rounded-lg border">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={`p-2 rounded-lg ${feature.color}`}>
+                    <feature.icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-semibold">{feature.title}</h3>
+                </div>
+                <p className="text-sm text-muted-foreground">{feature.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-      {/* Tab Navigation */}
-      <TabNavigation tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
 
-      {/* Content based on active tab */}
+      {/* Practice Resources */}
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-4">Practice Platforms</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Interactive platforms and tools to practice and improve your web development skills
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {practiceResources.map((resource, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 group cursor-pointer">
+                <CardContent className="p-6 text-center">
+                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800 transition-colors">
+                    <resource.icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                  </div>
+                  <h3 className="font-bold mb-2">{resource.name}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{resource.description}</p>
+                  <span className="text-xs px-2 py-1 bg-muted rounded-full">{resource.type}</span>
+                  
+                  <Link href={resource.url} target="_blank" rel="noopener noreferrer" className="mt-4 block">
+                    <Button variant="outline" size="sm" className="w-full">
+                      <ExternalLink className="w-3 h-3 mr-2" />
+                      Visit Platform
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+
+      {/* Content Area */}
       <main className="py-16">
         <div className="max-w-6xl mx-auto px-4">
           {activeTab === 'videos' && (
@@ -250,7 +428,7 @@ export default function LearnCPage() {
               <div className="mb-12">
                 <h2 className="text-3xl font-bold text-center mb-4">Choose Your Instructor</h2>
                 <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                  Select a YouTuber to load their complete C programming playlist below
+                  Select a YouTuber to load their complete web development tutorial playlist below
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -273,13 +451,12 @@ export default function LearnCPage() {
                 </div>
               </div>
 
-              {/* Selected Playlist Videos */}
               {selectedPlaylist && (
                 <div className="border-t pt-12">
                   <div className="flex items-center justify-between mb-8">
                     <div>
                       <h3 className="text-2xl font-bold">
-                        {selectedYoutuber?.name} - C Programming Course
+                        {selectedYoutuber?.name} - Web Development Course
                       </h3>
                       <p className="text-muted-foreground mt-2">
                         {isLoading ? 'Loading videos...' : `${videos.length} videos • ${selectedYoutuber?.duration}`}
@@ -308,18 +485,23 @@ export default function LearnCPage() {
                 </div>
               )}
 
-              {/* Default message when no playlist selected */}
               {!selectedPlaylist && (
-                <DefaultPlaylistCard/>
+                <div className="text-center py-16 border-t">
+                  <Video className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Select a Playlist to Get Started</h3>
+                  <p className="text-muted-foreground">
+                    Choose one of the instructors above to load their complete web development tutorial series
+                  </p>
+                </div>
               )}
             </>
           )}
 
           {activeTab === 'books' && (
             <>
-              <h2 className="text-3xl font-bold text-center mb-4">Books & PDFs</h2>
+              <h2 className="text-3xl font-bold text-center mb-4">Books & Learning Resources</h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Essential books for mastering C programming from beginner to advanced level
+                Essential books for mastering HTML, CSS, and JavaScript fundamentals
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -344,7 +526,7 @@ export default function LearnCPage() {
             <>
               <h2 className="text-3xl font-bold text-center mb-4">Official Documentation</h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Authoritative references and standards for C programming language
+                Official references and comprehensive guides for web development technologies
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

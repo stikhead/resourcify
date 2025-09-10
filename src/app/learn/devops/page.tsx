@@ -14,6 +14,7 @@ import BackToHome from "@/components/buttons/backtohome";
 import TabNavigation, { TabItem } from "@/components/TabNavigation";
 import { devops } from "@/data/learn";
 import { DefaultPlaylistCard } from "@/components/cards/DefaultTextNoPlaylist";
+import CustomButton from "@/components/buttons/customButton";
 const tabs: TabItem[] = [
   { id: "videos", label: "Video Tutorials", icon: Video },
   { id: "books", label: "Books & Resources", icon: BookOpen },
@@ -91,8 +92,9 @@ export default function DevOpsPage() {
       {/* Header */}
       <header className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-950 dark:to-red-950 border-b">
         <div className="max-w-6xl mx-auto px-4 py-12">
-                <div className="flex items-center gap-4 mb-6">
+                <div className="flex flex-wrap items-center gap-4 mb-6">
                     <BackToHome/>
+                    <CustomButton title="Start With Python" href="/learn/python"/>
                   </div>
           
           <div className="max-w-3xl">

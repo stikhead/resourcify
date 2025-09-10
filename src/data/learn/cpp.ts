@@ -9,9 +9,8 @@ export const youtubers: Youtuber[] = [
     playlistUrl: "https://www.youtube.com/playlist?list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL",
     language: "Hindi/English",
     difficulty: "Beginner to Intermediate",
-    duration: "~12 hours",
-    subscribers: "5.7M",
-    avatar: "https://yt3.ggpht.com/ytc/AIdro_mKzklyPPhqFuJWbWh8e-d5r49HuztXfSZzKmFT8Qz4wOFw7rbMjhDi7a2gKP99vjCO=s88-c-k-c0x00ffffff-no-rj"
+    duration: "~20 hours",
+    subscribers: "8.9M",
   },
   {
     name: "Jenny's Lectures CS IT",
@@ -21,8 +20,8 @@ export const youtubers: Youtuber[] = [
     playlistUrl: "https://www.youtube.com/playlist?list=PLdo5W4Nhv31YU5Wx1dopka58teWP9aCee",
     language: "English",
     difficulty: "Beginner to Intermediate",
-    duration: "~15 hours",
-    subscribers: "1.8M"
+    duration: "~25 hours",
+    subscribers: "2M"
   }
 ];
 

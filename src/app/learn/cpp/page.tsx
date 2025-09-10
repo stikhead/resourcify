@@ -51,7 +51,7 @@ export default function LearnCPage() {
       <Navbar />
       <header className="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-950 dark:to-indigo-950 border-b">
         <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex flex-wrap items-center gap-4 mb-6">
             <BackToHome />
             <CustomButton href={"/learn/dsa/cpp"} title={"Data Structures in C++"}/>
           </div>

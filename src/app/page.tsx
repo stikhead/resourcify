@@ -23,7 +23,7 @@ const resources = [
   {
     title: "Data Structures in C",
     description: "Understand low-level implementation of arrays, linked lists, stacks, queues, trees, and graphs",
-    type: "Article" as const,
+    type: "Course" as const,
     level: "Intermediate" as const,
     href: "/learn/dsa/c",
     icon: Book
@@ -39,7 +39,7 @@ const resources = [
   {
     title: "Python",
     description: "",
-    type: "Project" as const,
+    type: "Course" as const,
     level: "Beginner" as const,
     href: "/learn/python",
     icon: Gamepad2
@@ -64,31 +64,31 @@ const resources = [
   {
     title: "About Git & Github",
     description: "Learn about git version control, github usage, cli commands, branching, merging, pull requests etc",
-    type: "Article" as const,
-    level: "Intermediate" as const,
+    type: "Course" as const,
+    level: "Beginner" as const,
     href: "/learn/git",
     icon: Book
   },
   {
     title: "CV/Resume Resources",
     description: "Everything related to resume making — whether for internships, placements, off-campus jobs, or research positions",
-    type: "Article" as const,
+    type: "Course" as const,
     level: "Intermediate" as const,
     href: "/learn/cv",
     icon: Book
   },
   {
     title: "Machine Learning",
-    description: "Advanced data structures using C++ STL, custom implementations, and algorithm optimization",
-    type: "Article" as const,
+    description: "",
+    type: "Course" as const,
     level: "Intermediate" as const,
-    href: "/learn/dsa-cpp",
+    href: "/learn/ml",
     icon: Book
   },
     {
     title: "App Development",
     description: "Learn different tech stacks for app development",
-    type: "Article" as const,
+    type: "Course" as const,
     level: "Intermediate" as const,
     href: "/learn/app-dev/",
     icon: Book
@@ -96,7 +96,7 @@ const resources = [
   {
     title: "DevOps",
     description: "",
-    type: "Article" as const,
+    type: "Course" as const,
     level: "Intermediate" as const,
     href: "/learn/devops/",
     icon: Book

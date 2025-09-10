@@ -23,7 +23,7 @@ export default function TabNavigation({
    return (
     <div className={`border-b bg-background ${className}`}>
       <div className="max-w-6xl mx-auto px-4">
-        <nav className="flex space-x-8" role="tablist" aria-label="Section tabs">
+        <nav className="flex overflow-x-auto space-x-8" role="tablist" aria-label="Section tabs">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (

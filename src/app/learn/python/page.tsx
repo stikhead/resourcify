@@ -11,6 +11,7 @@ import BookCard from "@/components/cards/BookCard";
 import DocCard from "@/components/cards/DocCard";
 import { getPlaylistItemsClient } from "@/lib/clientYoutube";
 import BackToHome from "@/components/buttons/backtohome";
+import TabNavigation, { TabItem } from "@/components/TabNavigation";
 
 const youtubers = [
     {
@@ -61,32 +62,12 @@ const officialDocs = [
     { title: "PEPs", organization: "Python.org", description: "Design docs and standards.", url: "https://peps.python.org/", type: "Standards", year: "Updated" }
 ];
 
-function Tabs({ active, setActive }: { active: string; setActive: (s: string) => void }) {
-    const tabs = [
-        { id: "videos", label: "Video Lectures", icon: Video },
-        { id: "books", label: "Books & PDFs", icon: BookOpen },
-        { id: "docs", label: "Official Docs", icon: FileText }
-    ];
-    return (
-        <div className="border-b bg-background">
-            <div className="max-w-6xl mx-auto px-4">
-                <nav className="flex space-x-8">
-                    {tabs.map((t) => (
-                        <button
-                            key={t.id}
-                            onClick={() => setActive(t.id)}
-                            className={`flex items-center gap-2 py-4 px-2 border-b-2 font-medium text-sm transition-colors ${active === t.id ? "border-indigo-500 text-indigo-600" : "border-transparent text-muted-foreground hover:text-foreground"
-                                }`}
-                        >
-                            <t.icon className="w-4 h-4" />
-                            {t.label}
-                        </button>
-                    ))}
-                </nav>
-            </div>
-        </div>
-    );
-}
+const tabs: TabItem[] = [
+    { id: "videos", label: "Video Lectures", icon: Video },
+    { id: "books", label: "Books & PDFs", icon: BookOpen },
+    { id: "docs", label: "Official Docs", icon: FileText }
+];
+
 
 export default function LearnPythonPage() {
     const [activeTab, setActiveTab] = useState("videos");
@@ -142,7 +123,7 @@ export default function LearnPythonPage() {
                 </div>
             </section>
 
-            <Tabs active={activeTab} setActive={setActiveTab} />
+            <TabNavigation tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
 
             <main className="py-16">
                 <div className="max-w-6xl mx-auto px-4">

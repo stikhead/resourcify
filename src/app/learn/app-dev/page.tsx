@@ -14,7 +14,14 @@ import DocCard from "@/components/cards/DocCard";
 import FrameworkDiffBox from "@/components/cards/FrameWorkCard";
 import { exitCode } from "process";
 import BackToHome from "@/components/buttons/backtohome";
+import TabNavigation, { TabItem } from "@/components/TabNavigation";
+const tabs: TabItem[] = [
+  { id: "videos", label: "Video Tutorials", icon: Video },
+  { id: "books", label: "Books & Resources", icon: BookOpen },
+  { id: "docs", label: "Documentation", icon: FileText },
+  { id: "about", label: "Information", icon: LucideFileWarning },
 
+];
 interface Platform {
   id: string;
   name: string;
@@ -138,7 +145,8 @@ const platformContent: Record<string, PlatformContent> = {
     about: [
       {
         title: "Kotlin",
-        description: ``     },
+        description: ``
+      },
     ],
   },
   "ios": {
@@ -184,7 +192,7 @@ const platformContent: Record<string, PlatformContent> = {
       },
     ],
   },
-  "react-native":{
+  "react-native": {
     youtubers: [
       {
         name: `Place Holder for ${platforms[2].id}`,
@@ -220,12 +228,13 @@ const platformContent: Record<string, PlatformContent> = {
         year: "null"
       },
     ],
-     about: [
+    about: [
       {
         title: "Kotlin",
-        description: ``},
+        description: ``
+      },
     ]
-    
+
   },
   flutter: {
     youtubers: [
@@ -272,37 +281,37 @@ const platformContent: Record<string, PlatformContent> = {
   },
 };
 
-function TabNavigation({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: (tab: string) => void }) {
-  const tabs = [
-    { id: 'videos', label: 'Video Lectures', icon: Video },
-    { id: 'books', label: 'Books & PDFs', icon: BookOpen },
-    { id: 'docs', label: 'Official Documents', icon: FileText },
-    { id: 'about', label: "Information", icon: LucideFileWarning}
-  ];
+// function TabNavigation({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: (tab: string) => void }) {
+//   const tabs = [
+//     { id: 'videos', label: 'Video Lectures', icon: Video },
+//     { id: 'books', label: 'Books & PDFs', icon: BookOpen },
+//     { id: 'docs', label: 'Official Documents', icon: FileText },
+//     { id: 'about', label: "Information", icon: LucideFileWarning}
+//   ];
 
-  return (
-    <div className="border-b bg-background">
-      <div className="max-w-6xl mx-auto px-4">
-        <nav className="flex space-x-8">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
-                activeTab === tab.id
-                  ? 'border-indigo-500 text-indigo-600'
-                  : 'border-transparent text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              <tab.icon className="w-4 h-4" />
-              {tab.label}
-            </button>
-          ))}
-        </nav>
-      </div>
-    </div>
-  );
-}
+//   return (
+//     <div className="border-b bg-background">
+//       <div className="max-w-6xl mx-auto px-4">
+//         <nav className="flex space-x-8">
+//           {tabs.map((tab) => (
+//             <button
+//               key={tab.id}
+//               onClick={() => setActiveTab(tab.id)}
+//               className={`flex items-center gap-2 py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+//                 activeTab === tab.id
+//                   ? 'border-indigo-500 text-indigo-600'
+//                   : 'border-transparent text-muted-foreground hover:text-foreground'
+//               }`}
+//             >
+//               <tab.icon className="w-4 h-4" />
+//               {tab.label}
+//             </button>
+//           ))}
+//         </nav>
+//       </div>
+//     </div>
+//   );
+// }
 
 export default function AppDevPage() {
   const [selectedPlatform, setSelectedPlatform] = useState<string>("android");
@@ -343,24 +352,24 @@ export default function AppDevPage() {
 
       <header className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950 dark:to-purple-950 border-b">
         <div>
-        <div className="max-w-7xl mx-auto px-4 pt-16">
-        <div className="flex items-center gap-4 mb-6">
-            <BackToHome/>
+          <div className="max-w-7xl mx-auto px-4 pt-16">
+            <div className="flex items-center gap-4 mb-6">
+              <BackToHome />
+            </div>
+
+            <div className="max-w-4xl">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                App Development Guide
+              </h1>
+              <p className="text-xl text-muted-foreground mb-8">
+                Master mobile app development with comprehensive resources for native, cross-platform, and hybrid solutions.
+              </p>
+
+            </div>
+            <FrameworkDiffBox />
           </div>
 
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              App Development Guide
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Master mobile app development with comprehensive resources for native, cross-platform, and hybrid solutions.
-            </p>
-            
-          </div>
-          <FrameworkDiffBox/>
         </div>
-        
-      </div>
       </header>
       <section className="py-8 bg-muted/30 border-b">
         <div className="max-w-7xl mx-auto px-4">
@@ -369,7 +378,7 @@ export default function AppDevPage() {
               <Layers className="w-5 h-5 text-muted-foreground" />
               <span className="font-medium">Choose your platform:</span>
             </div>
-            
+
             <div className="min-w-[280px]">
               <Select value={selectedPlatform} onValueChange={setSelectedPlatform}>
                 <SelectTrigger>
@@ -407,7 +416,7 @@ export default function AppDevPage() {
         </div>
       </section>
 
-      <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+      <TabNavigation tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
 
       {/* Content Area */}
       <main className="py-16">
@@ -536,7 +545,7 @@ export default function AppDevPage() {
           )}
           {activeTab === 'about' && (
             <>
-              <h2 className="text-3xl font-bold text-center mb-4">{}</h2>
+              <h2 className="text-3xl font-bold text-center mb-4">{ }</h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
                 Authoritative references and documentation for {currentPlatform?.name} development
               </p>

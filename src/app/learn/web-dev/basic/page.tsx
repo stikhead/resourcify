@@ -12,6 +12,7 @@ import BookCard from "@/components/cards/BookCard";
 import YoutuberCard from "@/components/cards/YoutuberCard";
 import BackToHome from "@/components/buttons/backtohome";
 import CustomButton from "@/components/buttons/customButton";
+import TabNavigation, { TabItem } from "@/components/TabNavigation";
 
 
 // Fallback video data for when API fails or no playlist selected
@@ -139,35 +140,11 @@ const officialDocs = [
   }
 ];
 
-function TabNavigation({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: (tab: string) => void }) {
-  const tabs = [
-    { id: 'videos', label: 'Video Lectures', icon: Video },
-    { id: 'books', label: 'Books & PDFs', icon: BookOpen },
-    { id: 'docs', label: 'Official Documents', icon: FileText }
-  ];
-
-  return (
-    <div className="border-b bg-background">
-      <div className="max-w-6xl mx-auto px-4">
-        <nav className="flex space-x-8">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 py-4 px-2 border-b-2 font-medium text-sm transition-colors ${activeTab === tab.id
-                  ? 'border-indigo-500 text-indigo-600'
-                  : 'border-transparent text-muted-foreground hover:text-foreground'
-                }`}
-            >
-              <tab.icon className="w-4 h-4" />
-              {tab.label}
-            </button>
-          ))}
-        </nav>
-      </div>
-    </div>
-  );
-}
+const tabs: TabItem[] = [
+  { id: 'videos', label: 'Video Lectures', icon: Video },
+  { id: 'books', label: 'Books & PDFs', icon: BookOpen },
+  { id: 'docs', label: 'Official Documents', icon: FileText }
+];
 
 export default function LearnCPage() {
   const [activeTab, setActiveTab] = useState('videos');
@@ -262,7 +239,7 @@ export default function LearnCPage() {
         </div>
       </section>
       {/* Tab Navigation */}
-      <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+      <TabNavigation tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
 
       {/* Content based on active tab */}
       <main className="py-16">

@@ -12,7 +12,7 @@ export default function CustomButton({
     return (
         <Link href={href} target="" rel="">  
             <Button variant="outline" size="sm">
-                {title}<ChevronRight className="w-4 h-4 mr-2" />
+                {title}<ChevronRight className="w-4 h-4 ml-2" />
             </Button>
         </Link>
     )

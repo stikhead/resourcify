@@ -1,12 +1,7 @@
-
-
-
-
 "use client";
 import { getPlaylistItemsClient } from "@/lib/clientYoutube";
-
 import { useState, useEffect } from "react";
-import { ChevronLeft, ExternalLink, BookOpen, FileText, Video } from "lucide-react";
+import { ExternalLink, BookOpen, FileText, Video } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import VideoGallery from "@/components/VideoGallery";
 import { Button } from "@/components/ui/button";
@@ -14,6 +9,8 @@ import Link from "next/link";
 import DocCard from "@/components/cards/DocCard";
 import BookCard from "@/components/cards/BookCard";
 import YoutuberCard from "@/components/cards/YoutuberCard";
+import BackToHome from "@/components/buttons/backtohome";
+import CustomButton from "@/components/buttons/customButton";
 
 const youtubers = [
   {
@@ -28,7 +25,7 @@ const youtubers = [
     subscribers: "5.7M",
     avatar: "https://yt3.ggpht.com/ytc/AIdro_mKzklyPPhqFuJWbWh8e-d5r49HuztXfSZzKmFT8Qz4wOFw7rbMjhDi7a2gKP99vjCO=s88-c-k-c0x00ffffff-no-rj"
   },
-   {
+  {
     name: "Jenny's Lectures CS IT",
     description: "",
     playlistId: "PLdo5W4Nhv31YU5Wx1dopka58teWP9aCee",
@@ -142,11 +139,10 @@ function TabNavigation({ activeTab, setActiveTab }: { activeTab: string, setActi
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
-                activeTab === tab.id
+              className={`flex items-center gap-2 py-4 px-2 border-b-2 font-medium text-sm transition-colors ${activeTab === tab.id
                   ? 'border-indigo-500 text-indigo-600'
                   : 'border-transparent text-muted-foreground hover:text-foreground'
-              }`}
+                }`}
             >
               <tab.icon className="w-4 h-4" />
               {tab.label}
@@ -163,21 +159,21 @@ export default function LearnCPage() {
   const [selectedPlaylist, setSelectedPlaylist] = useState<string | null>(null);
   const [videos, setVideos] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
- const handleSelectPlaylist = (playlistId: string) => {
+  const handleSelectPlaylist = (playlistId: string) => {
     setSelectedPlaylist(playlistId);
   };
 
-useEffect(() => {
-  if (selectedPlaylist) {
-    setIsLoading(true);
-    getPlaylistItemsClient(selectedPlaylist)
-      .then(setVideos)
-      .catch((e) => {
-        console.error(e);
-      })
-      .finally(() => setIsLoading(false));
-  }
-}, [selectedPlaylist]);
+  useEffect(() => {
+    if (selectedPlaylist) {
+      setIsLoading(true);
+      getPlaylistItemsClient(selectedPlaylist)
+        .then(setVideos)
+        .catch((e) => {
+          console.error(e);
+        })
+        .finally(() => setIsLoading(false));
+    }
+  }, [selectedPlaylist]);
 
   const selectedYoutuber = selectedPlaylist ? youtubers.find(y => y.playlistId === selectedPlaylist) : null;
 
@@ -187,23 +183,19 @@ useEffect(() => {
       <header className="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-950 dark:to-indigo-950 border-b">
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="flex items-center gap-4 mb-6">
-            <Link href="/">
-              <Button variant="outline" size="sm">
-                <ChevronLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
+            <BackToHome />
+            <CustomButton href={"/learn/dsa/cpp"} title={"Data Structures in C++"}/>
           </div>
-          
+
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold mb-4">
               Learn C++ Programming
             </h1>
             <p className="text-lg text-muted-foreground mb-6">
-              Master object-oriented programming, STL, and modern C++ features with comprehensive video tutorials 
+              Master object-oriented programming, STL, and modern C++ features with comprehensive video tutorials
               from industry experts and experienced educators.
             </p>
-            
+
             <div className="flex flex-wrap gap-3">
               <span className="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full text-sm font-medium">
                 Video Lectures
@@ -222,7 +214,7 @@ useEffect(() => {
       <section className="py-12">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-8">Master C++ Programming</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="p-6 bg-background rounded-lg border">
               <h3 className="font-semibold mb-2">OOP Fundamentals</h3>

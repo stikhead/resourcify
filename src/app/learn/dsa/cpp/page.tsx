@@ -1,8 +1,10 @@
-import { ChevronLeft, ExternalLink, Star, Users, Clock, BookOpen, Code, Trophy, Target } from "lucide-react";
+import { ChevronLeft, ExternalLink, Clock, BookOpen, Code, Trophy, Target } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
+import BackToHome from "@/components/buttons/backtohome";
+import CustomButton from "@/components/buttons/customButton";
 
 const platforms = [
   {
@@ -206,12 +208,8 @@ export default function DSACppPage() {
       <header className="bg-muted/30 border-b">
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="flex items-center gap-4 mb-6">
-            <Link href="/">
-              <Button variant="outline" size="sm">
-                <ChevronLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
+            <BackToHome />
+            <CustomButton href={"/learn/cpp"} title={"Learn C++ Language"}/>
           </div>
 
           <div className="max-w-3xl">
@@ -222,7 +220,6 @@ export default function DSACppPage() {
               Master DSA with curated resources from top platforms. From structured courses to practice problems,
               everything you need to excel in coding interviews and competitive programming.
             </p>
-
           </div>
         </div>
       </header>

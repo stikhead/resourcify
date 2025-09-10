@@ -10,6 +10,8 @@ import Link from "next/link";
 import DocCard from "@/components/cards/DocCard";
 import BookCard from "@/components/cards/BookCard";
 import YoutuberCard from "@/components/cards/YoutuberCard";
+import BackToHome from "@/components/buttons/backtohome";
+import CustomButton from "@/components/buttons/customButton";
 
 
 // Fallback video data for when API fails or no playlist selected
@@ -152,11 +154,10 @@ function TabNavigation({ activeTab, setActiveTab }: { activeTab: string, setActi
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
-                activeTab === tab.id
+              className={`flex items-center gap-2 py-4 px-2 border-b-2 font-medium text-sm transition-colors ${activeTab === tab.id
                   ? 'border-indigo-500 text-indigo-600'
                   : 'border-transparent text-muted-foreground hover:text-foreground'
-              }`}
+                }`}
             >
               <tab.icon className="w-4 h-4" />
               {tab.label}
@@ -173,22 +174,22 @@ export default function LearnCPage() {
   const [selectedPlaylist, setSelectedPlaylist] = useState<string | null>(null);
   const [videos, setVideos] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
- const handleSelectPlaylist = (playlistId: string) => {
+  const handleSelectPlaylist = (playlistId: string) => {
     setSelectedPlaylist(playlistId);
   };
-// page.tsx (client)
+  // page.tsx (client)
 
-useEffect(() => {
-  if (selectedPlaylist) {
-    setIsLoading(true);
-    getPlaylistItemsClient(selectedPlaylist)
-      .then(setVideos)
-      .catch((e) => {
-        console.error(e);
-      })
-      .finally(() => setIsLoading(false));
-  }
-}, [selectedPlaylist]);
+  useEffect(() => {
+    if (selectedPlaylist) {
+      setIsLoading(true);
+      getPlaylistItemsClient(selectedPlaylist)
+        .then(setVideos)
+        .catch((e) => {
+          console.error(e);
+        })
+        .finally(() => setIsLoading(false));
+    }
+  }, [selectedPlaylist]);
 
 
   const selectedYoutuber = selectedPlaylist ? youtubers.find(y => y.playlistId === selectedPlaylist) : null;
@@ -201,12 +202,8 @@ useEffect(() => {
       <header className="bg-muted/30 border-b">
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="flex items-center gap-4 mb-6">
-            <Link href="/">
-              <Button variant="outline" size="sm">
-                <ChevronLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
+            <BackToHome />
+            <CustomButton href="/learn/web-dev/adv" title="Learn Advance Web Development"/>
           </div>
 
           <div className="max-w-3xl">
@@ -232,10 +229,10 @@ useEffect(() => {
           </div>
         </div>
       </header>
- <section className="py-12 bg-muted/20">
+      <section className="py-12 bg-muted/20">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-8">What You'll Learn</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="p-6 bg-background rounded-lg border">
               <h3 className="font-semibold mb-2">C Basics</h3>

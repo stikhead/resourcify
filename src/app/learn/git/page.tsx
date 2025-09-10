@@ -10,6 +10,7 @@ import Link from "next/link";
 import DocCard from "@/components/cards/DocCard";
 import BookCard from "@/components/cards/BookCard";
 import YoutuberCard from "@/components/cards/YoutuberCard";
+import BackToHome from "@/components/buttons/backtohome";
 
 const youtubers = [
   {
@@ -222,14 +223,9 @@ useEffect(() => {
       <Navbar />
       <header className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-950 dark:to-blue-950 border-b">
         <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="flex items-center gap-4 mb-6">
-            <Link href="/">
-              <Button variant="outline" size="sm">
-                <ChevronLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
+                  <div className="flex items-center gap-4 mb-6">
+                      <BackToHome/>
+                    </div>
           
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold mb-4">

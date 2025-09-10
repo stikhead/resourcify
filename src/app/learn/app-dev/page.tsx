@@ -13,6 +13,7 @@ import BookCard from "@/components/cards/BookCard";
 import DocCard from "@/components/cards/DocCard";
 import FrameworkDiffBox from "@/components/cards/FrameWorkCard";
 import { exitCode } from "process";
+import BackToHome from "@/components/buttons/backtohome";
 
 interface Platform {
   id: string;
@@ -343,13 +344,8 @@ export default function AppDevPage() {
       <header className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950 dark:to-purple-950 border-b">
         <div>
         <div className="max-w-7xl mx-auto px-4 pt-16">
-          <div className="flex items-center gap-4 mb-6">
-            <Link href="/">
-              <Button variant="outline" size="sm">
-                <ChevronLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
+        <div className="flex items-center gap-4 mb-6">
+            <BackToHome/>
           </div>
 
           <div className="max-w-4xl">

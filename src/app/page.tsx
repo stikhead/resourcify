@@ -37,11 +37,11 @@ const resources = [
     icon: Book
   },
   {
-    title: "Python Mini Projects",
-    description: "Hands-on Python projects including calculators, games, web scrapers, and automation tools",
+    title: "Python",
+    description: "",
     type: "Project" as const,
     level: "Beginner" as const,
-    href: "/projects/python",
+    href: "/learn/python",
     icon: Gamepad2
   },
 {
@@ -74,7 +74,7 @@ const resources = [
     description: "Everything related to resume making — whether for internships, placements, off-campus jobs, or research positions",
     type: "Article" as const,
     level: "Intermediate" as const,
-    href: "/learn/dsa-cpp",
+    href: "/learn/cv",
     icon: Book
   },
   {
@@ -91,6 +91,14 @@ const resources = [
     type: "Article" as const,
     level: "Intermediate" as const,
     href: "/learn/app-dev/",
+    icon: Book
+  },
+  {
+    title: "DevOps",
+    description: "",
+    type: "Article" as const,
+    level: "Intermediate" as const,
+    href: "/learn/devops/",
     icon: Book
   },
 ];

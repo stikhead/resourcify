@@ -17,7 +17,6 @@ const platforms = [
     topics: ["Arrays", "Linked Lists", "Trees", "Graphs", "DP"],
     icon: BookOpen,
     color: "bg-blue-500",
-    stats: { students: "50K+", problems: "400+" }
   },
   {
     name: "NeetCode",
@@ -28,8 +27,7 @@ const platforms = [
     difficulty: "Interview Focused",
     topics: ["Arrays", "Two Pointers", "Sliding Window", "Trees", "Backtracking"],
     icon: Target,
-    color: "bg-green-500",
-    stats: { problems: "150", videos: "150+" }
+    color: "bg-green-500"
   },
   {
     name: "LeetCode",
@@ -41,19 +39,6 @@ const platforms = [
     topics: ["All DSA Topics", "System Design", "Concurrency"],
     icon: Code,
     color: "bg-orange-500",
-    stats: { problems: "2500+", users: "5M+" }
-  },
-  {
-    name: "GeeksforGeeks DSA",
-    description: "Comprehensive DSA tutorials, practice problems, and interview preparation materials with detailed explanations.",
-    url: "https://www.geeksforgeeks.org/data-structures/",
-    practice_url: "https://www.geeksforgeeks.org/explore?page=1&sortBy=submissions",
-    type: "Tutorial + Practice",
-    difficulty: "Beginner to Advanced",
-    topics: ["All Data Structures", "Algorithms", "Interview Prep"],
-    icon: BookOpen,
-    color: "bg-purple-500",
-    stats: { articles: "1000+", problems: "500+" }
   },
   {
     name: "Codeforces",
@@ -65,20 +50,7 @@ const platforms = [
     topics: ["Math", "Greedy", "DP", "Graph Theory", "Data Structures"],
     icon: Trophy,
     color: "bg-red-500",
-    stats: { contests: "Weekly", problems: "10K+" }
   },
-  {
-    name: "AlgoMonster",
-    description: "Structured approach to mastering algorithms with clear explanations, patterns, and interview-focused content.",
-    url: "https://algo.monster/",
-    practice_url: "",
-    type: "Course",
-    difficulty: "Interview Prep",
-    topics: ["Patterns", "Trees", "Graphs", "DP", "Two Pointers"],
-    icon: Target,
-    color: "bg-indigo-500",
-    stats: { patterns: "30+", problems: "200+" }
-  }
 ];
 
 const learningPath = [
@@ -184,15 +156,6 @@ function ResourceCard({ platform }: { platform: typeof platforms[0] }) {
               </span>
             )}
           </div>
-        </div>
-
-        <div className="flex justify-between text-xs text-muted-foreground">
-          {Object.entries(platform.stats).map(([key, value]) => (
-            <div key={key}>
-              <span className="capitalize">{key}: </span>
-              <span className="font-medium">{value}</span>
-            </div>
-          ))}
         </div>
 
         <PlatformButtons platform={platform} />

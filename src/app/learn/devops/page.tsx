@@ -121,64 +121,7 @@ export default function DevOpsPage() {
         </div>
       </header>
 
-      {/* Learning Path */}
-      <section className="py-16 bg-muted/30">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4">DevOps Learning Path</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Follow this structured path to become a proficient DevOps engineer
-          </p>
-          
-          <div className="space-y-6">
-            {learningPath.map((phase, index) => (
-              <Card key={index} className="relative overflow-hidden">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-6">
-                    <div className="flex items-center justify-center w-12 h-12 bg-indigo-600 text-white rounded-full font-bold text-lg">
-                      {index + 1}
-                    </div>
-                    
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-3">
-                        <h3 className="text-xl font-bold">{phase.phase}</h3>
-                        <span className="text-sm text-muted-foreground">{phase.duration}</span>
-                      </div>
-                      
-                      <p className="text-muted-foreground mb-4">{phase.description}</p>
-                      
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
-                          <h4 className="font-semibold text-sm mb-2">Core Topics:</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {phase.topics.map((topic, i) => (
-                              <span key={i} className="text-xs px-2 py-1 bg-muted rounded-full">
-                                {topic}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <h4 className="font-semibold text-sm mb-2">Key Resources:</h4>
-                          <ul className="text-sm text-muted-foreground space-y-1">
-                            {phase.resources.map((resource, i) => (
-                              <li key={i} className="flex items-center gap-2">
-                                <div className="w-1 h-1 bg-indigo-500 rounded-full" />
-                                {resource}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
+    
       {/* Practice Resources */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-4">

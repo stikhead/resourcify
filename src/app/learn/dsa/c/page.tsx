@@ -63,7 +63,7 @@ export default async function LearnCPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="p-6 bg-background rounded-lg border">
-              <h3 className="font-semibold mb-2">C Basics</h3>
+              <h3 className="font-semibold mb-2">Basics</h3>
               <p className="text-sm text-muted-foreground">
                 DSA Intro, Time Complexity, Big O/G/Θ, Case analysis
               </p>

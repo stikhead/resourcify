@@ -35,6 +35,8 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
       videoId,
       description
     });
+    console.log("[VideoGallery] received videos:", videos);
+
   };
 
   const closeVideoSheet = () => {
@@ -46,12 +48,21 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
     });
   };
 
+  // Handle empty state
+  if (!videos || videos.length === 0) {
+    return (
+      <div className="text-center py-12">
+        <p className="text-muted-foreground">No videos available.</p>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {videos.map((video, index) => (
           <VideoCard 
-            key={index} 
+            key={`${video.videoId}-${index}`} 
             title={video.title} 
             videoId={video.videoId}
             description={video.description}

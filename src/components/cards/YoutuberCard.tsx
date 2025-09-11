@@ -22,7 +22,6 @@ export default function YoutuberCard({
     description,
     playlistId,
     channelUrl,
-    playlistUrl,
     language,
     difficulty,
     duration,

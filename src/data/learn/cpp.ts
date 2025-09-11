@@ -27,86 +27,62 @@ export const youtubers: Youtuber[] = [
 
 export const books: Book[] = [
   {
-    title: "The C Programming Language",
-    author: "Brian Kernighan & Dennis Ritchie",
-    description: "The definitive guide to C programming by its creators. Essential reading for serious C programmers.",
-    url: "https://kremlin.cc/k&r.pdf",
+    title: "C++ Primer ( 5th Edition )",
+    author: "Stanley B. Lippman ,Josée Lajoie & Barbara E. Moo",
+    description: "This is a very thorough introduction into C++ that covers just about everything in the language in a very accessible format and in great detail",
+    url: "https://zhjwpku.com/assets/pdf/books/C++.Primer.5th.Edition_2013.pdf",
     type: "PDF",
-    pages: "272 pages",
-    level: "Intermediate to Advanced",
-    year: "1988"
-  },
-  {
-    title: "C Programming: A Modern Approach",
-    author: "K. N. King",
-    description: "Comprehensive modern approach to C programming with excellent examples and exercises.",
-    url: "#",
-    type: "PDF",
-    pages: "832 pages",
-    level: "Beginner to Advanced",
-    year: "2008"
-  },
-  {
-    title: "Head First C",
-    author: "David Griffiths & Dawn Griffiths",
-    description: "Beginner-friendly approach to learning C with engaging visuals and practical examples.",
-    url: "#",
-    type: "PDF",
-    pages: "632 pages",
-    level: "Beginner",
-    year: "2012"
-  },
-  {
-    title: "C Programming Absolute Beginner's Guide",
-    author: "Greg Perry & Dean Miller",
-    description: "Perfect starting point for complete beginners with step-by-step instructions and practical examples.",
-    url: "#",
-    type: "PDF",
-    pages: "352 pages",
+    pages: "969 pages",
     level: "Beginner",
     year: "2013"
+  },
+  {
+    title: "Programming: Principles and Practice Using C++",
+    author: "Bjarne Stroustrup ( Creator Of C++ )",
+    description: "Comprehensive modern approach to C programming with excellent examples and exercises.",
+    url: "http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202024%20-%20D/CSE%20%20IT%20AIDS%20ML/Programming%20%20Principles%20and%20Practice%20Using%20C++%20(2024).pdf",
+    type: "PDF",
+    pages: "2035 pages",
+    level: "Beginner to Advanced",
+    year: "2024 (3rd Edition)"
+  },
+  {
+    title: "A Tour of C++",
+    author: "Bjarne Stroustrup",
+    description: "The “tour” is a quick (about 180 pages and 14 chapters) tutorial overview of all of standard C++ (language and standard library, and using C++11) at a moderately high level for people who already know C++ or at least are experienced programmers.",
+    url: "https://elhacker.info/manuales/Lenguajes%20de%20Programacion/C++/A%20Tour%20of%20C++%20-%20Bjarne%20Stroustrup%20%28Addison-Wesley,%202014%29%28193p%29.pdf",
+    type: "PDF",
+    pages: "189 pages",
+    level: "Intermediate",
+    year: "-"
+  },
+  {
+    title: "C++ Concurrency in Action",
+    author: "Anthony Williams",
+    description: "A book covering C++11 concurrency support including the thread library, the atomics library, the C++ memory model, locks and mutexes, as well as issues of designing and debugging multithreaded applications",
+    url: "https://www.bogotobogo.com/cplusplus/files/CplusplusConcurrencyInAction_PracticalMultithreading.pdf",
+    type: "PDF",
+    pages: "530 pages",
+    level: "Advanced",
+    year: "-"
   }
 ];
 
 export const officialDocs: Doc[] = [
   {
-    title: "ISO C Standard (C11)",
-    organization: "ISO/IEC",
-    description: "Official C programming language standard specification. The authoritative reference for C language features.",
-    url: "https://www.iso.org/standard/57853.html",
-    type: "Official Standard",
-    year: "2011"
-  },
-  {
-    title: "GNU C Library Documentation",
-    organization: "GNU Project",
-    description: "Complete documentation for the GNU C Library (glibc) including all standard C functions.",
-    url: "https://www.gnu.org/software/libc/manual/",
-    type: "Library Documentation",
-    year: "2023"
-  },
-  {
-    title: "C Reference - cppreference.com",
-    organization: "cppreference.com",
-    description: "Comprehensive online reference for C standard library functions, operators, and language features.",
-    url: "https://en.cppreference.com/w/c",
-    type: "Online Reference",
+    title: "Learncpp",
+    organization: "learncpp.comm",
+    description: "The lessons on this site will walk you through all the steps needed to write, compile, and debug your C++ programs.",
+    url: "https://www.learncpp.com/",
+    type: "Community",
     year: "Updated"
   },
   {
-    title: "GCC C Compiler Documentation",
-    organization: "GNU Project",
-    description: "Official documentation for the GNU Compiler Collection C compiler, including language extensions.",
-    url: "https://gcc.gnu.org/onlinedocs/gcc/C-Extensions.html",
-    type: "Compiler Documentation",
-    year: "2023"
+    title: "C++ Reference",
+    organization: "cppreference.com",
+    description: "Online reference for the C++ language and standard libraries, i.e. a more convenient version of the C++ standards",
+    url: "https://en.cppreference.com/w/cpp.html",
+     type: "Community",
+    year: "Updated"
   },
-  {
-    title: "POSIX C API Reference",
-    organization: "IEEE",
-    description: "POSIX standard C API functions for system programming and cross-platform development.",
-    url: "https://pubs.opengroup.org/onlinepubs/9699919799/",
-    type: "API Reference",
-    year: "2018"
-  }
 ];

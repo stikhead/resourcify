@@ -190,7 +190,7 @@ export default function LearnCPage() {
             <>
               <h2 className="text-3xl font-bold text-center mb-4">Books & PDFs</h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Essential books for mastering C programming from beginner to advanced level
+                Essential books for mastering C++ programming from beginner to advanced level
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -215,7 +215,7 @@ export default function LearnCPage() {
             <>
               <h2 className="text-3xl font-bold text-center mb-4">Official Documentation</h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Authoritative references and standards for C programming language
+                Authoritative references and standards for C++ programming language
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

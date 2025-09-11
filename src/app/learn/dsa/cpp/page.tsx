@@ -83,8 +83,8 @@ const learningPath = [
 const quickLinks = [
   { name: "Striver's SDE Sheet", url: "https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/", type: "Problem List" },
   { name: "Blind 75", url: "https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions", type: "Curated List" },
-  { name: "Grind 169", url: "https://www.techinterviewhandbook.org/grind75", type: "Study Plan" },
-  { name: "Love Babbar DSA Sheet", url: "https://www.geeksforgeeks.org/dsa-sheet-by-love-babbar/", type: "Problem Set" }
+  { name: "InterviewBit Question Set", url: "https://www.interviewbit.com/courses/programming/", type: "Interview Focused" },
+  { name: "CP-31 Sheet ( For Codeforces )", url: "https://www.tle-eliminators.com/cp-sheet", type: "Problem Set" }
 ];
 
 function PlatformButtons({ platform }: { platform: typeof platforms[0] }) {
@@ -223,9 +223,11 @@ export default function DSACppPage() {
                 </CardContent>
 
                 {index < learningPath.length - 1 && (
-                  <div className="hidden lg:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-indigo-600 rounded-full items-center justify-center">
-                    <ChevronLeft className="w-4 h-4 text-white rotate-180" />
-                  </div>
+                  //<div className="hidden lg:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-indigo-600 rounded-full items-center justify-center">
+                    <div className="">
+                      <ChevronLeft className="bg-center textbf-white rotate-180 hidden lg:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-indigo-600 rounded-full items-center justify-center" />
+                    </div>
+                 // </div>
                 )}
               </Card>
             ))}

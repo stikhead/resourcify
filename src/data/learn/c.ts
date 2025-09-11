@@ -91,9 +91,9 @@ export const officialDocs: Doc[] = [
   {
     title: "C Reference - cppreference.com",
     organization: "cppreference.com",
-    description: "Comprehensive online reference for C standard library functions, operators, and language features.",
+    description: "Online reference for the C languages and standard libraries, i.e. a more convenient version of the C standards",
     url: "https://en.cppreference.com/w/c",
-    type: "Online Reference",
+    type: "Community",
     year: "Updated"
   },
   {

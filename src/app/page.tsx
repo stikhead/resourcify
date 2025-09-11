@@ -36,14 +36,15 @@ const resources = [
     href: "/learn/dsa/cpp",
     icon: Book
   },
-  {
-    title: "Python",
-    description: "",
-    type: "Course" as const,
-    level: "Beginner" as const,
-    href: "/learn/python",
-    icon: Gamepad2
-  },
+{
+  title: "Python",
+  description: "Start with the basics — syntax, data types, functions, OOP — and move into automation, scripting, and problem-solving with Python.",
+  type: "Course" as const,
+  level: "Beginner" as const,
+  href: "/learn/python",
+  icon: Gamepad2
+},
+
 {
   title: "Basic Web Development",
   description: "Learn HTML, CSS and JavaScript fundamentals with hands-on mini-projects: semantic HTML, responsive layouts (Flexbox & Grid), basic DOM scripting, and a small live site.",
@@ -77,14 +78,14 @@ const resources = [
     href: "/learn/cv",
     icon: Book
   },
-  {
-    title: "Machine Learning",
-    description: "",
-    type: "Course" as const,
-    level: "Intermediate" as const,
-    href: "/learn/ml",
-    icon: Book
-  },
+{
+  title: "Machine Learning",
+  description: "",//"Introduction to ML fundamentals: supervised vs unsupervised learning, regression, classification, feature engineering, model evaluation, and scikit-learn hands-on examples.",
+  type: "Course" as const,
+  level: "Intermediate" as const,
+  href: "/learn/ml",
+  icon: Book
+},
     {
     title: "App Development",
     description: "Learn different tech stacks for app development",
@@ -93,14 +94,15 @@ const resources = [
     href: "/learn/app-dev/",
     icon: Book
   },
-  {
-    title: "DevOps",
-    description: "",
-    type: "Course" as const,
-    level: "Intermediate" as const,
-    href: "/learn/devops/",
-    icon: Book
-  },
+{
+  title: "DevOps",
+  description: "Learn DevOps essentials: CI/CD pipelines, Docker, Kubernetes, monitoring, cloud deployments, and automation practices.",
+  type: "Course" as const,
+  level: "Intermediate" as const,
+  href: "/learn/devops/",
+  icon: Book
+}
+
 ];
 
 export default function HomePage() {

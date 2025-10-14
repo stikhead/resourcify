@@ -36,7 +36,7 @@ export default function TabNavigation({
                 className={`flex items-center gap-2 py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
                   isActive
                     ? "border-indigo-500 text-indigo-600"
-                    : "border-transparent text-muted-foreground hover:text-foreground"
+                    : "border-transparent text-muted-foreground hover:text-foreground hover:scale-105 h-full"
                 }`}
               >
                 {tab.icon ? <tab.icon className="w-4 h-4" /> : null}

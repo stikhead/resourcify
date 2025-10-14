@@ -31,12 +31,12 @@ export default function YoutuberCard({
 }: Youtubers
 ) {
     return (
-        <Card className={`hover:shadow-lg transition-all duration-300 cursor-pointer ${isSelected ? 'ring-2 ring-indigo-500 bg-indigo-50 dark:bg-indigo-950' : ''
+        <Card className={`hover:shadow-lg transition-all duration-300 cursor-pointer ${isSelected ? 'ring-2 ring-indigo-500 bg-indigo-50 dark:bg-indigo-950' : 'cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 h-full'
             }`}
             onClick={() => onSelect(playlistId)}
         >
             <CardHeader className="pb-4">
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 ">
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center ${isSelected
                         ? 'bg-indigo-600 text-white'
                         : 'bg-indigo-100 dark:bg-indigo-900'

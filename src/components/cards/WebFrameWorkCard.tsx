@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Globe, Code, Package, Zap } from "lucide-react";
+import { Globe, Code, Package, Zap, ChevronDown } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 const frameworks = [
   {
@@ -53,49 +54,103 @@ const frameworks = [
 ];
 
 export default function WebFrameworkDiffBox() {
+  const [isOpen, setIsOpen] = useState(false);
+  
   return (
-    <section className="max-w-7xl mx-auto px-4 py-8 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950 dark:to-cyan-950">
-      <h3 className="text-lg font-semibold mb-3">Which web framework should I learn?</h3>
-      <p className="text-sm text-muted-foreground mb-6">
-        Quick comparison of modern web frameworks — choose based on your project needs and experience level.
-      </p>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {frameworks.map((f) => {
-          const Icon = f.icon;
-          return (
-            <Card key={f.id} className="p-4 hover:shadow-md transition-shadow">
-              <CardContent className="space-y-3 p-0">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-muted rounded-lg">
-                    <Icon className="w-5 h-5" />
+    <section className="max-w-7xl mx-auto bg-background border-b  rounded-lg">
+      <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+        <HoverCard openDelay={200} closeDelay={100}>
+          <HoverCardTrigger asChild>
+            <CollapsibleTrigger asChild>
+              <button 
+                className="w-full text-left py-4 hover:bg-muted/50 rounded-lg transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                aria-expanded={isOpen}
+                aria-controls="framework-chooser-content"
+              >
+                <div className="flex items-center justify-between gap-3 px-4">
+                  <div className="flex items-center gap-3">
+                    <ChevronDown 
+                      className={`w-5 h-5 transition-transform duration-200 ${
+                        isOpen ? 'rotate-180' : ''
+                      }`}
+                      aria-hidden="true"
+                    />
+                    <h2 className="text-lg font-semibold group-hover:text-blue-600 transition-colors">
+                      Which web framework should I learn?
+                    </h2>
                   </div>
-                  <div>
-                    <CardTitle className="text-sm font-semibold">{f.name}</CardTitle>
-                    <div className="text-xs text-muted-foreground">{f.pros}</div>
-                  </div>
+        
                 </div>
+              </button>
+            </CollapsibleTrigger>
+          </HoverCardTrigger>
+          <HoverCardContent 
+            className="w-auto px-3 py-2"
+            side="bottom"
+            align="start"
+            sideOffset={5}
+          >
+            <p className="text-sm font-medium">
+              {isOpen ? ' Click to collapse' : 'Click to expand'}
+            </p>
+          </HoverCardContent>
+        </HoverCard>
 
-                <ul className="text-sm space-y-1">
-                  {f.bullets.map((bullet, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className="text-blue-500 mt-1.5">•</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
+        <CollapsibleContent id="framework-chooser-content">
+          <div className="px-4 pb-6 pt-2">
+            <p className="text-sm text-muted-foreground mb-6 max-w-3xl">
+              Quick comparison of modern web frameworks — choose based on your project needs and experience level.
+            </p>
 
-              </CardContent>
-            </Card>
-          );
-        })}
-      </div>
-      
-      <div className="mt-6 text-center">
-        <p className="text-sm text-muted-foreground">
-          💡 Start with React if you're new to modern web dev, Vue for easiest learning curve, Angular for enterprise projects, Next.js for full-stack React apps.
-        </p>
-      </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              {frameworks.map((f) => {
+                const Icon = f.icon;
+                return (
+                  <Card 
+                    key={f.id} 
+                    className="p-4 hover:shadow-lg hover:border-blue-200 transition-all duration-200"
+                  >
+                    <CardContent className="space-y-3 p-0">
+                      <div className="flex items-start gap-3">
+                        <div 
+                          className="p-2 bg-muted rounded-lg flex-shrink-0" 
+                          aria-hidden="true"
+                        >
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        <div className="min-w-0">
+                          <CardTitle className="text-base font-semibold mb-1">
+                            {f.name}
+                          </CardTitle>
+                          <p className="text-xs text-muted-foreground leading-relaxed">
+                            {f.pros}
+                          </p>
+                        </div>
+                      </div>
+
+                      <ul className="text-sm space-y-2 mt-3" role="list">
+                        {f.bullets.map((bullet, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <span 
+                              className="text-blue-500 font-bold flex-shrink-0 mt-0.5" 
+                              aria-hidden="true"
+                            >
+                              •
+                            </span>
+                            <span className="leading-relaxed">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+
+    
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
     </section>
   );
 }

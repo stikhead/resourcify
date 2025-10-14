@@ -45,7 +45,7 @@ export default function VideoCard({ title, videoId, description, thumbnail, onPl
 
   return (
     <Card 
-      className="hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer group focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+      className="hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer group focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 hover:scale-105 h-full"
       tabIndex={0}
       role="button"
       aria-label={`Play video: ${title}`}

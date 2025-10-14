@@ -13,6 +13,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { getPlaylistItemsClient } from "@/lib/clientYoutube";
 import TabNavigation from "@/components/TabNavigation";
 import BackToHome from "@/components/buttons/backtohome";
+import CustomButton from "@/components/buttons/customButton";
 
 const youtubers = [
   {
@@ -64,11 +65,11 @@ const youtubers = [
     description: "Complete web development course in Hindi covering HTML, CSS, JavaScript with practical projects.",
     playlistId: "PLu0W_9lII9agiCUZYRsvtGTXdxkzPyItg",
     channelUrl: "https://www.youtube.com/@CodeWithHarry",
-    playlistUrl: "https://www.youtube.com/playlist?list=PLu0W_9lII9agiCUZYRsvtGTXdxkzPyItg",
+    playlistUrl: "https://www.youtube.com/playlist?list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w",
     language: "Hindi/English",
     difficulty: "Beginner",
-    duration: "~30 hours",
-    subscribers: "5.7M"
+    duration: "-",
+    subscribers: "9M"
   }
 ];
 
@@ -310,8 +311,12 @@ export default function WebDevPage() {
       {/* Header */}
       <header className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 border-b">
         <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center justify-between gap-4 mb-6">
             <BackToHome />
+
+          <div className="flex flex-wrap gap-2">
+              <CustomButton href="/learn/web-dev/adv/" title="Continue With Advance Web Development"/> 
+          </div>
           </div>
           
           <div className="max-w-3xl">

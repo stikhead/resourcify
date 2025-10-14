@@ -16,6 +16,7 @@ import BackToHome from "@/components/buttons/backtohome";
 import CustomButton from "@/components/buttons/customButton";
 import TabNavigation, { TabItem } from "@/components/TabNavigation";
 import { DefaultPlaylistCard } from "@/components/cards/DefaultTextNoPlaylist";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@radix-ui/react-collapsible";
 
 // Type definitions
 interface Platform {
@@ -555,7 +556,7 @@ export default function WebDevPage() {
             <Navbar />
 
             <header className="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950 dark:to-cyan-950 border-b">
-                <div className="max-w-7xl mx-auto px-4 pt-16">
+                <div className="max-w-6xl mx-auto px-4 py-12">
                     <div className="flex flex-wrap justify-between gap-4 mb-6">
                         <BackToHome />
                         <div className="flex gap-2">
@@ -564,11 +565,11 @@ export default function WebDevPage() {
                         </div>
                     </div>
 
-                    <div className="max-w-4xl">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                    <div className="max-w-3xl">
+                        <h1 className="text-4xl font-bold mb-4">
                             Advanced Web Development
                         </h1>
-                        <p className="text-xl text-muted-foreground mb-8">
+                        <p className="text-lg text-muted-foreground mb-8">
                             Master modern web development with comprehensive resources for React, Vue, Angular, and Next.js frameworks.
                         </p>
                     </div>
@@ -576,8 +577,8 @@ export default function WebDevPage() {
                 </div>
             </header>
 
-
-            <section className="py-8 bg-muted/30 border-b">
+           
+            <section className="py-8 bg-muted/30 border-b hover:shadow-lg hover:border-blue-200 transition-all">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center">
                         <div className="flex items-center gap-2">
@@ -585,7 +586,7 @@ export default function WebDevPage() {
                             <span className="font-medium">Choose your framework:</span>
                         </div>
 
-                        <div className="min-w-[280px]">
+                        <div className="min-w-[280px] hover:shadow-lg hover:border-blue-200 transition-all duration-200">
                             <Select value={selectedPlatform} onValueChange={setSelectedPlatform}>
                                 <SelectTrigger>
                                     <SelectValue />

@@ -64,7 +64,7 @@ export default function PythonPage() {
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 ">
             <BackToHome/>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <CustomButton href="/learn/devops" title="Continue With DevOps"/> 
             <CustomButton href="/learn/ml" title="Continue With Machine Learning"/>
           </div>

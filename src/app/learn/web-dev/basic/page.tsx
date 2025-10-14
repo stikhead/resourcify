@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, ExternalLink, BookOpen, FileText, Video, Globe, Code, Layout, Palette, Zap } from "lucide-react";
+import { ChevronLeft, ExternalLink, BookOpen, FileText, Video, Globe, Code, Layout, Palette, Zap, FileWarning } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import VideoGallery from "@/components/VideoGallery";
 import { Button } from "@/components/ui/button";
@@ -11,17 +11,18 @@ import BookCard from "@/components/cards/BookCard";
 import YoutuberCard from "@/components/cards/YoutuberCard";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getPlaylistItemsClient } from "@/lib/clientYoutube";
+import TabNavigation from "@/components/TabNavigation";
 
 const youtubers = [
   {
     name: "freeCodeCamp",
     description: "Comprehensive web development bootcamp covering HTML, CSS, JavaScript from basics to advanced projects.",
-    playlistId: "PLWKjhJtqVAbnqBxcdjVGgT3uVR10bzTEB",
+    playlistId: "PLoiSiM7anHlHVwcrnfhEPXjeLdz3T9Z6l",
     channelUrl: "https://www.youtube.com/@freecodecamp",
-    playlistUrl: "https://www.youtube.com/playlist?list=PLWKjhJtqVAbnqBxcdjVGgT3uVR10bzTEB",
+    playlistUrl: "https://www.youtube.com/playlist?list=PLoiSiM7anHlHVwcrnfhEPXjeLdz3T9Z6l",
     language: "English",
-    difficulty: "Beginner to Advanced",
-    duration: "~50 hours",
+    difficulty: "Beginner to Intermediate",
+    duration: "~8 hours",
     subscribers: "8.7M"
   },
   {
@@ -270,37 +271,13 @@ const webFeatures = [
   }
 ];
 
-function TabNavigation({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: (tab: string) => void }) {
   const tabs = [
-    { id: 'videos', label: 'Video Tutorials', icon: Video },
-    { id: 'books', label: 'Books & Resources', icon: BookOpen },
-    { id: 'docs', label: 'Documentation', icon: FileText }
+    { id: 'videos', label: 'Video Lectures', icon: Video },
+    { id: 'books', label: 'Books & PDFs', icon: BookOpen },
+    { id: 'docs', label: 'Official Documents', icon: FileText },
+    { id: 'platf', label: "Practice Platforms", icon: ExternalLink},
   ];
-
-  return (
-    <div className="border-b bg-background">
-      <div className="max-w-6xl mx-auto px-4">
-        <nav className="flex space-x-8">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
-                activeTab === tab.id
-                  ? 'border-indigo-500 text-indigo-600'
-                  : 'border-transparent text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              <tab.icon className="w-4 h-4" />
-              {tab.label}
-            </button>
-          ))}
-        </nav>
-      </div>
-    </div>
-  );
-}
-
+  
 export default function WebDevPage() {
   const [activeTab, setActiveTab] = useState('videos');
   const [selectedPlaylist, setSelectedPlaylist] = useState<string | null>(null);
@@ -386,39 +363,9 @@ export default function WebDevPage() {
         </div>
       </section>
 
-      {/* Practice Resources */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4">Practice Platforms</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Interactive platforms and tools to practice and improve your web development skills
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {practiceResources.map((resource, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 group cursor-pointer">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800 transition-colors">
-                    <resource.icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <h3 className="font-bold mb-2">{resource.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{resource.description}</p>
-                  <span className="text-xs px-2 py-1 bg-muted rounded-full">{resource.type}</span>
-                  
-                  <Link href={resource.url} target="_blank" rel="noopener noreferrer" className="mt-4 block">
-                    <Button variant="outline" size="sm" className="w-full">
-                      <ExternalLink className="w-3 h-3 mr-2" />
-                      Visit Platform
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+
+            <TabNavigation tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
 
       {/* Content Area */}
       <main className="py-16">
@@ -543,6 +490,41 @@ export default function WebDevPage() {
                 ))}
               </div>
             </>
+          )}
+
+          {activeTab === 'platf' && (
+            <>
+                  {/* Practice Resources */}
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-4">Practice Platforms</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Interactive platforms and tools to practice and improve your web development skills
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {practiceResources.map((resource, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 group cursor-pointer">
+                <CardContent className="p-6 text-center">
+                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800 transition-colors">
+                    <resource.icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                  </div>
+                  <h3 className="font-bold mb-2">{resource.name}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{resource.description}</p>
+                  <span className="text-xs px-2 py-1 bg-muted rounded-full">{resource.type}</span>
+                  
+                  <Link href={resource.url} target="_blank" rel="noopener noreferrer" className="mt-4 block">
+                    <Button variant="outline" size="sm" className="w-full">
+                      <ExternalLink className="w-3 h-3 mr-2" />
+                      Visit Platform
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section></>
           )}
         </div>
       </main>

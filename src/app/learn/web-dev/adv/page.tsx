@@ -556,10 +556,12 @@ export default function WebDevPage() {
 
             <header className="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950 dark:to-cyan-950 border-b">
                 <div className="max-w-7xl mx-auto px-4 pt-16">
-                    <div className="flex flex-wrap items-center gap-4 mb-6 justify-end">
+                    <div className="flex flex-wrap justify-between gap-4 mb-6">
                         <BackToHome />
-                        <CustomButton href="/learn/web-dev/basic" title="Learn Basic Web Development" />
-                        <CustomButton href="/learn/app-dev" title="Continue With App Development"/>
+                        <div className="flex gap-2">
+                            <CustomButton href="/learn/web-dev/basic" title="Learn Basic Web Development" />
+                            <CustomButton href="/learn/app-dev" title="Continue With App Development"/>
+                        </div>
                     </div>
 
                     <div className="max-w-4xl">

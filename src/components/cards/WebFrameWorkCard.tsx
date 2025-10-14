@@ -16,8 +16,6 @@ const frameworks = [
       "Virtual DOM for efficient updates"
     ],
     pros: "Most popular, flexible",
-    cons: "Requires additional libraries for full functionality",
-    platform: "SPA, Web Apps"
   },
   {
     id: "vue",
@@ -29,8 +27,6 @@ const frameworks = [
       "Great developer experience with Vue DevTools"
     ],
     pros: "Beginner-friendly, gentle learning curve",
-    cons: "Smaller ecosystem than React",
-    platform: "SPA, Progressive Web Apps"
   },
   {
     id: "angular",
@@ -42,8 +38,6 @@ const frameworks = [
       "Powerful CLI and enterprise features"
     ],
     pros: "Complete solution, enterprise-ready",
-    cons: "Steeper learning curve, opinionated",
-    platform: "Enterprise Apps, Complex SPAs"
   },
   {
     id: "nextjs",
@@ -55,8 +49,6 @@ const frameworks = [
       "Automatic optimizations & great performance"
     ],
     pros: "SEO-friendly, production-ready",
-    cons: "React knowledge required, Vercel-centric",
-    platform: "Full-Stack, Static Sites, Web Apps"
   }
 ];
 
@@ -93,14 +85,6 @@ export default function WebFrameworkDiffBox() {
                   ))}
                 </ul>
 
-                <div className="space-y-2">
-                  <Badge variant="secondary" className="text-xs">
-                    {f.platform}
-                  </Badge>
-                  <div className="text-xs text-orange-600 dark:text-orange-400">
-                    ⚠️ {f.cons}
-                  </div>
-                </div>
               </CardContent>
             </Card>
           );
@@ -109,7 +93,7 @@ export default function WebFrameworkDiffBox() {
       
       <div className="mt-6 text-center">
         <p className="text-sm text-muted-foreground">
-          💡 <strong>Quick recommendation:</strong> Start with React if you're new to modern web dev, Vue for easiest learning curve, Angular for enterprise projects, Next.js for full-stack React apps.
+          💡 Start with React if you're new to modern web dev, Vue for easiest learning curve, Angular for enterprise projects, Next.js for full-stack React apps.
         </p>
       </div>
     </section>

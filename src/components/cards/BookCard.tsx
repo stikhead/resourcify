@@ -23,7 +23,7 @@ export default function BookCard({
     level,
     year }: Books) {
     return (
-        <Card className="hover:shadow-lg transition-all duration-300">
+        <Card className="hover:shadow-lg transition-all duration-300 hover:scale-105 dark:hover:shadow-lg dark:hover:scale-105 h-full dark:hover:shadow-slate-400">
             <CardHeader>
                 <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
@@ -54,8 +54,8 @@ export default function BookCard({
                 </div>
                 <div className="flex gap-2">
                     <Link href={url} target="_blank" rel="noopener noreferrer">
-                        <Button className="flex-1">
-                            <Download className="w-4 h-4 mr-2" />
+                        <Button className="flex-1 hover:scale-105 h-full dark:hover:shadow-lg dark:hover:shadow-slate-500">
+                            <Download className="w-4 h-4 mr-2 " />
                             Download PDF
                         </Button>
                     </Link>

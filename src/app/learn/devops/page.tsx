@@ -19,7 +19,7 @@ const tabs: TabItem[] = [
   { id: "videos", label: "Video Tutorials", icon: Video },
   { id: "books", label: "Books & Resources", icon: BookOpen },
   { id: "docs", label: "Documentation", icon: FileText },
-   { id: "platf", label: "Practice Platforms", icon: ExternalLink },
+  { id: "platf", label: "Practice Platforms", icon: ExternalLink }
 ];
 
 const learningPath = [

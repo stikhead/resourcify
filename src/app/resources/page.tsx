@@ -4,7 +4,6 @@ import ResourceCard from "@/components/cards/ResourceCard";
 import { Button } from "@/components/ui/button";
 
 const allResources = [
-  // Programming Languages
   {
     title: "Learn C Programming",
     description: "Master C programming from basics to advanced concepts including pointers, memory management, and data structures implementation",

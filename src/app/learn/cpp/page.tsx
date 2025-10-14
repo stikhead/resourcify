@@ -1,7 +1,7 @@
 "use client";
 import { getPlaylistItemsClient } from "@/lib/clientYoutube";
 import { useState, useEffect } from "react";
-import { ExternalLink, BookOpen, FileText, Video } from "lucide-react";
+import { ExternalLink, BookOpen, FileText, Video, FileWarning } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import VideoGallery from "@/components/VideoGallery";
 import { Button } from "@/components/ui/button";
@@ -19,7 +19,8 @@ import { DefaultPlaylistCard } from "@/components/cards/DefaultTextNoPlaylist";
 const tabs: TabItem[] = [
   { id: 'videos', label: 'Video Lectures', icon: Video },
   { id: 'books', label: 'Books & PDFs', icon: BookOpen },
-  { id: 'docs', label: 'Official Documents', icon: FileText }
+  { id: 'docs', label: 'Official Documents', icon: FileText },
+  { id: 'about', label: "About C++", icon: FileWarning }
 ];
 
 export default function LearnCPage() {

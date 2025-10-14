@@ -40,7 +40,7 @@ export default function ResourceCard({
 }: ResourceCardProps) {
   return (
     <Link href={href} className="block group">
-      <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 h-full">
+      <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 h-full dark:hover:shadow-lg dark:hover:shadow-slate-500">
         <CardContent className="p-6">
           <div className="flex items-start gap-4">
             {Icon && (

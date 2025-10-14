@@ -10,7 +10,7 @@ export default function YouTuberCard({ youtuber, onSelectPlaylist }: {
   onSelectPlaylist: (playlistId: string) => void 
 }) {
   return (
-    <Card className="hover:shadow-lg transition-all duration-300 cursor-pointer group">
+    <Card className="hover:shadow-lg transition-all duration-300 cursor-pointer group hover:scale-105 h-full dark:hover:shadow-lg dark:hover:shadow-slate-500">
       <CardHeader className="pb-4">
         <div className="flex items-start gap-4">
           <img 

@@ -170,9 +170,11 @@ export default function DSACppPage() {
       <Navbar />
       <header className="bg-muted/30 border-b">
         <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="flex flex-wrap items-center gap-4 mb-6">
+          <div className="flex flex-wrap justify-between items-center gap-4 mb-6">
             <BackToHome />
+          <div className="flex gap-2">
             <CustomButton href={"/learn/cpp"} title={"Learn C++ Language"}/>
+          </div>
           </div>
 
           <div className="max-w-3xl">

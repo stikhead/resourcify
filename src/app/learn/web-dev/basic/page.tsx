@@ -12,11 +12,12 @@ import YoutuberCard from "@/components/cards/YoutuberCard";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getPlaylistItemsClient } from "@/lib/clientYoutube";
 import TabNavigation from "@/components/TabNavigation";
+import BackToHome from "@/components/buttons/backtohome";
 
 const youtubers = [
   {
     name: "freeCodeCamp",
-    description: "Comprehensive web development bootcamp covering HTML, CSS, JavaScript from basics to advanced projects.",
+    description: "Comprehensive web development bootcamp covering HTML, CSS, JavaScript from basics.",
     playlistId: "PLoiSiM7anHlHVwcrnfhEPXjeLdz3T9Z6l",
     channelUrl: "https://www.youtube.com/@freecodecamp",
     playlistUrl: "https://www.youtube.com/playlist?list=PLoiSiM7anHlHVwcrnfhEPXjeLdz3T9Z6l",
@@ -310,12 +311,7 @@ export default function WebDevPage() {
       <header className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 border-b">
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="flex items-center gap-4 mb-6">
-            <Link href="/">
-              <Button variant="outline" size="sm">
-                <ChevronLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
+            <BackToHome />
           </div>
           
           <div className="max-w-3xl">

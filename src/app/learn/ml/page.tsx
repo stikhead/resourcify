@@ -28,7 +28,7 @@ export default function LearnMLUnbuilt() {
         <div className="w-full max-w-4xl">
           {/* Message box */}
           <div className="rounded-lg border border-slate-700 bg-gradient-to-b from-slate-900/40 to-slate-900/20 p-8 text-center mb-12 shadow-lg">
-            <h2 className="text-3xl font-bold mb-2">Oops — this page is under construction 🛠️</h2>
+            <h2 className="text-3xl font-bold mb-2">Oops! this page is under construction 🛠️</h2>
             <p className="text-slate-300 max-w-2xl mx-auto">
                 Come back soon or explore other learning tracks for now.
             </p>

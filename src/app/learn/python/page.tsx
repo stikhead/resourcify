@@ -62,10 +62,12 @@ export default function PythonPage() {
       {/* Header Section */}
       <header className="bg-muted/30 border-b">
         <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="flex flex-wrap items-center gap-4 mb-6 ">
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 ">
             <BackToHome/>
+          <div className="flex gap-2">
             <CustomButton href="/learn/devops" title="Continue With DevOps"/> 
             <CustomButton href="/learn/ml" title="Continue With Machine Learning"/>
+          </div>
           </div>
 
           <div className="max-w-3xl">

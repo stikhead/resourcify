@@ -19,6 +19,7 @@ const tabs: TabItem[] = [
   { id: "videos", label: "Video Tutorials", icon: Video },
   { id: "books", label: "Books & Resources", icon: BookOpen },
   { id: "docs", label: "Documentation", icon: FileText },
+   { id: "platf", label: "Practice Platforms", icon: ExternalLink },
 ];
 
 const learningPath = [
@@ -90,11 +91,13 @@ export default function DevOpsPage() {
       <Navbar />
       
       {/* Header */}
-      <header className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-950 dark:to-red-950 border-b">
+      <header className="bg-gradient-to-r from-white to-red-50 dark:from-black dark:to-white border-b">
         <div className="max-w-6xl mx-auto px-4 py-12">
-                <div className="flex flex-wrap items-center gap-4 mb-6">
+                <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                     <BackToHome/>
-                    <CustomButton title="Start With Python" href="/learn/python"/>
+                    <div className="flex gap-2">
+                      <CustomButton title="Start With Python" href="/learn/python"/>
+                    </div>
                   </div>
           
           <div className="max-w-3xl">
@@ -122,37 +125,7 @@ export default function DevOpsPage() {
       </header>
 
     
-      {/* Practice Resources */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4">Hands-on Practice</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Practice makes perfect. Use these platforms to get hands-on experience
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {practiceResources.map((resource, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 group cursor-pointer">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800 transition-colors">
-                    <resource.icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <h3 className="font-bold mb-2">{resource.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{resource.description}</p>
-                  <span className="text-xs px-2 py-1 bg-muted rounded-full">{resource.type}</span>
-                  
-                  <Link href={resource.url?? ""} target="_blank" rel="noopener noreferrer" className="mt-4 block">
-                    <Button variant="outline" size="sm" className="w-full">
-                      <ExternalLink className="w-3 h-3 mr-2" />
-                      Visit Platform
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
        <TabNavigation tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
 
@@ -273,6 +246,41 @@ export default function DevOpsPage() {
                 ))}
               </div>
             </>
+          )}
+
+          {activeTab === 'platf' && (
+            <>
+                  {/* Practice Resources */}
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-4">Practice Platforms</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Interactive platforms and tools to practice and gain experience
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {practiceResources.map((resource, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 group cursor-pointer">
+                <CardContent className="p-6 text-center">
+                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800 transition-colors">
+                    <resource.icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                  </div>
+                  <h3 className="font-bold mb-2">{resource.name}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{resource.description}</p>
+                  <span className="text-xs px-2 py-1 bg-muted rounded-full">{resource.type}</span>
+                  
+                  <Link href={resource.url!} target="_blank" rel="noopener noreferrer" className="mt-4 block">
+                    <Button variant="outline" size="sm" className="w-full">
+                      <ExternalLink className="w-3 h-3 mr-2" />
+                      Visit Platform
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section></>
           )}
         </div>
       </main>

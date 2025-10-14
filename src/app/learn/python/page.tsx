@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, Code, ExternalLink, BookOpen, FileText, Video, FileWarning } from "lucide-react";
+import { ExternalLink, BookOpen, FileText, Video, FileWarning } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -60,21 +60,32 @@ export default function PythonPage() {
       <Navbar />
 
       {/* Header Section */}
-      <header className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 border-b">
-        <div className="max-w-7xl mx-auto px-4 py-16">
-          <div className="flex flex-wrap items-center gap-4 mb-6">
+      <header className="bg-muted/30 border-b">
+        <div className="max-w-6xl mx-auto px-4 py-12">
+          <div className="flex flex-wrap items-center gap-4 mb-6 ">
             <BackToHome/>
             <CustomButton href="/learn/devops" title="Continue With DevOps"/> 
             <CustomButton href="/learn/ml" title="Continue With Machine Learning"/>
           </div>
 
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl font-bold mb-4">
               Learn Python Programming
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-lg text-muted-foreground mb-6">
               Start your programming journey with Python - a beginner-friendly language that's powerful, versatile, and in high demand.
             </p>
+            <div className="flex flex-wrap gap-3">
+              <span className="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full text-sm font-medium">
+                Video Lectures
+              </span>
+              <span className="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded-full text-sm font-medium">
+                Books & PDFs
+              </span>
+              <span className="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 rounded-full text-sm font-medium">
+                Official Docs
+              </span>
+            </div>
           </div>
         </div>
       </header>

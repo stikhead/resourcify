@@ -2,80 +2,58 @@ import { Book, Doc, Youtuber } from "@/types/resources";
 
 export const youtubers: Youtuber[] = [
   {
-    name: "freeCodeCamp.org",
+    name: "freeCodeCamp.org (Recomended)",
     description: "Full introduction into all of the core concepts in python",
     playlistId: "PLoiSiM7anHlGdjIkOnKRl6QInCVAoXLZs",
     channelUrl: "https://www.youtube.com/@freecodecamp",
     playlistUrl: "https://www.youtube.com/playlist?list=PLoiSiM7anHlGdjIkOnKRl6QInCVAoXLZs",
     language: "English",
     difficulty: "Beginner",
-    duration: "~5 hours",
+    duration: "5-15 hours",
     subscribers: "~11.18M"
   },
-    {
-    name: "Python Tutorial for Beginners",
-    description: "Complete Python course covering fundamentals, data structures, and object-oriented programming concepts from scratch.",
-    playlistId: "PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3",
-    channelUrl: "https://www.youtube.com/@navinreddy20",
-    playlistUrl: "https://www.youtube.com/playlist?list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3",
-    language: "English",
-    difficulty: "Beginner",
-    duration: "~18 hours",
-    subscribers: "2.8M"
-  },
   {
-    name: "Python Programming Tutorial",
+    name: "Corey Schafer (Recomended)",
     description: "Comprehensive Python programming course from basics to intermediate topics with practical examples and projects.",
     playlistId: "PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7",
     channelUrl: "https://www.youtube.com/@coreyms",
     playlistUrl: "https://www.youtube.com/playlist?list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7",
     language: "English",
     difficulty: "Beginner to Intermediate",
-    duration: "~15 hours",
-    subscribers: "1.1M"
+    duration: "~9 hours",
+    subscribers: "~1.5M"
   },
   {
-    name: "Python Full Course for Beginners",
-    description: "Complete Python programming tutorial covering syntax, functions, modules, and programming best practices.",
-    playlistId: "PLWKjhJtqVAbnqBxcdjVGgT3uVR10bzTEB",
-    channelUrl: "https://www.youtube.com/@freecodecamp",
-    playlistUrl: "https://www.youtube.com/playlist?list=PLWKjhJtqVAbnqBxcdjVGgT3uVR10bzTEB",
-    language: "English",
-    difficulty: "Beginner",
-    duration: "~12 hours",
-    subscribers: "8.5M"
-  },
-  {
-    name: "Learn Python in Hindi",
+    name: "CodeWithHarry",
     description: "Complete Python programming course in Hindi for beginners, covering all fundamental concepts with practical examples.",
     playlistId: "PLu0W_9lII9agwh1XjRt242xIpHhPT2llg",
     channelUrl: "https://www.youtube.com/@CodeWithHarry",
     playlistUrl: "https://www.youtube.com/playlist?list=PLu0W_9lII9agwh1XjRt242xIpHhPT2llg",
     language: "Hindi",
     difficulty: "Beginner",
-    duration: "~20 hours",
-    subscribers: "5.7M"
+    duration: "~15 hours",
+    subscribers: "9M"
   }
 ];
 
 export const books: Book[] = [
-  {
-    title: "Python Crash Course",
+    {
+    title: "Python for Everybody",
     author: "Eric Matthes",
-    description: "Fast-paced, thorough introduction to Python that will have you writing programs, solving problems, and making things that work.",
-    url: "#",
+    description: "Exploring Data Using Python 3",
+    url: "https://do1.dr-chuck.com/pythonlearn/EN_us/pythonlearn.pdf",
     type: "PDF",
-    pages: "544 pages",
+    pages: "220 pages",
     level: "Beginner",
-    year: "2023"
+    year: "-"
   },
   {
     title: "Automate the Boring Stuff with Python",
     author: "Al Sweigart",
     description: "Practical programming for total beginners, focusing on automating everyday tasks with Python. Available free online.",
-    url: "https://automatetheboringstuff.com/",
-    type: "Free Online",
-    pages: "592 pages",
+    url: "https://automatetheboringstuff.com/#:~:text=on%20YouTube.-,Table%20of%20Contents,-Introduction",
+    type: "PDF/Website",
+    pages: "24 Chapters",
     level: "Beginner",
     year: "2019"
   },
@@ -135,11 +113,11 @@ export const officialDocs: Doc[] = [
     year: "2024"
   },
   {
-    title: "Python Enhancement Proposals (PEPs)",
+    title: "Beginner's Guide to Python",
     organization: "Python Software Foundation",
-    description: "Design documents describing new Python features, processes, and guidelines for the Python community.",
-    url: "https://www.python.org/dev/peps/",
-    type: "Language Specifications",
-    year: "2024"
+    description: "Design documents describing Python features, processes, and guidelines for beginners.",
+    url: "https://wiki.python.org/moin/BeginnersGuide",
+    type:"-",
+    year: "-"
   }
 ];

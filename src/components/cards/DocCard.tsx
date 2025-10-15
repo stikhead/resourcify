@@ -21,7 +21,7 @@ export default function DocCard({
     type,
     year }: OfficialDocs) {
     return (
-        <Card className="hover:shadow-lg transition-all duration-300 hover:scale-105 dark:hover:shadow-lg dark:hover:scale-105 h-full dark:hover:shadow-slate-400">
+        <Card className="hover:shadow-lg transition-all duration-300 hover:scale-105 dark:hover:shadow-lg dark:hover:scale-105 h-full dark:hover:shadow-indigo-800">
             <CardHeader>
                 <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center">
@@ -45,7 +45,7 @@ export default function DocCard({
                 </div>
                 
                 <Link href={url} target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full hover:scale-105 h-full dark:hover:shadow-lg dark:hover:shadow-slate-500">
+                    <Button className="w-full hover:scale-105 h-full hover:shadow-lg">
                         <ExternalLink className="w-4 h-4 mr-2" />
                         View Documentation
                     </Button>

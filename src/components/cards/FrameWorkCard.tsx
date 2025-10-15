@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Smartphone, Code, Apple, Layers } from "lucide-react";
+import { Smartphone, Code, Apple, Layers, ChevronDown } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@radix-ui/react-collapsible";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@radix-ui/react-hover-card";
 
 const frameworks = [
   {
@@ -15,10 +16,7 @@ const frameworks = [
       "Official Google support with modern Kotlin language",
       "Best integration with Android ecosystem & services"
     ],
-    pros: "Maximum performance on Android",
-    cons: "Android-only; no code reuse for iOS",
-    platform: "Android Only",
-    color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+    pros: "Maximum performance on Android"
   },
   {
     id: "react-native",
@@ -29,10 +27,7 @@ const frameworks = [
       "Large ecosystem with extensive third-party libraries",
       "Hot reload for fast development cycles"
     ],
-    pros: "Cross-platform with web dev skills",
-    cons: "May need native bridges for complex features",
-    platform: "iOS & Android",
-    color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+    pros: "Cross-platform with web dev skills"
   },
   {
     id: "ios",
@@ -43,10 +38,7 @@ const frameworks = [
       "Access to latest iOS features and Apple frameworks",
       "Best user experience following Apple design guidelines"
     ],
-    pros: "Premium iOS UX & latest Apple APIs",
-    cons: "iOS-only; requires Mac for development",
-    platform: "iOS Only",
-    color: "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200"
+    pros: "Premium iOS UX & latest Apple APIs"
   },
   {
     id: "flutter",
@@ -57,71 +49,107 @@ const frameworks = [
       "Consistent UI across platforms with custom widgets",
       "Fast development with hot reload & rich tooling"
     ],
-    pros: "True cross-platform with consistent UI",
-    cons: "Learn Dart language; larger app size",
-    platform: "iOS, Android, Web, Desktop",
-    color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200"
+    pros: "Cross-platform with consistent UI"
   }
 ];
 
 export default function AppFrameworkDiffBox() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <section className="max-w-7xl mx-auto px-4 py-8 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950 dark:to-purple-950">
-      <h3 className="text-lg font-semibold mb-3">Which mobile framework should I learn?</h3>
-      <p className="text-sm text-muted-foreground mb-6">
-        Compare mobile development approaches — choose based on target platforms and your existing skills.
-      </p>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {frameworks.map((f) => {
-          const Icon = f.icon;
-          return (
-            <Card key={f.id} className="p-4 hover:shadow-md transition-shadow">
-              <CardContent className="space-y-3 p-0">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-muted rounded-lg">
-                    <Icon className="w-5 h-5" />
+      <section className="max-w-7xl mx-auto bg-background border-b  rounded-lg">
+      <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+        <HoverCard openDelay={200} closeDelay={100}>
+          <HoverCardTrigger asChild>
+            <CollapsibleTrigger asChild>
+              <button 
+                className="w-full text-left py-4 hover:bg-muted/50 rounded-lg transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                aria-expanded={isOpen}
+                aria-controls="framework-chooser-content"
+              >
+                <div className="flex items-center justify-between gap-3 px-4">
+                  <div className="flex items-center gap-3">
+                    <ChevronDown 
+                      className={`w-5 h-5 transition-transform duration-200 ${
+                        isOpen ? 'rotate-180' : ''
+                      }`}
+                      aria-hidden="true"
+                    />
+                    <h2 className="text-lg font-semibold group-hover:text-blue-600 transition-colors">
+                      Which app framework should I learn?
+                    </h2>
                   </div>
-                  <div className="flex-1">
-                    <CardTitle className="text-sm font-semibold">{f.name}</CardTitle>
-                    <div className="text-xs text-muted-foreground">{f.pros}</div>
-                  </div>
+        
                 </div>
+              </button>
+            </CollapsibleTrigger>
+          </HoverCardTrigger>
+          <HoverCardContent 
+            className="w-auto px-3 py-2"
+            side="bottom"
+            align="start"
+            sideOffset={5}
+          >
+            <p className="text-sm font-medium">
+              {isOpen ? null : 'Click to expand'}
+            </p>
+          </HoverCardContent>
+        </HoverCard>
 
-                <ul className="text-sm space-y-1">
-                  {f.bullets.map((bullet, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className="text-indigo-500 mt-1.5 flex-shrink-0">•</span>
-                      <span className="leading-tight">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
+        <CollapsibleContent id="framework-chooser-content">
+          <div className="px-4 pb-6 pt-2">
+            <p className="text-sm text-muted-foreground mb-6 max-w-3xl">
+              Quick comparison of modern web frameworks — choose based on your project needs and experience level.
+            </p>
 
-                <div className="space-y-2">
-                  <Badge className={`text-xs ${f.color} border-0`}>
-                    {f.platform}
-                  </Badge>
-                  <div className="text-xs text-amber-600 dark:text-amber-400 leading-tight">
-                    <span className="font-medium">Trade-off:</span> {f.cons}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          );
-        })}
-      </div>
-      
-      <div className="mt-6 p-4 bg-background/50 rounded-lg border">
-        <h4 className="font-medium mb-2">Quick Decision Guide:</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-          <div>
-            <span className="font-medium text-green-600">Choose Native (Android/iOS)</span> if you need maximum performance, platform-specific features, or are targeting one platform primarily.
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              {frameworks.map((f) => {
+                const Icon = f.icon;
+                return (
+                  <Card 
+                    key={f.id} 
+                    className="p-4 hover:shadow-lg hover:border-blue-200 transition-all duration-200"
+                  >
+                    <CardContent className="space-y-3 p-0">
+                      <div className="flex items-start gap-3">
+                        <div 
+                          className="p-2 bg-muted rounded-lg flex-shrink-0" 
+                          aria-hidden="true"
+                        >
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        <div className="min-w-0">
+                          <CardTitle className="text-base font-semibold mb-1">
+                            {f.name}
+                          </CardTitle>
+                          <p className="text-xs text-muted-foreground leading-relaxed">
+                            {f.pros}
+                          </p>
+                        </div>
+                      </div>
+
+                      <ul className="text-sm space-y-2 mt-3" role="list">
+                        {f.bullets.map((bullet, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <span 
+                              className="text-blue-500 font-bold flex-shrink-0 mt-0.5" 
+                              aria-hidden="true"
+                            >
+                              •
+                            </span>
+                            <span className="leading-relaxed">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+
+    
           </div>
-          <div>
-            <span className="font-medium text-blue-600">Choose Cross-platform (React Native/Flutter)</span> if you want code reuse, have limited resources, or need to target multiple platforms quickly.
-          </div>
-        </div>
-      </div>
+        </CollapsibleContent>
+      </Collapsible>
     </section>
   );
 }

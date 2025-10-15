@@ -578,7 +578,7 @@ export default function WebDevPage() {
             </header>
 
            
-            <section className="py-8 bg-muted/30 border-b hover:shadow-lg hover:border-blue-200 transition-all">
+            <section className="py-8 bg-muted/30 border-b">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center">
                         <div className="flex items-center gap-2">
@@ -586,7 +586,7 @@ export default function WebDevPage() {
                             <span className="font-medium">Choose your framework:</span>
                         </div>
 
-                        <div className="min-w-[280px] hover:shadow-lg hover:border-blue-200 transition-all duration-200">
+                        <div className="min-w-[280px] rounded-lg hover:shadow-lg dark:hover:shadow-indigo-800 transition-all duration-200">
                             <Select value={selectedPlatform} onValueChange={setSelectedPlatform}>
                                 <SelectTrigger>
                                     <SelectValue />
@@ -632,7 +632,7 @@ export default function WebDevPage() {
                             <div className="mb-12">
                                 <h2 className="text-3xl font-bold text-center mb-4">Choose Your Instructor</h2>
                                 <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                                    Select a course to load their complete {currentPlatform?.name} playlist below
+                                     Select a YouTuber to load their complete {currentPlatform?.name} playlist below
                                 </p>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">

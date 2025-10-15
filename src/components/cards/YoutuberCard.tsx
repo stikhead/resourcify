@@ -31,7 +31,7 @@ export default function YoutuberCard({
 }: Youtubers
 ) {
     return (
-        <Card className={`hover:shadow-lg transition-all duration-300 cursor-pointer ${isSelected ? 'ring-2 ring-indigo-500 bg-indigo-50 dark:bg-indigo-950' : 'cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 h-full dark:hover:shadow-lg dark:hover:shadow-slate-500'
+        <Card className={`hover:shadow-lg transition-all duration-300 cursor-pointer ${isSelected ? 'ring-2 ring-indigo-500 bg-indigo-50 dark:bg-indigo-950' : 'cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 h-full dark:hover:shadow-lg dark:hover:shadow-indigo-800'
             }`}
             onClick={() => onSelect(playlistId)}
         >

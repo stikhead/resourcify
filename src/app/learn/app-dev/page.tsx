@@ -16,8 +16,8 @@ import BackToHome from "@/components/buttons/backtohome";
 import TabNavigation, { TabItem } from "@/components/TabNavigation";
 const tabs: TabItem[] = [
   { id: "videos", label: "Video Tutorials", icon: Video },
-  { id: "books", label: "Books & Resources", icon: BookOpen },
-  { id: "docs", label: "Documentation", icon: FileText },
+  { id: "books", label: "Books & PDFs", icon: BookOpen },
+  { id: "docs", label: "Official Documents", icon: FileText },
   { id: "about", label: "Information", icon: LucideFileWarning },
 
 ];
@@ -318,26 +318,23 @@ export default function AppDevPage() {
       <Navbar />
 
       <header className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950 dark:to-purple-950 border-b">
-        <div>
-          <div className="max-w-7xl mx-auto px-4 pt-16">
-            <div className="flex items-center gap-4 mb-6">
-              <BackToHome />
-            </div>
-
-            <div className="max-w-4xl">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                App Development Guide
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                Master mobile app development with comprehensive resources for native, cross-platform, and hybrid solutions.
-              </p>
-
-            </div>
-            <FrameworkDiffBox />
+        <div className="max-w-6xl mx-auto px-4 py-12">
+          <div className="flex flex-wrap justify-between gap-4 mb-6">
+            <BackToHome />
           </div>
 
+          <div className="max-w-3xl">
+            <h1 className="text-4xl font-bold mb-4">
+              App Development Guide
+            </h1>
+            <p className="text-lg text-muted-foreground mb-8">
+              Master mobile app development with comprehensive resources for native, cross-platform, and hybrid solutions.
+            </p>
+
+          </div>
+          <FrameworkDiffBox />
         </div>
-      </header>
+      </header >
       <section className="py-8 bg-muted/30 border-b">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center">
@@ -346,7 +343,7 @@ export default function AppDevPage() {
               <span className="font-medium">Choose your platform:</span>
             </div>
 
-            <div className="min-w-[280px]">
+           <div className="min-w-[280px] rounded-lg hover:shadow-lg dark:hover:shadow-indigo-800 transition-all duration-200">
               <Select value={selectedPlatform} onValueChange={setSelectedPlatform}>
                 <SelectTrigger>
                   <SelectValue />
@@ -385,141 +382,141 @@ export default function AppDevPage() {
 
       <TabNavigation tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
 
-      {/* Content Area */}
-      <main className="py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          {activeTab === 'videos' && (
-            <>
-              <div className="mb-12">
-                <h2 className="text-3xl font-bold text-center mb-4">Choose Your Instructor</h2>
-                <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                  Select a YouTuber to load their complete {currentPlatform?.name} playlist below
-                </p>
+  {/* Content Area */ }
+  <main className="py-16">
+    <div className="max-w-6xl mx-auto px-4">
+      {activeTab === 'videos' && (
+        <>
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-center mb-4">Choose Your Instructor</h2>
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+              Select a YouTuber to load their complete {currentPlatform?.name} playlist below
+            </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                  {currentContent?.youtubers.map((youtuber, index) => (
-                    <YoutuberCard
-                      key={index}
-                      name={youtuber.name}
-                      description={youtuber.description}
-                      playlistId={youtuber.playlistId}
-                      channelUrl={youtuber.channelUrl}
-                      playlistUrl={youtuber.playlistUrl}
-                      language={youtuber.language}
-                      difficulty={youtuber.difficulty}
-                      duration={youtuber.duration}
-                      subscribers={youtuber.subscribers}
-                      isSelected={selectedPlaylist === youtuber.playlistId}
-                      onSelect={handleSelectPlaylist}
-                    />
-                  ))}
-                </div>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+              {currentContent?.youtubers.map((youtuber, index) => (
+                <YoutuberCard
+                  key={index}
+                  name={youtuber.name}
+                  description={youtuber.description}
+                  playlistId={youtuber.playlistId}
+                  channelUrl={youtuber.channelUrl}
+                  playlistUrl={youtuber.playlistUrl}
+                  language={youtuber.language}
+                  difficulty={youtuber.difficulty}
+                  duration={youtuber.duration}
+                  subscribers={youtuber.subscribers}
+                  isSelected={selectedPlaylist === youtuber.playlistId}
+                  onSelect={handleSelectPlaylist}
+                />
+              ))}
+            </div>
+          </div>
 
-              {/* Selected Playlist Videos */}
-              {selectedPlaylist && (
-                <div className="border-t pt-12">
-                  <div className="flex items-center justify-between mb-8">
-                    <div>
-                      <h3 className="text-2xl font-bold">
-                        {selectedYoutuber?.name} - {currentPlatform?.name} Course
-                      </h3>
-                      <p className="text-muted-foreground mt-2">
-                        {isLoading ? 'Loading videos...' : `{videos.length} videos • ${selectedYoutuber?.duration}`}
-                      </p>
-                    </div>
-                    <Link
-                      href={selectedYoutuber?.playlistUrl || '#'}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button variant="outline">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        View on YouTube
-                      </Button>
-                    </Link>
-                  </div>
-
-                  {isLoading ? (
-                    <div className="text-center py-8">
-                      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto"></div>
-                      <p className="text-muted-foreground mt-4">Loading playlist videos...</p>
-                    </div>
-                  ) : (
-                    <VideoGallery videos={videos} />
-                  )}
-                </div>
-              )}
-
-              {!selectedPlaylist && (
-                <div className="text-center py-16 border-t">
-                  <Video className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Select a Playlist to Get Started</h3>
-                  <p className="text-muted-foreground">
-                    Choose one of the instructors above to load their complete {currentPlatform?.name} video series
+          {/* Selected Playlist Videos */}
+          {selectedPlaylist && (
+            <div className="border-t pt-12">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h3 className="text-2xl font-bold">
+                    {selectedYoutuber?.name} - {currentPlatform?.name} Course
+                  </h3>
+                  <p className="text-muted-foreground mt-2">
+                    {isLoading ? 'Loading videos...' : `{videos.length} videos • ${selectedYoutuber?.duration}`}
                   </p>
                 </div>
+                <Link
+                  href={selectedYoutuber?.playlistUrl || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    View on YouTube
+                  </Button>
+                </Link>
+              </div>
+
+              {isLoading ? (
+                <div className="text-center py-8">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto"></div>
+                  <p className="text-muted-foreground mt-4">Loading playlist videos...</p>
+                </div>
+              ) : (
+                <VideoGallery videos={videos} />
               )}
-            </>
+            </div>
           )}
 
-          {activeTab === 'books' && (
-            <>
-              <h2 className="text-3xl font-bold text-center mb-4">Books & PDFs</h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Essential books for mastering {currentPlatform?.name} development
+          {!selectedPlaylist && (
+            <div className="text-center py-16 border-t">
+              <Video className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Select a Playlist to Get Started</h3>
+              <p className="text-muted-foreground">
+                Choose one of the instructors above to load their complete {currentPlatform?.name} video series
               </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {currentContent?.books.map((book, index) => (
-                  <BookCard
-                    key={index}
-                    title={book.title}
-                    author={book.author}
-                    description={book.description}
-                    url={book.url}
-                    type={book.type}
-                    pages={book.pages}
-                    level={book.level}
-                    year={book.year}
-                  />
-                ))}
-              </div>
-            </>
+            </div>
           )}
+        </>
+      )}
 
-          {activeTab === 'docs' && (
-            <>
-              <h2 className="text-3xl font-bold text-center mb-4">Official Documentation</h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Authoritative references and documentation for {currentPlatform?.name} development
-              </p>
+      {activeTab === 'books' && (
+        <>
+          <h2 className="text-3xl font-bold text-center mb-4">Books & PDFs</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Essential books for mastering {currentPlatform?.name} development
+          </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {currentContent?.docs.map((doc, index) => (
-                  <DocCard
-                    key={index}
-                    title={doc.title}
-                    description={doc.description}
-                    organization={doc.organization}
-                    type={doc.type}
-                    url={doc.url}
-                    year={doc.year}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-          {activeTab === 'about' && (
-            <>
-              <h2 className="text-3xl font-bold text-center mb-4">{ }</h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Authoritative references and documentation for {currentPlatform?.name} development
-              </p>
-            </>
-          )}
-        </div>
-      </main>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {currentContent?.books.map((book, index) => (
+              <BookCard
+                key={index}
+                title={book.title}
+                author={book.author}
+                description={book.description}
+                url={book.url}
+                type={book.type}
+                pages={book.pages}
+                level={book.level}
+                year={book.year}
+              />
+            ))}
+          </div>
+        </>
+      )}
+
+      {activeTab === 'docs' && (
+        <>
+          <h2 className="text-3xl font-bold text-center mb-4">Official Documentation</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Authoritative references and documentation for {currentPlatform?.name} development
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {currentContent?.docs.map((doc, index) => (
+              <DocCard
+                key={index}
+                title={doc.title}
+                description={doc.description}
+                organization={doc.organization}
+                type={doc.type}
+                url={doc.url}
+                year={doc.year}
+              />
+            ))}
+          </div>
+        </>
+      )}
+      {activeTab === 'about' && (
+        <>
+          <h2 className="text-3xl font-bold text-center mb-4">{ }</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Authoritative references and documentation for {currentPlatform?.name} development
+          </p>
+        </>
+      )}
     </div>
+  </main>
+    </div >
   );
 }
